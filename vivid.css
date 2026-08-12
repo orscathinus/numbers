@@ -1,28 +1,48 @@
-/* Visual expansion layer: intentionally separate from the core layout. */
-:root{--electric:#6be7ff;--magenta:#ff58ad;--violet:#9668ff;--acid:#bdff6b;--sun:#ffe267;}
-body{background-color:#070810;background-image:radial-gradient(circle at 10% 18%,rgba(150,104,255,.16),transparent 30rem),radial-gradient(circle at 92% 42%,rgba(255,88,173,.12),transparent 26rem),radial-gradient(circle at 40% 95%,rgba(107,231,255,.10),transparent 28rem);background-attachment:fixed}
-.site-header{box-shadow:0 12px 50px rgba(0,0,0,.25)}
-.brand-mark{background:conic-gradient(from 210deg,rgba(107,231,255,.2),rgba(255,88,173,.18),rgba(255,226,103,.18),rgba(107,231,255,.2));box-shadow:0 0 28px rgba(255,226,103,.16)}
-.eyebrow{color:var(--sun);text-shadow:0 0 20px rgba(255,226,103,.22)}
+/* Visual expansion layer: the museum should feel like a place, not a document. */
+:root{--electric:#6be7ff;--magenta:#ff58ad;--violet:#9668ff;--acid:#bdff6b;--sun:#ffe267;--orange:#ff974d;--deep:#080714}
+body{background-color:#070810;background-image:radial-gradient(circle at 10% 18%,rgba(150,104,255,.18),transparent 31rem),radial-gradient(circle at 92% 42%,rgba(255,88,173,.14),transparent 27rem),radial-gradient(circle at 40% 95%,rgba(107,231,255,.12),transparent 29rem);background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent)}
+.site-header{box-shadow:0 12px 50px rgba(0,0,0,.25);border-bottom-color:rgba(255,255,255,.14)}
+.brand-mark{background:conic-gradient(from 210deg,rgba(107,231,255,.2),rgba(255,88,173,.18),rgba(255,226,103,.18),rgba(107,231,255,.2));box-shadow:0 0 28px rgba(255,226,103,.2)}
+.eyebrow{color:var(--sun);text-shadow:0 0 20px rgba(255,226,103,.26)}
 
 /* Entrance installation */
-body[data-page="home"] .hero{position:relative;isolation:isolate}
-body[data-page="home"] .hero:before{content:"";position:absolute;z-index:-2;right:-7%;top:7%;width:min(610px,52vw);aspect-ratio:4/3;background:url('assets/unity-cosmos.svg') center/cover no-repeat;border-radius:46% 54% 55% 45%/45% 42% 58% 55%;filter:saturate(1.2);box-shadow:0 0 120px rgba(126,86,255,.25);opacity:.88}
-body[data-page="home"] .hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#090a0d 0%,rgba(9,10,13,.92) 38%,rgba(9,10,13,.22) 68%,rgba(9,10,13,0) 100%);pointer-events:none}
-body[data-page="home"] .one-orbit{mix-blend-mode:screen;filter:drop-shadow(0 0 50px rgba(255,93,174,.18))}
-body[data-page="home"] .hero-one{-webkit-text-stroke:2px rgba(255,244,187,.92);text-shadow:0 0 35px rgba(255,89,173,.35),0 0 95px rgba(107,231,255,.2)}
+body[data-page="home"] .hero{position:relative;isolation:isolate;min-height:88vh}
+body[data-page="home"] .hero:before{content:"";position:absolute;z-index:-2;right:-8%;top:1%;width:min(760px,62vw);aspect-ratio:16/9;background:url('assets/one-monument.svg') center/cover no-repeat;border-radius:38% 62% 45% 55%/49% 44% 56% 51%;filter:saturate(1.35) contrast(1.03);box-shadow:0 0 150px rgba(126,86,255,.34),0 0 95px rgba(255,88,173,.14);opacity:.96}
+body[data-page="home"] .hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#090a0d 0%,rgba(9,10,13,.97) 34%,rgba(9,10,13,.6) 56%,rgba(9,10,13,.12) 81%,rgba(9,10,13,0) 100%);pointer-events:none}
+body[data-page="home"] .one-orbit{mix-blend-mode:screen;filter:drop-shadow(0 0 55px rgba(255,93,174,.22));transform:translateX(4%)}
+body[data-page="home"] .hero-one{-webkit-text-stroke:2px rgba(255,244,187,.98);text-shadow:0 0 35px rgba(255,89,173,.42),0 0 100px rgba(107,231,255,.24)}
 
-/* Every wing gets its own light and image installation. */
-.page-hero{position:relative;isolation:isolate;min-height:520px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.1)}
-.page-hero:before{content:"";position:absolute;z-index:-2;inset:0;background-position:right center;background-size:min(720px,62vw) auto;background-repeat:no-repeat;opacity:.7;filter:saturate(1.15)}
-.page-hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#080910 0%,rgba(8,9,16,.95) 35%,rgba(8,9,16,.52) 64%,rgba(8,9,16,.12) 100%)}
-body[data-page="one"] .page-hero:before{background-image:url('assets/unity-cosmos.svg')}
-body[data-page="mathematics"] .page-hero:before{background-image:url('assets/identity-prism.svg')}
-body[data-page="history"] .page-hero:before{background-image:url('assets/glyph-mosaic.svg')}
-body[data-page="significance"] .page-hero:before{background-image:url('assets/binary-bloom.svg')}
-body[data-page="lab"] .page-hero:before{background-image:url('assets/unity-cosmos.svg');filter:hue-rotate(38deg) saturate(1.45)}
+/* Full-size illustration installations */
+.visual-installation{position:relative;margin:0 auto;border:1px solid rgba(255,255,255,.16);border-radius:32px;overflow:hidden;background:#090b16;box-shadow:0 35px 110px rgba(0,0,0,.42),0 0 80px color-mix(in srgb,var(--gold) 12%,transparent)}
+.visual-installation img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s ease;filter:saturate(1.18) contrast(1.04)}
+.visual-installation:hover img{transform:scale(1.025);filter:saturate(1.35) contrast(1.06)}
+.visual-installation figcaption{position:absolute;left:18px;bottom:18px;max-width:min(530px,calc(100% - 36px));padding:10px 14px;border:1px solid rgba(255,255,255,.15);border-radius:999px;background:rgba(6,8,16,.72);backdrop-filter:blur(14px);color:#f8f2df;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.visual-installation:after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),inset 0 -100px 100px rgba(0,0,0,.18)}
+.visual-installation.compact img{aspect-ratio:7/4}
+.visual-installation.portraitish img{aspect-ratio:4/3}
+
+/* Triptych / poster wall */
+.visual-overture{position:relative;background:linear-gradient(180deg,rgba(150,104,255,.035),rgba(255,88,173,.025),transparent)}
+.image-triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.image-triptych figure{margin:0;position:relative;border:1px solid rgba(255,255,255,.13);border-radius:24px;overflow:hidden;background:#0b0b16;min-height:390px;box-shadow:0 24px 65px rgba(0,0,0,.25);transition:transform .25s ease,border-color .25s ease}
+.image-triptych figure:nth-child(1){transform:rotate(-1.2deg)}.image-triptych figure:nth-child(2){transform:translateY(-16px)}.image-triptych figure:nth-child(3){transform:rotate(1.2deg)}
+.image-triptych figure:hover{transform:translateY(-10px) scale(1.02);border-color:rgba(255,226,103,.45);z-index:2}
+.image-triptych img{display:block;width:100%;height:345px;object-fit:cover;filter:saturate(1.35) contrast(1.06)}
+.image-triptych figcaption{padding:14px 16px;color:#fff1cb;font-size:.75rem;letter-spacing:.13em;background:linear-gradient(90deg,rgba(255,88,173,.12),rgba(107,231,255,.08));border-top:1px solid rgba(255,255,255,.08)}
+
+/* Every wing has a different illuminated facade. */
+.page-hero{position:relative;isolation:isolate;min-height:570px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.11)}
+.page-hero:before{content:"";position:absolute;z-index:-2;inset:0;background-position:right center;background-size:min(780px,64vw) auto;background-repeat:no-repeat;opacity:.82;filter:saturate(1.25) contrast(1.02)}
+.page-hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#080910 0%,rgba(8,9,16,.97) 31%,rgba(8,9,16,.58) 59%,rgba(8,9,16,.14) 100%)}
+body[data-page="one"] .page-hero:before{background-image:url('assets/one-monument.svg')}
+body[data-page="mathematics"] .page-hero:before{background-image:url('assets/identity-engine.svg')}
+body[data-page="history"] .page-hero:before{background-image:url('assets/glyph-constellation.svg')}
+body[data-page="significance"] .page-hero:before{background-image:url('assets/one-spectrum.svg')}
+body[data-page="lab"] .page-hero:before{background-image:url('assets/lab-reactor.svg');filter:saturate(1.45)}
 body[data-page="sources"] .page-hero:before{background-image:url('assets/identity-prism.svg');opacity:.34;filter:saturate(.55)}
-.page-hero h1{text-shadow:0 14px 50px rgba(0,0,0,.6)}
+.page-hero h1{text-shadow:0 14px 50px rgba(0,0,0,.62),0 0 45px color-mix(in srgb,var(--gold) 14%,transparent)}
+.page-hero .subtitle{background:linear-gradient(90deg,rgba(7,8,14,.75),transparent);padding:12px 0}
 
 /* Vivid room palettes */
 body[data-page="mathematics"]{--gold:#6be7ff;--gold-soft:#27778d;--blue:#a18aff}
@@ -30,42 +50,54 @@ body[data-page="history"]{--gold:#ff9ac8;--gold-soft:#8f365e;--blue:#ffe267}
 body[data-page="significance"]{--gold:#bdff6b;--gold-soft:#57852d;--blue:#6be7ff}
 body[data-page="lab"]{--gold:#ffe267;--gold-soft:#8d7531;--blue:#ff58ad}
 
-/* Gallery cards become poster-like installations. */
-.exhibit-card{background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.018));box-shadow:inset 0 1px rgba(255,255,255,.07),0 20px 55px rgba(0,0,0,.18)}
-.exhibit-card:before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-70px;bottom:-80px;background:radial-gradient(circle,var(--card-glow,var(--violet)),transparent 68%);opacity:.32;filter:blur(6px);transition:transform .35s ease,opacity .35s ease}
-.exhibit-card:hover:before{transform:scale(1.35);opacity:.52}
-.exhibit-card:nth-child(1){--card-glow:#ffe267;background-image:linear-gradient(135deg,rgba(255,226,103,.1),rgba(150,104,255,.08))}
-.exhibit-card:nth-child(2){--card-glow:#6be7ff;background-image:linear-gradient(135deg,rgba(107,231,255,.09),rgba(13,31,55,.1))}
-.exhibit-card:nth-child(3){--card-glow:#ff58ad;background-image:linear-gradient(135deg,rgba(255,88,173,.11),rgba(100,22,69,.06))}
-.exhibit-card:nth-child(4){--card-glow:#bdff6b;background-image:linear-gradient(135deg,rgba(189,255,107,.09),rgba(41,74,26,.07))}
-.exhibit-card:nth-child(5){--card-glow:#9668ff;background-image:linear-gradient(135deg,rgba(150,104,255,.12),rgba(60,27,92,.07))}
+/* Fact strip becomes a light bar */
+.fact-strip{position:relative;background:linear-gradient(90deg,rgba(255,88,173,.055),rgba(255,226,103,.07),rgba(107,231,255,.055));box-shadow:inset 0 1px rgba(255,255,255,.05),inset 0 -1px rgba(255,255,255,.04)}
+.fact .value{text-shadow:0 0 24px color-mix(in srgb,var(--gold) 20%,transparent)}
 
-.property{position:relative;overflow:hidden;transition:transform .2s ease,border-color .2s ease;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018))}
-.property:after{content:"";position:absolute;inset:auto -35px -55px auto;width:125px;height:125px;border-radius:50%;background:radial-gradient(circle,var(--gold),transparent 68%);opacity:.11}
-.property:hover{transform:translateY(-4px) rotate(.25deg);border-color:color-mix(in srgb,var(--gold) 55%,transparent)}
-.property .symbol{text-shadow:0 0 32px color-mix(in srgb,var(--gold) 36%,transparent)}
+/* Poster-like navigation cards */
+.exhibit-card{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));box-shadow:inset 0 1px rgba(255,255,255,.07),0 20px 55px rgba(0,0,0,.2)}
+.exhibit-card:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-70px;bottom:-80px;background:radial-gradient(circle,var(--card-glow,var(--violet)),transparent 68%);opacity:.36;filter:blur(6px);transition:transform .35s ease,opacity .35s ease}
+.exhibit-card:after{content:"";position:absolute;inset:0;opacity:.18;background-image:radial-gradient(circle at 15% 15%,#fff 0 1px,transparent 1px),radial-gradient(circle at 75% 65%,#fff 0 1px,transparent 1px);background-size:70px 70px,110px 110px;pointer-events:none}
+.exhibit-card:hover:before{transform:scale(1.4);opacity:.58}
+.exhibit-card:nth-child(1){--card-glow:#ffe267;background-image:linear-gradient(135deg,rgba(255,226,103,.12),rgba(150,104,255,.1))}
+.exhibit-card:nth-child(2){--card-glow:#6be7ff;background-image:linear-gradient(135deg,rgba(107,231,255,.11),rgba(13,31,55,.1))}
+.exhibit-card:nth-child(3){--card-glow:#ff58ad;background-image:linear-gradient(135deg,rgba(255,88,173,.13),rgba(100,22,69,.07))}
+.exhibit-card:nth-child(4){--card-glow:#bdff6b;background-image:linear-gradient(135deg,rgba(189,255,107,.11),rgba(41,74,26,.08))}
+.exhibit-card:nth-child(5){--card-glow:#9668ff;background-image:linear-gradient(135deg,rgba(150,104,255,.14),rgba(60,27,92,.08))}
 
-/* Atlas becomes a luminous instrument. */
-.atlas-wrap{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(20,18,45,.85),rgba(6,11,20,.96));border-color:rgba(107,231,255,.2);box-shadow:0 30px 100px rgba(52,39,130,.22),inset 0 1px rgba(255,255,255,.08)}
-.atlas-wrap:before{content:"";position:absolute;inset:-60% -10% auto;height:350px;background:conic-gradient(from 90deg,rgba(107,231,255,.08),rgba(255,88,173,.11),rgba(255,226,103,.1),rgba(107,231,255,.08));filter:blur(60px);pointer-events:none}
-#numberCanvas{box-shadow:inset 0 0 70px rgba(107,231,255,.04)}
+.property{position:relative;overflow:hidden;transition:transform .2s ease,border-color .2s ease;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018));box-shadow:inset 0 1px rgba(255,255,255,.04)}
+.property:after{content:"";position:absolute;inset:auto -35px -55px auto;width:145px;height:145px;border-radius:50%;background:radial-gradient(circle,var(--gold),transparent 68%);opacity:.14}
+.property:before{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:linear-gradient(var(--gold),transparent);opacity:.7}
+.property:hover{transform:translateY(-5px) rotate(.25deg);border-color:color-mix(in srgb,var(--gold) 58%,transparent)}
+.property .symbol{text-shadow:0 0 32px color-mix(in srgb,var(--gold) 42%,transparent)}
 
-/* Interactive rooms feel like science exhibits. */
-.lab-panel{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.018));box-shadow:0 24px 70px rgba(0,0,0,.18)}
-.lab-panel:before{content:"";position:absolute;inset:-80px -80px auto auto;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,var(--gold),transparent 70%);opacity:.12;pointer-events:none}
+/* Atlas as luminous instrument */
+.atlas-wrap{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(20,18,45,.88),rgba(6,11,20,.97));border-color:rgba(107,231,255,.24);box-shadow:0 30px 105px rgba(52,39,130,.26),inset 0 1px rgba(255,255,255,.09)}
+.atlas-wrap:before{content:"";position:absolute;inset:-60% -10% auto;height:390px;background:conic-gradient(from 90deg,rgba(107,231,255,.1),rgba(255,88,173,.13),rgba(255,226,103,.11),rgba(107,231,255,.1));filter:blur(60px);pointer-events:none}
+#numberCanvas{box-shadow:inset 0 0 90px rgba(107,231,255,.055),0 0 45px rgba(150,104,255,.08)}
+
+/* Laboratory */
+.lab-panel{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));box-shadow:0 24px 70px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.05)}
+.lab-panel:before{content:"";position:absolute;inset:-80px -80px auto auto;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,var(--gold),transparent 70%);opacity:.16;pointer-events:none}
 .lab-panel:nth-child(2n){--gold:#ff58ad}.lab-panel:nth-child(3n){--gold:#6be7ff}
-.lab-result{border:1px solid color-mix(in srgb,var(--gold) 24%,transparent);box-shadow:inset 0 0 36px color-mix(in srgb,var(--gold) 7%,transparent)}
-.unit-square{box-shadow:0 0 50px color-mix(in srgb,var(--gold) 20%,transparent);background:conic-gradient(from 45deg,rgba(255,226,103,.18),rgba(107,231,255,.13),rgba(255,88,173,.13),rgba(255,226,103,.18))}
+.lab-result{border:1px solid color-mix(in srgb,var(--gold) 28%,transparent);box-shadow:inset 0 0 42px color-mix(in srgb,var(--gold) 9%,transparent),0 0 34px color-mix(in srgb,var(--gold) 6%,transparent)}
+.unit-square{box-shadow:0 0 60px color-mix(in srgb,var(--gold) 24%,transparent);background:conic-gradient(from 45deg,rgba(255,226,103,.22),rgba(107,231,255,.16),rgba(255,88,173,.16),rgba(255,226,103,.22))}
 
 /* History cabinet */
-.glyph{position:relative;overflow:hidden;transition:transform .22s ease;background:linear-gradient(160deg,rgba(255,255,255,.065),rgba(255,255,255,.015))}
-.glyph:nth-child(3n+1){border-color:rgba(255,226,103,.25)}.glyph:nth-child(3n+2){border-color:rgba(255,88,173,.28)}.glyph:nth-child(3n){border-color:rgba(107,231,255,.26)}
-.glyph:hover{transform:translateY(-7px) scale(1.03)}
-.glyph b{text-shadow:0 0 28px color-mix(in srgb,var(--gold) 30%,transparent)}
-.timeline-item:before{box-shadow:0 0 0 5px color-mix(in srgb,var(--gold) 10%,transparent),0 0 30px color-mix(in srgb,var(--gold) 35%,transparent)}
+.glyph{position:relative;overflow:hidden;transition:transform .22s ease;background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.015));box-shadow:0 20px 55px rgba(0,0,0,.16)}
+.glyph:nth-child(3n+1){border-color:rgba(255,226,103,.32)}.glyph:nth-child(3n+2){border-color:rgba(255,88,173,.34)}.glyph:nth-child(3n){border-color:rgba(107,231,255,.32)}
+.glyph:hover{transform:translateY(-8px) scale(1.035)}
+.glyph b{text-shadow:0 0 30px color-mix(in srgb,var(--gold) 38%,transparent)}
+.timeline:after{content:"";position:absolute;left:13px;top:0;width:1px;height:100%;background:linear-gradient(var(--gold),var(--magenta),var(--electric));opacity:.55}
+.timeline-item:before{z-index:2;box-shadow:0 0 0 5px color-mix(in srgb,var(--gold) 12%,transparent),0 0 32px color-mix(in srgb,var(--gold) 42%,transparent)}
 
-.callout{position:relative;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--gold) 10%,transparent),rgba(150,104,255,.05));box-shadow:0 30px 80px rgba(0,0,0,.18)}
-.callout:after{content:"1";position:absolute;right:-.02em;bottom:-.36em;font:700 20rem/1 Georgia,serif;color:var(--gold);opacity:.035;pointer-events:none}
+.callout{position:relative;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--gold) 12%,transparent),rgba(150,104,255,.06));box-shadow:0 30px 85px rgba(0,0,0,.2)}
+.callout:after{content:"1";position:absolute;right:-.02em;bottom:-.36em;font:700 20rem/1 Georgia,serif;color:var(--gold);opacity:.045;pointer-events:none}
 
-@media(max-width:780px){body[data-page="home"] .hero:before{right:-34%;top:18%;width:95vw;opacity:.42}body[data-page="home"] .hero:after{background:linear-gradient(180deg,rgba(9,10,13,.92),rgba(9,10,13,.7))}.page-hero{min-height:470px}.page-hero:before{background-size:auto 72%;background-position:115% center;opacity:.48}.page-hero:after{background:linear-gradient(90deg,rgba(8,9,16,.98),rgba(8,9,16,.68))}}
-@media(prefers-reduced-motion:reduce){.property,.glyph,.exhibit-card{transition:none}}
+/* Section transitions: illuminated gallery thresholds */
+.section{position:relative}
+.section + .section:before{content:"";position:absolute;top:-1px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--magenta),var(--sun),var(--electric),transparent);opacity:.38}
+
+@media(max-width:900px){.image-triptych{grid-template-columns:1fr}.image-triptych figure,.image-triptych figure:nth-child(1),.image-triptych figure:nth-child(2),.image-triptych figure:nth-child(3){transform:none;min-height:0}.image-triptych img{height:auto;aspect-ratio:16/9}.visual-installation{border-radius:22px}}
+@media(max-width:780px){body[data-page="home"] .hero:before{right:-44%;top:19%;width:115vw;opacity:.5}body[data-page="home"] .hero:after{background:linear-gradient(180deg,rgba(9,10,13,.95),rgba(9,10,13,.72))}.page-hero{min-height:500px}.page-hero:before{background-size:auto 76%;background-position:120% center;opacity:.5}.page-hero:after{background:linear-gradient(90deg,rgba(8,9,16,.99),rgba(8,9,16,.7))}.visual-installation figcaption{position:static;border:0;border-radius:0;background:rgba(0,0,0,.35);max-width:none}}
+@media(prefers-reduced-motion:reduce){.property,.glyph,.exhibit-card,.image-triptych figure,.visual-installation img{transition:none}}
