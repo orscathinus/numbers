@@ -1,8 +1,8 @@
-# Numbers — Museum of 1 and 2
+# Numbers — Museum of 1, 2, and 3
 
-A static, interactive museum about numbers. **Gallery 001 (1)** and **Gallery 002 (2)** are now open.
+A static, interactive museum about numbers. **Gallery 001 (1)**, **Gallery 002 (2)**, and **Gallery 003 (3)** are now open.
 
-The homepage contains an algorithmic, zoomable number atlas that represents the real-number line and dynamically labels visible values. Both 1 and 2 are interactive open exhibits; future numbers can be added without pretending that the real continuum can be exhaustively listed.
+The homepage contains an algorithmic, zoomable number atlas that represents the real-number line and dynamically labels visible values. Numbers 1, 2, and 3 are interactive open exhibits; future numbers can be added without pretending that the real continuum can be exhaustively listed.
 
 ## Pages
 
@@ -24,9 +24,24 @@ The homepage contains an algorithmic, zoomable number atlas that represents the 
 - `two-significance.html` — Binary information, symmetry, 2D geometry, octave ratios, helium, two-body mechanics, and linguistic duals
 - `two-lab.html` — Interactive pairing, parity, powers-of-two, binary, and √2 experiments
 
+### Gallery 003 — Number 3
+- `three.html` — Curator's overview of 3
+- `three-mathematics.html` — Odd primality, triangular numbers, divisibility by 3, modular arithmetic, ternary, arithmetic functions, C₃, cubes, and roots of unity
+- `three-history.html` — Numeral history plus separate histories of cubic equations and angle trisection
+- `three-significance.html` — Triangle rigidity, 3D coordinates, RGB, genetic codons, ternary information, C₃ symmetry, lithium, and three-body dynamics
+- `three-lab.html` — Interactive triplet grouping, digit-sum divisibility, powers of 3, ternary/balanced ternary, cube roots of unity, and triangle geometry
+
 ## Visual system
 
-The museum uses locally stored SVG artwork rather than fragile hotlinks. Gallery 001 and Gallery 002 intentionally have different visual identities. Gallery 002 uses mirrored cyan/orange lighting, binary branching, paired geometry, an Even Prime Reactor, a glyph atlas, and a √2 chamber.
+The museum uses locally stored SVG artwork rather than fragile hotlinks. Each number has a deliberately distinct exhibition identity:
+
+- **1** — gold, magenta, cyan, monumental identity imagery and glyph constellations.
+- **2** — mirrored cyan/orange lighting, binary branching, paired geometry, an Even Prime Reactor, and a √2 chamber.
+- **3** — ultraviolet, acid-lime, coral, triangular architecture, a Triangle Reactor, Ternary Cathedral, Triplet Universe, glyph atlas, and Three-Body Chamber.
+
+## Interactive atlas
+
+The atlas is not a finite list. The real numbers are uncountable, so the interface behaves like a mathematical instrument: it renders the visible interval, generates suitable ticks dynamically, and highlights only numbers whose museum galleries are currently open. Double-clicking 1, 2, or 3 enters that number's exhibit.
 
 ## Run locally
 
@@ -42,6 +57,6 @@ Then visit `http://localhost:8000`.
 
 There cannot be a literal finite list of “all real numbers”: the real numbers are uncountable. The atlas therefore behaves like a mathematical instrument rather than a database dump. It renders whatever portion of the number line you inspect and generates suitable tick marks as you zoom.
 
-## Future expansion
+## Expansion rule
 
-Add new number exhibits without deleting or collapsing existing galleries. Each number can receive multiple museum rooms, its own interactive laboratory, and a distinct visual identity; the atlas exposes each exhibit as it opens.
+Add new number exhibits without deleting or collapsing existing galleries. Each number can receive multiple museum rooms, its own interactive laboratory, its own locally stored artwork, and a distinct visual identity; the atlas exposes each exhibit as it opens. Wording that reports the number of currently open galleries should be updated as the museum expands, but earlier exhibit content should remain intact.
