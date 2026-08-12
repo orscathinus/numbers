@@ -1,7 +1,7 @@
 (() => {
   const current = document.body.dataset.page;
 
-  // Preserve the original navigation and add Exhibit 2 to older Gallery 001 pages.
+  // Preserve older gallery navigation while exposing every open number museum.
   document.querySelectorAll('.nav').forEach(nav => {
     if (!nav.querySelector('a[href="two.html"]')) {
       const oneLink = nav.querySelector('a[href="one.html"]');
@@ -10,6 +10,14 @@
       twoLink.dataset.page = 'two';
       twoLink.textContent = 'Exhibit 2';
       if (oneLink) oneLink.insertAdjacentElement('afterend', twoLink); else nav.appendChild(twoLink);
+    }
+    if (!nav.querySelector('a[href="three.html"]')) {
+      const twoLink = nav.querySelector('a[href="two.html"]');
+      const threeLink = document.createElement('a');
+      threeLink.href = 'three.html';
+      threeLink.dataset.page = 'three';
+      threeLink.textContent = 'Exhibit 3';
+      if (twoLink) twoLink.insertAdjacentElement('afterend', threeLink); else nav.appendChild(threeLink);
     }
   });
   document.querySelectorAll('.nav a').forEach(a => {
@@ -70,7 +78,7 @@
     update();
   }
 
-  // ---------------- Number 2 laboratory ----------------
+  // ---------------- Number 2 laboratory (preserved) ----------------
   const pairCount = document.getElementById('pairCount');
   const pairSummary = document.getElementById('pairSummary');
   const pairViz = document.getElementById('pairViz');
@@ -175,6 +183,163 @@
     update();
   }
 
+  // ---------------- Number 3 laboratory ----------------
+  const tripletCount = document.getElementById('tripletCount');
+  const tripletCountLabel = document.getElementById('tripletCountLabel');
+  const tripletSummary = document.getElementById('tripletSummary');
+  const tripletViz = document.getElementById('tripletViz');
+  if (tripletCount && tripletSummary && tripletViz) {
+    const update = () => {
+      const n = Math.max(0, Math.min(24, Math.round(Number(tripletCount.value))));
+      const groups = Math.floor(n / 3);
+      const remainder = n % 3;
+      if (tripletCountLabel) tripletCountLabel.textContent = n;
+      tripletSummary.textContent = `${n} object${n === 1 ? '' : 's'} = 3 × ${groups} + ${remainder} · remainder ${remainder}`;
+      tripletViz.innerHTML = '';
+      for (let i = 0; i < n; i++) {
+        const token = document.createElement('span');
+        const isRemainder = remainder > 0 && i >= n - remainder;
+        token.className = `triplet-token${isRemainder ? ' remainder' : ''}`;
+        token.textContent = i + 1;
+        token.title = isRemainder ? `Remainder object ${i - (n - remainder) + 1}` : `Triplet ${Math.floor(i / 3) + 1}`;
+        tripletViz.appendChild(token);
+      }
+    };
+    tripletCount.addEventListener('input', update);
+    update();
+  }
+
+  const div3Input = document.getElementById('div3Input');
+  const div3Result = document.getElementById('div3Result');
+  const div3Steps = document.getElementById('div3Steps');
+  if (div3Input && div3Result) {
+    const update = () => {
+      const raw = div3Input.value.trim();
+      if (!/^[+-]?\d+$/.test(raw)) {
+        div3Result.textContent = 'Enter a decimal integer';
+        if (div3Steps) div3Steps.textContent = '';
+        return;
+      }
+      const digits = raw.replace(/^[+-]/, '').split('').map(Number);
+      const sum = digits.reduce((a, b) => a + b, 0);
+      const divisible = sum % 3 === 0;
+      div3Result.textContent = `${divisible ? 'DIVISIBLE BY 3' : 'NOT DIVISIBLE BY 3'} · digit sum = ${sum}`;
+      if (div3Steps) {
+        const preview = digits.length <= 28 ? digits.join(' + ') : `${digits.slice(0, 12).join(' + ')} + … + ${digits.slice(-12).join(' + ')}`;
+        div3Steps.textContent = `${preview} = ${sum}; ${sum} mod 3 = ${sum % 3}.`;
+      }
+    };
+    div3Input.addEventListener('input', update);
+    update();
+  }
+
+  const powerThreeSlider = document.getElementById('powerThreeSlider');
+  const powerThreeResult = document.getElementById('powerThreeResult');
+  const powerThreeLabel = document.getElementById('powerThreeLabel');
+  if (powerThreeSlider && powerThreeResult) {
+    const update = () => {
+      const n = Math.max(0, Math.min(15, Math.round(Number(powerThreeSlider.value))));
+      const value = 3 ** n;
+      if (powerThreeLabel) powerThreeLabel.textContent = n;
+      powerThreeResult.innerHTML = `3<sup>${n}</sup> = ${value.toLocaleString('en-US')} <small style="display:block;font-family:Inter,sans-serif;color:var(--muted);font-size:.84rem;margin-top:8px">${n} ternary digit${n === 1 ? '' : 's'} can form ${value.toLocaleString('en-US')} strings</small>`;
+    };
+    powerThreeSlider.addEventListener('input', update);
+    update();
+  }
+
+  function toBalancedTernary(number) {
+    if (number === 0) return '0';
+    let n = number;
+    const out = [];
+    while (n !== 0) {
+      const r = ((n % 3) + 3) % 3;
+      if (r === 0) {
+        out.push('0');
+        n /= 3;
+      } else if (r === 1) {
+        out.push('+');
+        n = (n - 1) / 3;
+      } else {
+        out.push('−');
+        n = (n + 1) / 3;
+      }
+    }
+    return out.reverse().join('');
+  }
+
+  const ternaryInput = document.getElementById('ternaryInput');
+  const ternaryResult = document.getElementById('ternaryResult');
+  const ternaryDisplay = document.getElementById('ternaryDisplay');
+  const balancedResult = document.getElementById('balancedResult');
+  if (ternaryInput && ternaryResult && ternaryDisplay) {
+    const update = () => {
+      const raw = Number(ternaryInput.value);
+      if (!Number.isInteger(raw) || raw < -100000 || raw > 100000) {
+        ternaryResult.textContent = 'Enter an integer from −100000 to 100000';
+        ternaryDisplay.innerHTML = '';
+        if (balancedResult) balancedResult.textContent = '';
+        return;
+      }
+      const ordinary = `${raw < 0 ? '−' : ''}${Math.abs(raw).toString(3)}`;
+      ternaryResult.innerHTML = `${raw}<sub>10</sub> = ${ordinary}<sub>3</sub>`;
+      ternaryDisplay.innerHTML = '';
+      Math.abs(raw).toString(3).split('').forEach(digit => {
+        const cell = document.createElement('span');
+        cell.className = `trit ${digit === '0' ? 'zero' : digit === '1' ? 'one' : 'two'}`;
+        cell.textContent = digit;
+        ternaryDisplay.appendChild(cell);
+      });
+      if (balancedResult) balancedResult.textContent = `Balanced ternary: ${toBalancedTernary(raw)} · symbols mean +1, 0, −1 at successive powers of 3.`;
+    };
+    ternaryInput.addEventListener('input', update);
+    update();
+  }
+
+  const rootThreeSelect = document.getElementById('rootThreeSelect');
+  const rootThreeLabel = document.getElementById('rootThreeLabel');
+  const rootThreeResult = document.getElementById('rootThreeResult');
+  if (rootThreeSelect && rootThreeResult) {
+    const labels = [
+      '1 = 1 + 0i · angle 0°',
+      'ω = −1/2 + (√3/2)i · angle 120°',
+      'ω² = −1/2 − (√3/2)i · angle 240°'
+    ];
+    const update = () => {
+      const k = Math.max(0, Math.min(2, Math.round(Number(rootThreeSelect.value))));
+      if (rootThreeLabel) rootThreeLabel.textContent = k;
+      rootThreeResult.textContent = labels[k];
+      [0, 1, 2].forEach(i => document.getElementById(`root${i}`)?.classList.toggle('active', i === k));
+    };
+    rootThreeSelect.addEventListener('input', update);
+    update();
+  }
+
+  const sideA = document.getElementById('sideA');
+  const sideB = document.getElementById('sideB');
+  const sideC = document.getElementById('sideC');
+  const triangleResult = document.getElementById('triangleResult');
+  const triangleShape = document.getElementById('triangleShape');
+  if (sideA && sideB && sideC && triangleResult) {
+    const update = () => {
+      const a = Number(sideA.value), b = Number(sideB.value), c = Number(sideC.value);
+      const finitePositive = [a, b, c].every(v => Number.isFinite(v) && v > 0);
+      const valid = finitePositive && a + b > c && a + c > b && b + c > a;
+      triangleShape?.classList.toggle('invalid', !valid);
+      if (!valid) {
+        triangleResult.textContent = 'NO NONDEGENERATE TRIANGLE · each pair of sides must sum to more than the third';
+        return;
+      }
+      const s = (a + b + c) / 2;
+      const area = Math.sqrt(Math.max(0, s * (s - a) * (s - b) * (s - c)));
+      const eps = 1e-9 * Math.max(a, b, c, 1);
+      const eq = (x, y) => Math.abs(x - y) <= eps;
+      const type = eq(a, b) && eq(b, c) ? 'equilateral' : (eq(a, b) || eq(a, c) || eq(b, c)) ? 'isosceles' : 'scalene';
+      triangleResult.textContent = `${type.toUpperCase()} · perimeter = ${formatNumber(a + b + c)} · area = ${formatNumber(area)}`;
+    };
+    [sideA, sideB, sideC].forEach(input => input.addEventListener('input', update));
+    update();
+  }
+
   function formatNumber(n) {
     if (Math.abs(n) >= 1e7 || (Math.abs(n) > 0 && Math.abs(n) < 1e-5)) return n.toExponential(4);
     return String(Number(n.toFixed(8)));
@@ -190,7 +355,8 @@
     const status = document.getElementById('atlasStatus');
     const exhibits = [
       { value: 1, url: 'one.html', color: '#d6ad58', glow: 'rgba(214,173,88,.8)', name: '1' },
-      { value: 2, url: 'two.html', color: '#6be7ff', glow: 'rgba(107,231,255,.85)', name: '2' }
+      { value: 2, url: 'two.html', color: '#6be7ff', glow: 'rgba(107,231,255,.85)', name: '2' },
+      { value: 3, url: 'three.html', color: '#dfff72', glow: 'rgba(223,255,114,.85)', name: '3' }
     ];
 
     function resize() {
@@ -221,8 +387,9 @@
 
       const gradient = ctx.createLinearGradient(0, 0, w, 0);
       gradient.addColorStop(0, 'rgba(245,241,232,.08)');
-      gradient.addColorStop(.46, 'rgba(214,173,88,.12)');
-      gradient.addColorStop(.56, 'rgba(107,231,255,.12)');
+      gradient.addColorStop(.43, 'rgba(214,173,88,.12)');
+      gradient.addColorStop(.52, 'rgba(107,231,255,.12)');
+      gradient.addColorStop(.61, 'rgba(223,255,114,.12)');
       gradient.addColorStop(1, 'rgba(245,241,232,.08)');
       ctx.fillStyle = gradient;
       ctx.fillRect(0, axisY - 1, w, 2);
@@ -268,7 +435,8 @@
         ctx.shadowBlur = 0;
         ctx.fillStyle = '#f5f1e8';
         ctx.font = '600 12px Inter, system-ui, sans-serif';
-        const labelX = Math.max(8, Math.min(w - 112, x + (index === 0 ? -104 : 16)));
+        const offset = index === 0 ? -82 : 16;
+        const labelX = Math.max(8, Math.min(w - 90, x + offset));
         ctx.fillText(`OPEN · ${item.name}`, labelX, axisY - 26);
       });
 
@@ -290,7 +458,7 @@
         }
       }
 
-      if (status) status.textContent = `Viewing approximately ${formatNumber(center - unitsPerScreen/2)} to ${formatNumber(center + unitsPerScreen/2)} · exhibits 1 and 2 are open · scroll to zoom · drag to pan`;
+      if (status) status.textContent = `Viewing approximately ${formatNumber(center - unitsPerScreen/2)} to ${formatNumber(center + unitsPerScreen/2)} · exhibits 1, 2, and 3 are open · scroll to zoom · drag to pan`;
     }
 
     canvas.addEventListener('wheel', e => {
@@ -329,6 +497,7 @@
     document.getElementById('zoomOut')?.addEventListener('click', () => { unitsPerScreen = Math.min(1e12, unitsPerScreen * 2); draw(); });
     document.getElementById('findOne')?.addEventListener('click', () => { center = 1; unitsPerScreen = 4; draw(); });
     document.getElementById('findTwo')?.addEventListener('click', () => { center = 2; unitsPerScreen = 4; draw(); });
+    document.getElementById('findThree')?.addEventListener('click', () => { center = 3; unitsPerScreen = 4; draw(); });
     document.getElementById('resetAtlas')?.addEventListener('click', () => { center = 0; unitsPerScreen = 12; draw(); });
 
     window.addEventListener('resize', resize);
