@@ -4,9 +4,9 @@
   // One shared registry powers global search, exhibit search, and the directory.
   // Add future pages here once; every discovery surface updates from the same data.
   const PAGES = [
-    { path:'index.html', page:'home', group:'Museum', number:null, room:'Entrance & Atlas', title:'Numbers — Museum Entrance', description:'The museum entrance and interactive real-number atlas, with open exhibits for 1, 2, and 3.', keywords:'atlas number line continuum zoom pan open exhibits museum home entrance one two three' },
+    { path:'index.html', page:'home', group:'Museum', number:null, room:'Entrance & Atlas', title:'Numbers — Museum Entrance', description:'The museum entrance and interactive real-number atlas, with open exhibits for 1, 2, 3, and 4.', keywords:'atlas number line continuum zoom pan open exhibits museum home entrance one two three four' },
     { path:'directory.html', page:'directory', group:'Museum', number:null, room:'Directory', title:'All Pages — Museum Directory', description:'A complete floor plan linking every substantive page in the Numbers Museum.', keywords:'all pages directory sitemap navigation floor plan browse rooms' },
-    { path:'sources.html', page:'sources', group:'Museum', number:null, room:'Research Desk', title:'Sources & Fact-Checking', description:'Sources, historical cautions, conventions, and research notes supporting the open number exhibits.', keywords:'sources references research fact checking citations evidence conventions MathWorld MacTutor NASA NHGRI AMS' },
+    { path:'sources.html', page:'sources', group:'Museum', number:null, room:'Research Desk', title:'Sources & Fact-Checking', description:'Sources, historical cautions, conventions, and research notes supporting the open number exhibits.', keywords:'sources references research fact checking citations evidence conventions MathWorld MacTutor NASA NHGRI NIST AMS' },
 
     { path:'one.html', page:'one', group:'Gallery 001 · Number 1', number:1, room:'Curator’s Overview', title:'1 — Unity', description:'An overview of 1 as the first positive integer, multiplicative identity, odd number, perfect square, and unit.', keywords:'one 1 unity identity first positive integer odd square divisors reciprocal unit' },
     { path:'mathematics.html', page:'mathematics', group:'Gallery 001 · Number 1', number:1, room:'Mathematics', title:'Mathematics of 1', description:'Classification, multiplicative identity, why 1 is neither prime nor composite, factorials, powers, reciprocals, roots of unity, and arithmetic functions.', keywords:'one 1 mathematics identity neither prime composite unique factorization factorial 0! 1! powers reciprocal roots unity tau sigma phi algebra' },
@@ -24,7 +24,13 @@
     { path:'three-mathematics.html', page:'three-mathematics', group:'Gallery 003 · Number 3', number:3, room:'Mathematics', title:'Mathematics of 3 — Triangle Reactor', description:'Prime structure, triangular numbers, modulo 3, digit-sum divisibility, arithmetic functions, ternary, cubes, cube roots of unity, C3, Fermat and Mersenne connections.', keywords:'three 3 mathematics prime triangular modulo residues digit sum divisibility ternary balanced ternary cube cubic roots unity omega 120 degrees C3 cyclic group Fermat Mersenne tau sigma phi mu' },
     { path:'three-history.html', page:'three-history', group:'Gallery 003 · Number 3', number:3, room:'History', title:'History of 3', description:'Numeral traditions for three plus a separate history of cubic equations and the classical problem of angle trisection.', keywords:'three 3 history numeral III Roman Brahmi Gupta Nagari Arabic Indic Devanagari Chinese cubic Cardano Tartaglia del Ferro Ars Magna trisection Wantzel' },
     { path:'three-significance.html', page:'three-significance', group:'Gallery 003 · Number 3', number:3, room:'Significance', title:'Why 3 Matters — Triplet Universe', description:'Triangle rigidity, three coordinates, RGB channels, genetic codon triplets, C3 symmetry, ternary information, lithium, musical triads, and the three-body problem.', keywords:'three 3 significance triangle rigidity coordinates 3D RGB red green blue codon triplet genetics 64 C3 symmetry ternary lithium atomic number music triad three body Lagrange' },
-    { path:'three-lab.html', page:'three-lab', group:'Gallery 003 · Number 3', number:3, room:'Laboratory', title:'Laboratory of 3', description:'Interactive triplet grouping, divisibility-by-3, powers of three, ordinary and balanced ternary, cube roots of unity, and triangle testing with Heron’s formula.', keywords:'three 3 lab laboratory triplet divisibility digit sum powers ternary balanced ternary roots unity omega triangle inequality Heron area interactive' }
+    { path:'three-lab.html', page:'three-lab', group:'Gallery 003 · Number 3', number:3, room:'Laboratory', title:'Laboratory of 3', description:'Interactive triplet grouping, divisibility-by-3, powers of three, ordinary and balanced ternary, cube roots of unity, and triangle testing with Heron’s formula.', keywords:'three 3 lab laboratory triplet divisibility digit sum powers ternary balanced ternary roots unity omega triangle inequality Heron area interactive' },
+
+    { path:'four.html', page:'four', group:'Gallery 004 · Number 4', number:4, room:'Curator’s Overview', title:'4 — Square, Composite, Quartet', description:'An overview of 4 as the smallest composite number, first even square, 2², a four-state base, and a source of fourfold geometry.', keywords:'four 4 square composite smallest composite 2 squared perfect square divisors quaternary quartet tetrahedron tesseract roots unity' },
+    { path:'four-mathematics.html', page:'four-mathematics', group:'Gallery 004 · Number 4', number:4, room:'Mathematics', title:'Mathematics of 4 — Square Reactor', description:'Factorization 2², divisibility by 4, modular arithmetic, divisor functions, groups C4 and V4, fourth roots of unity, quartics, and Lagrange’s four-square theorem.', keywords:'four 4 mathematics composite square prime power modulo divisibility last two digits tau sigma phi mu C4 V4 Klein group roots unity i quartic Ferrari four square Lagrange' },
+    { path:'four-history.html', page:'four-history', group:'Gallery 004 · Number 4', number:4, room:'History', title:'History of 4', description:'Numeral traditions for four plus separate histories of quartic equations, quaternions, Lagrange’s theorem, and the Four Color Theorem.', keywords:'four 4 history numeral IV IIII Roman Brahmi Gupta Nagari Arabic Indic Devanagari Chinese Ferrari quartic Cardano Hamilton quaternion Lagrange four color Guthrie Appel Haken 1976' },
+    { path:'four-significance.html', page:'four-significance', group:'Gallery 004 · Number 4', number:4, room:'Significance', title:'Why 4 Matters — Quartet Worlds', description:'DNA’s four bases, tetrahedra, tesseracts, quaternions, planar map coloring, beryllium, quaternary information, cardinal directions, and 4/4 meter.', keywords:'four 4 significance DNA ACGT bases tetrahedron simplex tesseract 4D quaternion four color map beryllium atomic number quaternary bits cardinal directions 4/4 music' },
+    { path:'four-lab.html', page:'four-lab', group:'Gallery 004 · Number 4', number:4, room:'Laboratory', title:'Laboratory of 4', description:'Interactive divisibility-by-4, base-4 translation, fourth roots of unity, four-square search, hypercube dimensions, powers of four, and map coloring.', keywords:'four 4 lab laboratory divisibility last two digits quaternary base4 translator roots unity quarter turn four square Lagrange hypercube tesseract powers map coloring interactive' }
   ];
 
   window.NUMBERS_MUSEUM_PAGES = PAGES;
@@ -39,479 +45,127 @@
     if (['one','mathematics','history','significance','lab'].includes(current)) return 1;
     if (current?.startsWith('two')) return 2;
     if (current?.startsWith('three')) return 3;
+    if (current?.startsWith('four')) return 4;
     return null;
   }
 
-  // Preserve older gallery navigation while exposing every open number museum.
+  // Preserve older navigation while exposing every open number museum.
   document.querySelectorAll('.nav').forEach(nav => {
     if (current === 'home') {
       nav.querySelectorAll('a[href="mathematics.html"],a[href="history.html"],a[href="lab.html"]').forEach(a => a.remove());
     }
-    if (!nav.querySelector('a[href="two.html"]')) {
-      const oneLink = nav.querySelector('a[href="one.html"]');
-      const twoLink = document.createElement('a');
-      twoLink.href = 'two.html'; twoLink.dataset.page = 'two'; twoLink.textContent = 'Exhibit 2';
-      if (oneLink) oneLink.insertAdjacentElement('afterend', twoLink); else nav.appendChild(twoLink);
-    }
-    if (!nav.querySelector('a[href="three.html"]')) {
-      const twoLink = nav.querySelector('a[href="two.html"]');
-      const threeLink = document.createElement('a');
-      threeLink.href = 'three.html'; threeLink.dataset.page = 'three'; threeLink.textContent = 'Exhibit 3';
-      if (twoLink) twoLink.insertAdjacentElement('afterend', threeLink); else nav.appendChild(threeLink);
-    }
+    const exhibits = [
+      {path:'one.html', page:'one', label:'Exhibit 1'},
+      {path:'two.html', page:'two', label:'Exhibit 2'},
+      {path:'three.html', page:'three', label:'Exhibit 3'},
+      {path:'four.html', page:'four', label:'Exhibit 4'}
+    ];
+    exhibits.forEach((item,index) => {
+      if (nav.querySelector(`a[href="${item.path}"]`)) return;
+      const link = document.createElement('a'); link.href=item.path; link.dataset.page=item.page; link.textContent=item.label;
+      const previous = index > 0 ? nav.querySelector(`a[href="${exhibits[index-1].path}"]`) : nav.querySelector('a[href="index.html"]');
+      if (previous) previous.insertAdjacentElement('afterend',link); else nav.appendChild(link);
+    });
     if (!nav.querySelector('a[href="directory.html"]')) {
-      const directoryLink = document.createElement('a');
-      directoryLink.href = 'directory.html'; directoryLink.dataset.page = 'directory'; directoryLink.textContent = 'All Pages';
-      nav.appendChild(directoryLink);
+      const link=document.createElement('a'); link.href='directory.html'; link.dataset.page='directory'; link.textContent='All Pages'; nav.appendChild(link);
     }
     if (!nav.querySelector('.nav-search-trigger')) {
-      const searchButton = document.createElement('button');
-      searchButton.type = 'button'; searchButton.className = 'nav-search-trigger'; searchButton.textContent = '⌕ Search';
-      searchButton.setAttribute('aria-label', 'Search the entire Numbers Museum');
-      nav.appendChild(searchButton);
+      const button=document.createElement('button'); button.type='button'; button.className='nav-search-trigger'; button.textContent='⌕ Search'; button.setAttribute('aria-label','Search the entire Numbers Museum'); nav.appendChild(button);
     }
   });
-  document.querySelectorAll('.nav a').forEach(a => {
-    if (a.dataset.page === current) a.setAttribute('aria-current', 'page');
-  });
+  document.querySelectorAll('.nav a').forEach(a => { if (a.dataset.page === current) a.setAttribute('aria-current','page'); });
 
-  function normalize(value) {
-    return String(value ?? '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+  function normalize(value){return String(value??'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'');}
+  function matchingPages(query,number=null){
+    const words=normalize(query).trim().split(/\s+/).filter(Boolean);
+    const candidates=number==null?PAGES:PAGES.filter(page=>page.number===number);
+    if(!words.length)return candidates;
+    return candidates.map(page=>{
+      const title=normalize(page.title),description=normalize(page.description),keywords=normalize(page.keywords),room=normalize(page.room),path=normalize(page.path);
+      const numberWords=page.number===1?'1 one unity':page.number===2?'2 two pair dual':page.number===3?'3 three triad triple':page.number===4?'4 four square quartet quad': '';
+      const haystack=`${title} ${description} ${keywords} ${room} ${path} ${numberWords}`;
+      if(!words.every(word=>haystack.includes(word)))return null;
+      let score=0; words.forEach(word=>{if(title.includes(word))score+=9;if(room.includes(word))score+=6;if(keywords.includes(word))score+=4;if(description.includes(word))score+=2;if(path.includes(word))score+=1;});
+      return {...page,score};
+    }).filter(Boolean).sort((a,b)=>b.score-a.score||a.title.localeCompare(b.title));
   }
-
-  function matchingPages(query, number = null) {
-    const words = normalize(query).trim().split(/\s+/).filter(Boolean);
-    const candidates = number == null ? PAGES : PAGES.filter(page => page.number === number);
-    if (!words.length) return candidates;
-    return candidates.map(page => {
-      const title = normalize(page.title);
-      const description = normalize(page.description);
-      const keywords = normalize(page.keywords);
-      const room = normalize(page.room);
-      const path = normalize(page.path);
-      const numberWords = page.number === 1 ? '1 one unity' : page.number === 2 ? '2 two pair dual' : page.number === 3 ? '3 three triad triple' : '';
-      const haystack = `${title} ${description} ${keywords} ${room} ${path} ${numberWords}`;
-      if (!words.every(word => haystack.includes(word))) return null;
-      let score = 0;
-      words.forEach(word => {
-        if (title.includes(word)) score += 9;
-        if (room.includes(word)) score += 6;
-        if (keywords.includes(word)) score += 4;
-        if (description.includes(word)) score += 2;
-        if (path.includes(word)) score += 1;
-      });
-      return { ...page, score };
-    }).filter(Boolean).sort((a,b) => b.score - a.score || a.title.localeCompare(b.title));
+  function makeSearchResult(page,compact=false){
+    const link=document.createElement('a'); link.href=page.path; link.dataset.number=page.number??''; link.className=compact?'exhibit-mini-result':'search-result';
+    if(compact){const title=document.createElement('b');title.textContent=page.room;const desc=document.createElement('span');desc.textContent=page.description;link.append(title,desc);return link;}
+    const badge=document.createElement('span');badge.className='search-result-badge';badge.textContent=page.number??'∞';const copy=document.createElement('div');const title=document.createElement('strong');title.textContent=page.title;const desc=document.createElement('p');desc.textContent=page.description;copy.append(title,desc);const room=document.createElement('span');room.className='search-result-room';room.textContent=page.group==='Museum'?page.room:`${page.group} · ${page.room}`;link.append(badge,copy,room);return link;
   }
-
-  function makeSearchResult(page, compact = false) {
-    const link = document.createElement('a');
-    link.href = page.path;
-    link.dataset.number = page.number ?? '';
-    link.className = compact ? 'exhibit-mini-result' : 'search-result';
-    if (compact) {
-      const title = document.createElement('b'); title.textContent = page.room;
-      const desc = document.createElement('span'); desc.textContent = page.description;
-      link.append(title, desc);
-      return link;
-    }
-    const badge = document.createElement('span'); badge.className = 'search-result-badge'; badge.textContent = page.number ?? '∞';
-    const copy = document.createElement('div');
-    const title = document.createElement('strong'); title.textContent = page.title;
-    const desc = document.createElement('p'); desc.textContent = page.description;
-    copy.append(title, desc);
-    const room = document.createElement('span'); room.className = 'search-result-room'; room.textContent = page.group === 'Museum' ? page.room : `${page.group} · ${page.room}`;
-    link.append(badge, copy, room);
-    return link;
-  }
-
-  function buildGlobalSearch() {
-    const overlay = document.createElement('div');
-    overlay.className = 'search-overlay';
-    overlay.setAttribute('aria-hidden', 'true');
-    overlay.innerHTML = `<div class="search-dialog" role="dialog" aria-modal="true" aria-label="Search the Numbers Museum"><div class="search-dialog-head"><input type="search" autocomplete="off" placeholder="Search every gallery…" aria-label="Search all museum pages"><button class="search-close" type="button" aria-label="Close search">×</button></div><div class="search-hint">Search all pages · try “prime”, “Brahmi”, “binary”, “roots of unity”, “codon”, “triangle”, or “certainty” · Ctrl/⌘ K</div><div class="search-results" aria-live="polite"></div></div>`;
-    document.body.appendChild(overlay);
-    const input = overlay.querySelector('input');
-    const results = overlay.querySelector('.search-results');
-    const close = overlay.querySelector('.search-close');
-
-    const render = () => {
-      const matches = matchingPages(input.value).slice(0, 12);
-      results.innerHTML = '';
-      if (!matches.length) {
-        const empty = document.createElement('div'); empty.className = 'search-empty'; empty.textContent = 'No museum room matches that search yet.'; results.appendChild(empty); return;
-      }
-      matches.forEach(page => results.appendChild(makeSearchResult(page)));
-    };
-    const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); render(); requestAnimationFrame(() => input.focus()); };
-    const shut = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); };
-    document.querySelectorAll('.nav-search-trigger').forEach(button => button.addEventListener('click', open));
-    close.addEventListener('click', shut);
-    overlay.addEventListener('click', e => { if (e.target === overlay) shut(); });
-    input.addEventListener('input', render);
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') {
-        const first = results.querySelector('a');
-        if (first) location.href = first.href;
-      }
-    });
-    document.addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); overlay.classList.contains('open') ? shut() : open(); }
-      else if (e.key === 'Escape' && overlay.classList.contains('open')) shut();
-    });
+  function buildGlobalSearch(){
+    const overlay=document.createElement('div');overlay.className='search-overlay';overlay.setAttribute('aria-hidden','true');overlay.innerHTML=`<div class="search-dialog" role="dialog" aria-modal="true" aria-label="Search the Numbers Museum"><div class="search-dialog-head"><input type="search" autocomplete="off" placeholder="Search every gallery…" aria-label="Search all museum pages"><button class="search-close" type="button" aria-label="Close search">×</button></div><div class="search-hint">Search all pages · try “prime”, “Brahmi”, “binary”, “roots of unity”, “triangle”, “four color”, “DNA”, or “tesseract” · Ctrl/⌘ K</div><div class="search-results" aria-live="polite"></div></div>`;document.body.appendChild(overlay);
+    const input=overlay.querySelector('input'),results=overlay.querySelector('.search-results'),close=overlay.querySelector('.search-close');
+    const render=()=>{const matches=matchingPages(input.value).slice(0,14);results.innerHTML='';if(!matches.length){const empty=document.createElement('div');empty.className='search-empty';empty.textContent='No museum room matches that search yet.';results.appendChild(empty);return;}matches.forEach(page=>results.appendChild(makeSearchResult(page)));};
+    const open=()=>{overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');render();requestAnimationFrame(()=>input.focus());};const shut=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');};
+    document.querySelectorAll('.nav-search-trigger').forEach(button=>button.addEventListener('click',open));close.addEventListener('click',shut);overlay.addEventListener('click',e=>{if(e.target===overlay)shut();});input.addEventListener('input',render);input.addEventListener('keydown',e=>{if(e.key==='Enter'){const first=results.querySelector('a');if(first)location.href=first.href;}});document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();overlay.classList.contains('open')?shut():open();}else if(e.key==='Escape'&&overlay.classList.contains('open'))shut();});
   }
   buildGlobalSearch();
 
-  function buildExhibitSearch() {
-    const number = pageNumber();
-    const header = document.querySelector('.site-header');
-    if (!number || !header) return;
-    const strip = document.createElement('div');
-    strip.className = 'exhibit-search-strip';
-    strip.innerHTML = `<div class="exhibit-search-inner"><div class="exhibit-search-label">Search Exhibit ${number}</div><div class="exhibit-search-box"><input type="search" autocomplete="off" placeholder="Search all rooms about ${number}…" aria-label="Search Exhibit ${number}"><div class="exhibit-search-results"></div></div></div>`;
-    header.insertAdjacentElement('afterend', strip);
-    const input = strip.querySelector('input');
-    const results = strip.querySelector('.exhibit-search-results');
-    const render = () => {
-      const matches = matchingPages(input.value, number);
-      results.innerHTML = '';
-      if (!matches.length) {
-        const empty = document.createElement('div'); empty.className = 'search-empty'; empty.textContent = `No room in Exhibit ${number} matches that search.`; results.appendChild(empty);
-      } else {
-        matches.forEach(page => results.appendChild(makeSearchResult(page, true)));
-      }
-      results.classList.add('open');
-    };
-    input.addEventListener('focus', render);
-    input.addEventListener('input', render);
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') {
-        const first = results.querySelector('a');
-        if (first) location.href = first.href;
-      } else if (e.key === 'Escape') results.classList.remove('open');
-    });
-    document.addEventListener('click', e => { if (!strip.contains(e.target)) results.classList.remove('open'); });
+  function buildExhibitSearch(){
+    const number=pageNumber(),header=document.querySelector('.site-header');if(!number||!header)return;
+    const strip=document.createElement('div');strip.className='exhibit-search-strip';strip.innerHTML=`<div class="exhibit-search-inner"><div class="exhibit-search-label">Search Exhibit ${number}</div><div class="exhibit-search-box"><input type="search" autocomplete="off" placeholder="Search all rooms about ${number}…" aria-label="Search Exhibit ${number}"><div class="exhibit-search-results"></div></div></div>`;header.insertAdjacentElement('afterend',strip);
+    const input=strip.querySelector('input'),results=strip.querySelector('.exhibit-search-results');const render=()=>{const matches=matchingPages(input.value,number);results.innerHTML='';if(!matches.length){const empty=document.createElement('div');empty.className='search-empty';empty.textContent=`No room in Exhibit ${number} matches that search.`;results.appendChild(empty);}else matches.forEach(page=>results.appendChild(makeSearchResult(page,true)));results.classList.add('open');};
+    input.addEventListener('focus',render);input.addEventListener('input',render);input.addEventListener('keydown',e=>{if(e.key==='Enter'){const first=results.querySelector('a');if(first)location.href=first.href;}else if(e.key==='Escape')results.classList.remove('open');});document.addEventListener('click',e=>{if(!strip.contains(e.target))results.classList.remove('open');});
   }
   buildExhibitSearch();
 
-  function renderDirectory(query = '') {
-    const host = document.getElementById('pageDirectory');
-    if (!host) return;
-    const summary = document.getElementById('directorySummary');
-    const pages = matchingPages(query).filter(page => page.path !== 'directory.html');
-    host.innerHTML = '';
-    const groups = ['Museum','Gallery 001 · Number 1','Gallery 002 · Number 2','Gallery 003 · Number 3'];
-    groups.forEach(group => {
-      const items = pages.filter(page => page.group === group);
-      if (!items.length) return;
-      const section = document.createElement('section'); section.className = 'directory-group';
-      const head = document.createElement('div'); head.className = 'directory-group-head';
-      const titleWrap = document.createElement('div');
-      const eyebrow = document.createElement('div'); eyebrow.className = 'eyebrow'; eyebrow.textContent = group === 'Museum' ? 'Museum shell' : group.split(' · ')[0];
-      const title = document.createElement('h2'); title.textContent = group === 'Museum' ? 'Shared museum pages' : group.split(' · ')[1];
-      titleWrap.append(eyebrow, title);
-      const count = document.createElement('div'); count.className = 'directory-group-count'; count.textContent = `${items.length} page${items.length === 1 ? '' : 's'}`;
-      head.append(titleWrap, count);
-      const grid = document.createElement('div'); grid.className = 'directory-grid';
-      items.forEach(page => {
-        const card = document.createElement('a'); card.className = 'directory-card'; card.href = page.path; card.dataset.number = page.number ?? '';
-        const kicker = document.createElement('div'); kicker.className = 'dir-kicker'; kicker.textContent = page.room;
-        const h3 = document.createElement('h3'); h3.textContent = page.title;
-        const p = document.createElement('p'); p.textContent = page.description;
-        const arrow = document.createElement('span'); arrow.className = 'dir-arrow'; arrow.textContent = '↗';
-        card.append(kicker,h3,p,arrow); grid.appendChild(card);
-      });
-      section.append(head, grid); host.appendChild(section);
-    });
-    if (!pages.length) {
-      const empty = document.createElement('div'); empty.className = 'search-empty'; empty.textContent = 'No pages match this filter.'; host.appendChild(empty);
-    }
-    if (summary) summary.textContent = `${pages.length} page${pages.length === 1 ? '' : 's'} shown${query ? ` for “${query}”` : ''}`;
+  function renderDirectory(query=''){
+    const host=document.getElementById('pageDirectory');if(!host)return;const summary=document.getElementById('directorySummary');const pages=matchingPages(query).filter(page=>page.path!=='directory.html');host.innerHTML='';
+    const groups=['Museum','Gallery 001 · Number 1','Gallery 002 · Number 2','Gallery 003 · Number 3','Gallery 004 · Number 4'];
+    groups.forEach(group=>{const items=pages.filter(page=>page.group===group);if(!items.length)return;const section=document.createElement('section');section.className='directory-group';const head=document.createElement('div');head.className='directory-group-head';const wrap=document.createElement('div');const eye=document.createElement('div');eye.className='eyebrow';eye.textContent=group==='Museum'?'Museum shell':group.split(' · ')[0];const title=document.createElement('h2');title.textContent=group==='Museum'?'Shared museum pages':group.split(' · ')[1];wrap.append(eye,title);const count=document.createElement('div');count.className='directory-group-count';count.textContent=`${items.length} page${items.length===1?'':'s'}`;head.append(wrap,count);const grid=document.createElement('div');grid.className='directory-grid';items.forEach(page=>{const card=document.createElement('a');card.className='directory-card';card.href=page.path;card.dataset.number=page.number??'';const kicker=document.createElement('div');kicker.className='dir-kicker';kicker.textContent=page.room;const h3=document.createElement('h3');h3.textContent=page.title;const p=document.createElement('p');p.textContent=page.description;const arrow=document.createElement('span');arrow.className='dir-arrow';arrow.textContent='↗';card.append(kicker,h3,p,arrow);grid.appendChild(card);});section.append(head,grid);host.appendChild(section);});
+    if(!pages.length){const empty=document.createElement('div');empty.className='search-empty';empty.textContent='No pages match this filter.';host.appendChild(empty);}if(summary)summary.textContent=`${pages.length} page${pages.length===1?'':'s'} shown${query?` for “${query}”`:''}`;
   }
-  const directoryFilter = document.getElementById('directoryFilter');
-  if (directoryFilter) {
-    directoryFilter.addEventListener('input', () => renderDirectory(directoryFilter.value));
-    renderDirectory('');
-  }
+  const directoryFilter=document.getElementById('directoryFilter');if(directoryFilter){directoryFilter.addEventListener('input',()=>renderDirectory(directoryFilter.value));renderDirectory('');}
 
-  const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: .12 }) : null;
-  document.querySelectorAll('.reveal').forEach(el => observer ? observer.observe(el) : el.classList.add('visible'));
+  const observer='IntersectionObserver'in window?new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible');});},{threshold:.12}):null;document.querySelectorAll('.reveal').forEach(el=>observer?observer.observe(el):el.classList.add('visible'));
+  const canvas=document.getElementById('numberCanvas');if(canvas)initAtlas(canvas);
 
-  const canvas = document.getElementById('numberCanvas');
-  if (canvas) initAtlas(canvas);
+  // Number 1 laboratory — preserved.
+  const identityInput=document.getElementById('identityInput'),identityResult=document.getElementById('identityResult');if(identityInput&&identityResult){const update=()=>{const x=Number(identityInput.value);identityResult.textContent=Number.isFinite(x)?`1 × ${formatNumber(x)} = ${formatNumber(x)}`:'Enter a finite number';};identityInput.addEventListener('input',update);update();}
+  const powerSlider=document.getElementById('powerSlider'),powerResult=document.getElementById('powerResult');if(powerSlider&&powerResult){const update=()=>{const n=Number(powerSlider.value);powerResult.innerHTML=`1<sup>${n}</sup> = 1`;};powerSlider.addEventListener('input',update);update();}
+  const baseSelect=document.getElementById('baseSelect'),baseResult=document.getElementById('baseResult');if(baseSelect&&baseResult){const labels={decimal:'1',binary:'1',octal:'1',hexadecimal:'1',roman:'I',unary:'|',arabicIndic:'١',devanagari:'१',chinese:'一'};const names={decimal:'Decimal',binary:'Binary',octal:'Octal',hexadecimal:'Hexadecimal',roman:'Roman numeral',unary:'Unary tally',arabicIndic:'Arabic-Indic',devanagari:'Devanagari',chinese:'Chinese numeral'};const update=()=>baseResult.innerHTML=`<span>${labels[baseSelect.value]}</span><small style="display:block;font-family:Inter,sans-serif;color:var(--muted);font-size:.85rem;margin-top:8px">${names[baseSelect.value]}</small>`;baseSelect.addEventListener('change',update);update();}
+  const certainty=document.getElementById('certainty'),certaintyResult=document.getElementById('certaintyResult');if(certainty&&certaintyResult){const update=()=>{const p=Number(certainty.value)/100;certaintyResult.textContent=`P = ${p.toFixed(2)}${p===1?' — certainty':''}`;};certainty.addEventListener('input',update);update();}
 
-  // ---------------- Number 1 laboratory (preserved) ----------------
-  const identityInput = document.getElementById('identityInput');
-  const identityResult = document.getElementById('identityResult');
-  if (identityInput && identityResult) {
-    const update = () => {
-      const x = Number(identityInput.value);
-      identityResult.textContent = Number.isFinite(x) ? `1 × ${formatNumber(x)} = ${formatNumber(x)}` : 'Enter a finite number';
-    };
-    identityInput.addEventListener('input', update); update();
-  }
+  // Number 2 laboratory — preserved.
+  const pairCount=document.getElementById('pairCount'),pairSummary=document.getElementById('pairSummary'),pairViz=document.getElementById('pairViz');if(pairCount&&pairSummary&&pairViz){const update=()=>{const n=Math.max(0,Math.min(20,Math.round(Number(pairCount.value)))),pairs=Math.floor(n/2),remainder=n%2;pairSummary.textContent=`${n} object${n===1?'':'s'} = ${pairs} pair${pairs===1?'':'s'}${remainder?' + 1 unpaired':' + 0 unpaired'}`;pairViz.innerHTML='';for(let i=0;i<n;i++){const token=document.createElement('span');token.className=`pair-token${remainder&&i===n-1?' unpaired':''}`;token.textContent=i+1;token.title=remainder&&i===n-1?'Unpaired object':`Pair ${Math.floor(i/2)+1}`;pairViz.appendChild(token);}};pairCount.addEventListener('input',update);update();}
+  const parityInput=document.getElementById('parityInput'),parityResult=document.getElementById('parityResult');if(parityInput&&parityResult){const update=()=>{const raw=Number(parityInput.value);if(!Number.isFinite(raw)||!Number.isInteger(raw)){parityResult.textContent='Enter an integer';return;}if(raw%2===0)parityResult.textContent=`${raw} = 2 × ${raw/2} → EVEN`;else{const q=Math.trunc(raw/2),r=raw-2*q;parityResult.textContent=`${raw} = 2 × ${q} ${r>0?'+ 1':'− 1'} → ODD`;}};parityInput.addEventListener('input',update);update();}
+  const powerTwoSlider=document.getElementById('powerTwoSlider'),powerTwoResult=document.getElementById('powerTwoResult'),powerTwoLabel=document.getElementById('powerTwoLabel');if(powerTwoSlider&&powerTwoResult){const update=()=>{const n=Math.max(0,Math.min(30,Math.round(Number(powerTwoSlider.value))));powerTwoResult.innerHTML=`2<sup>${n}</sup> = ${(2**n).toLocaleString('en-US')}`;if(powerTwoLabel)powerTwoLabel.textContent=n;};powerTwoSlider.addEventListener('input',update);update();}
+  const binaryInput=document.getElementById('binaryInput'),binaryResult=document.getElementById('binaryResult'),binaryStrip=document.getElementById('binaryStrip');if(binaryInput&&binaryResult&&binaryStrip){const update=()=>{const raw=Number(binaryInput.value);if(!Number.isInteger(raw)||raw<0||raw>255){binaryResult.textContent='Enter an integer from 0 to 255';binaryStrip.innerHTML='';return;}const bits=raw.toString(2).padStart(8,'0');binaryResult.innerHTML=`${raw}<sub>10</sub> = ${raw.toString(2)}<sub>2</sub>`;binaryStrip.innerHTML='';bits.split('').forEach((bit,index)=>{const cell=document.createElement('span');cell.className=`binary-bit${bit==='1'?' on':''}`;cell.textContent=bit;cell.title=`${2**(7-index)}s place`;binaryStrip.appendChild(cell);});};binaryInput.addEventListener('input',update);update();}
+  const sqrtIterations=document.getElementById('sqrtIterations'),sqrtResult=document.getElementById('sqrtResult'),sqrtDetail=document.getElementById('sqrtDetail');if(sqrtIterations&&sqrtResult){const update=()=>{const iterations=Math.max(0,Math.min(7,Math.round(Number(sqrtIterations.value))));let x=1;const trail=[x];for(let i=0;i<iterations;i++){x=(x+2/x)/2;trail.push(x);}const error=Math.abs(x-Math.SQRT2);sqrtResult.innerHTML=`x<sub>${iterations}</sub> = ${x.toPrecision(14)}`;if(sqrtDetail)sqrtDetail.textContent=`${iterations} Newton iteration${iterations===1?'':'s'} · absolute error ≈ ${error.toExponential(3)}${iterations?` · path: ${trail.map(v=>Number(v.toFixed(8))).join(' → ')}`:''}`;};sqrtIterations.addEventListener('input',update);update();}
 
-  const powerSlider = document.getElementById('powerSlider');
-  const powerResult = document.getElementById('powerResult');
-  if (powerSlider && powerResult) {
-    const update = () => { const n = Number(powerSlider.value); powerResult.innerHTML = `1<sup>${n}</sup> = 1`; };
-    powerSlider.addEventListener('input', update); update();
-  }
+  // Number 3 laboratory — preserved.
+  const tripletCount=document.getElementById('tripletCount'),tripletCountLabel=document.getElementById('tripletCountLabel'),tripletSummary=document.getElementById('tripletSummary'),tripletViz=document.getElementById('tripletViz');if(tripletCount&&tripletSummary&&tripletViz){const update=()=>{const n=Math.max(0,Math.min(24,Math.round(Number(tripletCount.value)))),groups=Math.floor(n/3),remainder=n%3;if(tripletCountLabel)tripletCountLabel.textContent=n;tripletSummary.textContent=`${n} object${n===1?'':'s'} = 3 × ${groups} + ${remainder} · remainder ${remainder}`;tripletViz.innerHTML='';for(let i=0;i<n;i++){const token=document.createElement('span'),isRemainder=remainder>0&&i>=n-remainder;token.className=`triplet-token${isRemainder?' remainder':''}`;token.textContent=i+1;token.title=isRemainder?`Remainder object ${i-(n-remainder)+1}`:`Triplet ${Math.floor(i/3)+1}`;tripletViz.appendChild(token);}};tripletCount.addEventListener('input',update);update();}
+  const div3Input=document.getElementById('div3Input'),div3Result=document.getElementById('div3Result'),div3Steps=document.getElementById('div3Steps');if(div3Input&&div3Result){const update=()=>{const raw=div3Input.value.trim();if(!/^[+-]?\d+$/.test(raw)){div3Result.textContent='Enter a decimal integer';if(div3Steps)div3Steps.textContent='';return;}const digits=raw.replace(/^[+-]/,'').split('').map(Number),sum=digits.reduce((a,b)=>a+b,0),divisible=sum%3===0;div3Result.textContent=`${divisible?'DIVISIBLE BY 3':'NOT DIVISIBLE BY 3'} · digit sum = ${sum}`;if(div3Steps){const preview=digits.length<=28?digits.join(' + '):`${digits.slice(0,12).join(' + ')} + … + ${digits.slice(-12).join(' + ')}`;div3Steps.textContent=`${preview} = ${sum}; ${sum} mod 3 = ${sum%3}.`;}};div3Input.addEventListener('input',update);update();}
+  const powerThreeSlider=document.getElementById('powerThreeSlider'),powerThreeResult=document.getElementById('powerThreeResult'),powerThreeLabel=document.getElementById('powerThreeLabel');if(powerThreeSlider&&powerThreeResult){const update=()=>{const n=Math.max(0,Math.min(15,Math.round(Number(powerThreeSlider.value)))),value=3**n;if(powerThreeLabel)powerThreeLabel.textContent=n;powerThreeResult.innerHTML=`3<sup>${n}</sup> = ${value.toLocaleString('en-US')} <small style="display:block;font-family:Inter,sans-serif;color:var(--muted);font-size:.84rem;margin-top:8px">${n} ternary digit${n===1?'':'s'} can form ${value.toLocaleString('en-US')} strings</small>`;};powerThreeSlider.addEventListener('input',update);update();}
+  function toBalancedTernary(number){if(number===0)return'0';let n=number;const out=[];while(n!==0){const r=((n%3)+3)%3;if(r===0){out.push('0');n/=3;}else if(r===1){out.push('+');n=(n-1)/3;}else{out.push('−');n=(n+1)/3;}}return out.reverse().join('');}
+  const ternaryInput=document.getElementById('ternaryInput'),ternaryResult=document.getElementById('ternaryResult'),ternaryDisplay=document.getElementById('ternaryDisplay'),balancedResult=document.getElementById('balancedResult');if(ternaryInput&&ternaryResult&&ternaryDisplay){const update=()=>{const raw=Number(ternaryInput.value);if(!Number.isInteger(raw)||raw< -100000||raw>100000){ternaryResult.textContent='Enter an integer from −100000 to 100000';ternaryDisplay.innerHTML='';if(balancedResult)balancedResult.textContent='';return;}const ordinary=`${raw<0?'−':''}${Math.abs(raw).toString(3)}`;ternaryResult.innerHTML=`${raw}<sub>10</sub> = ${ordinary}<sub>3</sub>`;ternaryDisplay.innerHTML='';Math.abs(raw).toString(3).split('').forEach(digit=>{const cell=document.createElement('span');cell.className=`trit ${digit==='0'?'zero':digit==='1'?'one':'two'}`;cell.textContent=digit;ternaryDisplay.appendChild(cell);});if(balancedResult)balancedResult.textContent=`Balanced ternary: ${toBalancedTernary(raw)} · symbols mean +1, 0, −1 at successive powers of 3.`;};ternaryInput.addEventListener('input',update);update();}
+  const rootThreeSelect=document.getElementById('rootThreeSelect'),rootThreeLabel=document.getElementById('rootThreeLabel'),rootThreeResult=document.getElementById('rootThreeResult');if(rootThreeSelect&&rootThreeResult){const labels=['1 = 1 + 0i · angle 0°','ω = −1/2 + (√3/2)i · angle 120°','ω² = −1/2 − (√3/2)i · angle 240°'];const update=()=>{const k=Math.max(0,Math.min(2,Math.round(Number(rootThreeSelect.value))));if(rootThreeLabel)rootThreeLabel.textContent=k;rootThreeResult.textContent=labels[k];[0,1,2].forEach(i=>document.getElementById(`root${i}`)?.classList.toggle('active',i===k));};rootThreeSelect.addEventListener('input',update);update();}
+  const sideA=document.getElementById('sideA'),sideB=document.getElementById('sideB'),sideC=document.getElementById('sideC'),triangleResult=document.getElementById('triangleResult'),triangleShape=document.getElementById('triangleShape');if(sideA&&sideB&&sideC&&triangleResult){const update=()=>{const a=Number(sideA.value),b=Number(sideB.value),c=Number(sideC.value),finitePositive=[a,b,c].every(v=>Number.isFinite(v)&&v>0),valid=finitePositive&&a+b>c&&a+c>b&&b+c>a;triangleShape?.classList.toggle('invalid',!valid);if(!valid){triangleResult.textContent='NO NONDEGENERATE TRIANGLE · each pair of sides must sum to more than the third';return;}const s=(a+b+c)/2,area=Math.sqrt(Math.max(0,s*(s-a)*(s-b)*(s-c))),eps=1e-9*Math.max(a,b,c,1),eq=(x,y)=>Math.abs(x-y)<=eps,type=eq(a,b)&&eq(b,c)?'equilateral':(eq(a,b)||eq(a,c)||eq(b,c))?'isosceles':'scalene';triangleResult.textContent=`${type.toUpperCase()} · perimeter = ${formatNumber(a+b+c)} · area = ${formatNumber(area)}`;};[sideA,sideB,sideC].forEach(input=>input.addEventListener('input',update));update();}
 
-  const baseSelect = document.getElementById('baseSelect');
-  const baseResult = document.getElementById('baseResult');
-  if (baseSelect && baseResult) {
-    const labels = { decimal:'1', binary:'1', octal:'1', hexadecimal:'1', roman:'I', unary:'|', arabicIndic:'١', devanagari:'१', chinese:'一' };
-    const names = { decimal:'Decimal', binary:'Binary', octal:'Octal', hexadecimal:'Hexadecimal', roman:'Roman numeral', unary:'Unary tally', arabicIndic:'Arabic-Indic', devanagari:'Devanagari', chinese:'Chinese numeral' };
-    const update = () => baseResult.innerHTML = `<span>${labels[baseSelect.value]}</span><small style="display:block;font-family:Inter,sans-serif;color:var(--muted);font-size:.85rem;margin-top:8px">${names[baseSelect.value]}</small>`;
-    baseSelect.addEventListener('change', update); update();
-  }
+  // Number 4 laboratory.
+  const div4Input=document.getElementById('div4Input'),div4Result=document.getElementById('div4Result'),div4Steps=document.getElementById('div4Steps');if(div4Input&&div4Result){const update=()=>{const raw=div4Input.value.trim();if(!/^[+-]?\d+$/.test(raw)){div4Result.textContent='Enter a decimal integer';if(div4Steps)div4Steps.textContent='';return;}const digits=raw.replace(/^[+-]/,'').replace(/^0+(?=\d)/,''),last=digits.slice(-2),lastValue=Number(last),ok=lastValue%4===0;div4Result.textContent=`${ok?'DIVISIBLE BY 4':'NOT DIVISIBLE BY 4'} · final two digits = ${last.padStart(2,'0')}`;if(div4Steps)div4Steps.textContent=`${lastValue} mod 4 = ${lastValue%4}. All earlier place values are multiples of 100, and 100 is divisible by 4.`;};div4Input.addEventListener('input',update);update();}
+  const quaternaryInput=document.getElementById('quaternaryInput'),quaternaryResult=document.getElementById('quaternaryResult'),quaternaryStrip=document.getElementById('quaternaryStrip'),quaternaryBits=document.getElementById('quaternaryBits');if(quaternaryInput&&quaternaryResult&&quaternaryStrip){const pairs={'0':'00','1':'01','2':'10','3':'11'};const update=()=>{const raw=Number(quaternaryInput.value);if(!Number.isInteger(raw)||raw<0||raw>1000000){quaternaryResult.textContent='Enter an integer from 0 to 1,000,000';quaternaryStrip.innerHTML='';if(quaternaryBits)quaternaryBits.textContent='';return;}const q=raw.toString(4);quaternaryResult.innerHTML=`${raw}<sub>10</sub> = ${q}<sub>4</sub>`;quaternaryStrip.innerHTML='';q.split('').forEach(d=>{const cell=document.createElement('span');cell.className=`quat-digit d${d}`;cell.textContent=d;quaternaryStrip.appendChild(cell);});if(quaternaryBits)quaternaryBits.textContent=`Two-bit encoding: ${q.split('').map(d=>pairs[d]).join(' ')}`;};quaternaryInput.addEventListener('input',update);update();}
+  const rootFourSelect=document.getElementById('rootFourSelect'),rootFourLabel=document.getElementById('rootFourLabel'),rootFourResult=document.getElementById('rootFourResult');if(rootFourSelect&&rootFourResult){const labels=['1 = 1+0i · angle 0°','i = 0+1i · angle 90°','−1 = −1+0i · angle 180°','−i = 0−1i · angle 270°'];const update=()=>{const k=Math.max(0,Math.min(3,Math.round(Number(rootFourSelect.value))));if(rootFourLabel)rootFourLabel.textContent=k;rootFourResult.textContent=labels[k];[0,1,2,3].forEach(i=>document.getElementById(`root4_${i}`)?.classList.toggle('active',i===k));};rootFourSelect.addEventListener('input',update);update();}
+  const fourSquareInput=document.getElementById('fourSquareInput'),fourSquareResult=document.getElementById('fourSquareResult'),fourSquareDetail=document.getElementById('fourSquareDetail');if(fourSquareInput&&fourSquareResult){const findSquares=n=>{const limit=Math.floor(Math.sqrt(n));for(let a=limit;a>=0;a--){let r1=n-a*a;for(let b=Math.min(a,Math.floor(Math.sqrt(r1)));b>=0;b--){let r2=r1-b*b;for(let c=Math.min(b,Math.floor(Math.sqrt(r2)));c>=0;c--){const r3=r2-c*c,d=Math.floor(Math.sqrt(r3));if(d<=c&&d*d===r3)return[a,b,c,d];}}}return null;};const update=()=>{const n=Number(fourSquareInput.value);if(!Number.isInteger(n)||n<0||n>2000){fourSquareResult.textContent='Enter an integer from 0 to 2000';if(fourSquareDetail)fourSquareDetail.textContent='';return;}const parts=findSquares(n);if(!parts){fourSquareResult.textContent='No representation found in the search range';return;}fourSquareResult.innerHTML=`${n} = ${parts.map(x=>`${x}<sup>2</sup>`).join(' + ')}`;if(fourSquareDetail)fourSquareDetail.textContent=`Check: ${parts.map(x=>x*x).join(' + ')} = ${parts.reduce((s,x)=>s+x*x,0)}. Zero squares are allowed, so some numbers need fewer than four nonzero terms.`;};fourSquareInput.addEventListener('input',update);update();}
+  const dimensionSlider=document.getElementById('dimensionSlider'),dimensionLabel=document.getElementById('dimensionLabel'),dimensionResult=document.getElementById('dimensionResult'),tesseractDemo=document.getElementById('tesseractDemo');if(dimensionSlider&&dimensionResult){const names=['point','line segment','square','cube','tesseract'];const choose=(n,k)=>{if(k<0||k>n)return 0;let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r;};const update=()=>{const n=Math.max(0,Math.min(4,Math.round(Number(dimensionSlider.value)))),vertices=2**n,edges=n===0?0:n*2**(n-1),squares=n<2?0:choose(n,2)*2**(n-2),cubes=n<3?0:choose(n,3)*2**(n-3);if(dimensionLabel)dimensionLabel.textContent=n;dimensionResult.textContent=`${names[n].toUpperCase()} · ${vertices} vertices · ${edges} edges${n>=2?` · ${squares} square faces`:''}${n>=3?` · ${cubes} cubical 3-faces`:''}`;if(tesseractDemo){tesseractDemo.style.opacity=String(.25+.75*n/4);tesseractDemo.dataset.dimension=n;}};dimensionSlider.addEventListener('input',update);update();}
+  const powerFourSlider=document.getElementById('powerFourSlider'),powerFourResult=document.getElementById('powerFourResult'),powerFourLabel=document.getElementById('powerFourLabel');if(powerFourSlider&&powerFourResult){const update=()=>{const n=Math.max(0,Math.min(10,Math.round(Number(powerFourSlider.value)))),value=4**n;if(powerFourLabel)powerFourLabel.textContent=n;powerFourResult.innerHTML=`4<sup>${n}</sup> = ${value.toLocaleString('en-US')} = 2<sup>${2*n}</sup>`;};powerFourSlider.addEventListener('input',update);update();}
+  const fourColorMap=document.getElementById('fourColorMap'),fourColorResult=document.getElementById('fourColorResult'),fourColorReset=document.getElementById('fourColorReset');if(fourColorMap&&fourColorResult){const colors=['#67b7ff','#a88aff','#ffd166','#ff8d78'];const build=()=>{fourColorMap.innerHTML='';for(let r=0;r<4;r++)for(let c=0;c<4;c++){const cell=document.createElement('button');cell.type='button';cell.className='map-region';cell.dataset.row=r;cell.dataset.col=c;cell.dataset.color=(r+c)%4;cell.style.background=colors[(r+c)%4];cell.textContent=r*4+c+1;cell.setAttribute('aria-label',`Region ${r*4+c+1}`);cell.addEventListener('click',()=>{cell.dataset.color=(Number(cell.dataset.color)+1)%4;cell.style.background=colors[Number(cell.dataset.color)];validate();});fourColorMap.appendChild(cell);}validate();};const validate=()=>{const cells=[...fourColorMap.querySelectorAll('.map-region')],at=(r,c)=>cells.find(el=>Number(el.dataset.row)===r&&Number(el.dataset.col)===c);let conflicts=0;cells.forEach(cell=>cell.style.outline='none');for(let r=0;r<4;r++)for(let c=0;c<4;c++){const here=at(r,c);[[r+1,c],[r,c+1]].forEach(([rr,cc])=>{const other=at(rr,cc);if(other&&here.dataset.color===other.dataset.color){conflicts++;here.style.outline='3px solid white';other.style.outline='3px solid white';}});}fourColorResult.textContent=conflicts?`${conflicts} shared-edge color conflict${conflicts===1?'':'s'} · keep clicking regions`:'VALID COLORING · every shared edge separates different colors';};fourColorReset?.addEventListener('click',build);build();}
 
-  const certainty = document.getElementById('certainty');
-  const certaintyResult = document.getElementById('certaintyResult');
-  if (certainty && certaintyResult) {
-    const update = () => { const p = Number(certainty.value) / 100; certaintyResult.textContent = `P = ${p.toFixed(2)}${p === 1 ? ' — certainty' : ''}`; };
-    certainty.addEventListener('input', update); update();
-  }
+  function formatNumber(n){if(Math.abs(n)>=1e7||(Math.abs(n)>0&&Math.abs(n)<1e-5))return n.toExponential(4);return String(Number(n.toFixed(8)));}
 
-  // ---------------- Number 2 laboratory (preserved) ----------------
-  const pairCount = document.getElementById('pairCount');
-  const pairSummary = document.getElementById('pairSummary');
-  const pairViz = document.getElementById('pairViz');
-  if (pairCount && pairSummary && pairViz) {
-    const update = () => {
-      const n = Math.max(0, Math.min(20, Math.round(Number(pairCount.value))));
-      const pairs = Math.floor(n / 2), remainder = n % 2;
-      pairSummary.textContent = `${n} object${n === 1 ? '' : 's'} = ${pairs} pair${pairs === 1 ? '' : 's'}${remainder ? ' + 1 unpaired' : ' + 0 unpaired'}`;
-      pairViz.innerHTML = '';
-      for (let i = 0; i < n; i++) {
-        const token = document.createElement('span');
-        token.className = `pair-token${remainder && i === n - 1 ? ' unpaired' : ''}`;
-        token.textContent = i + 1;
-        token.title = remainder && i === n - 1 ? 'Unpaired object' : `Pair ${Math.floor(i / 2) + 1}`;
-        pairViz.appendChild(token);
-      }
-    };
-    pairCount.addEventListener('input', update); update();
-  }
-
-  const parityInput = document.getElementById('parityInput');
-  const parityResult = document.getElementById('parityResult');
-  if (parityInput && parityResult) {
-    const update = () => {
-      const raw = Number(parityInput.value);
-      if (!Number.isFinite(raw) || !Number.isInteger(raw)) { parityResult.textContent = 'Enter an integer'; return; }
-      if (raw % 2 === 0) parityResult.textContent = `${raw} = 2 × ${raw / 2} → EVEN`;
-      else {
-        const q = Math.trunc(raw / 2), r = raw - 2 * q;
-        parityResult.textContent = `${raw} = 2 × ${q} ${r > 0 ? '+ 1' : '− 1'} → ODD`;
-      }
-    };
-    parityInput.addEventListener('input', update); update();
-  }
-
-  const powerTwoSlider = document.getElementById('powerTwoSlider');
-  const powerTwoResult = document.getElementById('powerTwoResult');
-  const powerTwoLabel = document.getElementById('powerTwoLabel');
-  if (powerTwoSlider && powerTwoResult) {
-    const update = () => {
-      const n = Math.max(0, Math.min(30, Math.round(Number(powerTwoSlider.value))));
-      powerTwoResult.innerHTML = `2<sup>${n}</sup> = ${(2 ** n).toLocaleString('en-US')}`;
-      if (powerTwoLabel) powerTwoLabel.textContent = n;
-    };
-    powerTwoSlider.addEventListener('input', update); update();
-  }
-
-  const binaryInput = document.getElementById('binaryInput');
-  const binaryResult = document.getElementById('binaryResult');
-  const binaryStrip = document.getElementById('binaryStrip');
-  if (binaryInput && binaryResult && binaryStrip) {
-    const update = () => {
-      const raw = Number(binaryInput.value);
-      if (!Number.isInteger(raw) || raw < 0 || raw > 255) { binaryResult.textContent = 'Enter an integer from 0 to 255'; binaryStrip.innerHTML = ''; return; }
-      const bits = raw.toString(2).padStart(8, '0');
-      binaryResult.innerHTML = `${raw}<sub>10</sub> = ${raw.toString(2)}<sub>2</sub>`;
-      binaryStrip.innerHTML = '';
-      bits.split('').forEach((bit,index) => {
-        const cell = document.createElement('span'); cell.className = `binary-bit${bit === '1' ? ' on' : ''}`; cell.textContent = bit; cell.title = `${2 ** (7-index)}s place`; binaryStrip.appendChild(cell);
-      });
-    };
-    binaryInput.addEventListener('input', update); update();
-  }
-
-  const sqrtIterations = document.getElementById('sqrtIterations');
-  const sqrtResult = document.getElementById('sqrtResult');
-  const sqrtDetail = document.getElementById('sqrtDetail');
-  if (sqrtIterations && sqrtResult) {
-    const update = () => {
-      const iterations = Math.max(0, Math.min(7, Math.round(Number(sqrtIterations.value))));
-      let x = 1; const trail = [x];
-      for (let i=0;i<iterations;i++) { x = (x + 2/x)/2; trail.push(x); }
-      const error = Math.abs(x - Math.SQRT2);
-      sqrtResult.innerHTML = `x<sub>${iterations}</sub> = ${x.toPrecision(14)}`;
-      if (sqrtDetail) sqrtDetail.textContent = `${iterations} Newton iteration${iterations === 1 ? '' : 's'} · absolute error ≈ ${error.toExponential(3)}${iterations ? ` · path: ${trail.map(v => Number(v.toFixed(8))).join(' → ')}` : ''}`;
-    };
-    sqrtIterations.addEventListener('input', update); update();
-  }
-
-  // ---------------- Number 3 laboratory (preserved) ----------------
-  const tripletCount = document.getElementById('tripletCount');
-  const tripletCountLabel = document.getElementById('tripletCountLabel');
-  const tripletSummary = document.getElementById('tripletSummary');
-  const tripletViz = document.getElementById('tripletViz');
-  if (tripletCount && tripletSummary && tripletViz) {
-    const update = () => {
-      const n = Math.max(0, Math.min(24, Math.round(Number(tripletCount.value))));
-      const groups = Math.floor(n/3), remainder = n%3;
-      if (tripletCountLabel) tripletCountLabel.textContent = n;
-      tripletSummary.textContent = `${n} object${n === 1 ? '' : 's'} = 3 × ${groups} + ${remainder} · remainder ${remainder}`;
-      tripletViz.innerHTML = '';
-      for (let i=0;i<n;i++) {
-        const token = document.createElement('span');
-        const isRemainder = remainder > 0 && i >= n-remainder;
-        token.className = `triplet-token${isRemainder ? ' remainder' : ''}`;
-        token.textContent = i+1;
-        token.title = isRemainder ? `Remainder object ${i-(n-remainder)+1}` : `Triplet ${Math.floor(i/3)+1}`;
-        tripletViz.appendChild(token);
-      }
-    };
-    tripletCount.addEventListener('input', update); update();
-  }
-
-  const div3Input = document.getElementById('div3Input');
-  const div3Result = document.getElementById('div3Result');
-  const div3Steps = document.getElementById('div3Steps');
-  if (div3Input && div3Result) {
-    const update = () => {
-      const raw = div3Input.value.trim();
-      if (!/^[+-]?\d+$/.test(raw)) { div3Result.textContent = 'Enter a decimal integer'; if (div3Steps) div3Steps.textContent=''; return; }
-      const digits = raw.replace(/^[+-]/,'').split('').map(Number);
-      const sum = digits.reduce((a,b) => a+b,0), divisible = sum%3===0;
-      div3Result.textContent = `${divisible ? 'DIVISIBLE BY 3' : 'NOT DIVISIBLE BY 3'} · digit sum = ${sum}`;
-      if (div3Steps) {
-        const preview = digits.length <= 28 ? digits.join(' + ') : `${digits.slice(0,12).join(' + ')} + … + ${digits.slice(-12).join(' + ')}`;
-        div3Steps.textContent = `${preview} = ${sum}; ${sum} mod 3 = ${sum%3}.`;
-      }
-    };
-    div3Input.addEventListener('input', update); update();
-  }
-
-  const powerThreeSlider = document.getElementById('powerThreeSlider');
-  const powerThreeResult = document.getElementById('powerThreeResult');
-  const powerThreeLabel = document.getElementById('powerThreeLabel');
-  if (powerThreeSlider && powerThreeResult) {
-    const update = () => {
-      const n = Math.max(0, Math.min(15, Math.round(Number(powerThreeSlider.value))));
-      const value = 3 ** n;
-      if (powerThreeLabel) powerThreeLabel.textContent = n;
-      powerThreeResult.innerHTML = `3<sup>${n}</sup> = ${value.toLocaleString('en-US')} <small style="display:block;font-family:Inter,sans-serif;color:var(--muted);font-size:.84rem;margin-top:8px">${n} ternary digit${n === 1 ? '' : 's'} can form ${value.toLocaleString('en-US')} strings</small>`;
-    };
-    powerThreeSlider.addEventListener('input', update); update();
-  }
-
-  function toBalancedTernary(number) {
-    if (number === 0) return '0';
-    let n = number; const out = [];
-    while (n !== 0) {
-      const r = ((n % 3) + 3) % 3;
-      if (r === 0) { out.push('0'); n /= 3; }
-      else if (r === 1) { out.push('+'); n = (n-1)/3; }
-      else { out.push('−'); n = (n+1)/3; }
-    }
-    return out.reverse().join('');
-  }
-
-  const ternaryInput = document.getElementById('ternaryInput');
-  const ternaryResult = document.getElementById('ternaryResult');
-  const ternaryDisplay = document.getElementById('ternaryDisplay');
-  const balancedResult = document.getElementById('balancedResult');
-  if (ternaryInput && ternaryResult && ternaryDisplay) {
-    const update = () => {
-      const raw = Number(ternaryInput.value);
-      if (!Number.isInteger(raw) || raw < -100000 || raw > 100000) { ternaryResult.textContent='Enter an integer from −100000 to 100000'; ternaryDisplay.innerHTML=''; if (balancedResult) balancedResult.textContent=''; return; }
-      const ordinary = `${raw < 0 ? '−' : ''}${Math.abs(raw).toString(3)}`;
-      ternaryResult.innerHTML = `${raw}<sub>10</sub> = ${ordinary}<sub>3</sub>`;
-      ternaryDisplay.innerHTML = '';
-      Math.abs(raw).toString(3).split('').forEach(digit => { const cell=document.createElement('span'); cell.className=`trit ${digit==='0'?'zero':digit==='1'?'one':'two'}`; cell.textContent=digit; ternaryDisplay.appendChild(cell); });
-      if (balancedResult) balancedResult.textContent = `Balanced ternary: ${toBalancedTernary(raw)} · symbols mean +1, 0, −1 at successive powers of 3.`;
-    };
-    ternaryInput.addEventListener('input', update); update();
-  }
-
-  const rootThreeSelect = document.getElementById('rootThreeSelect');
-  const rootThreeLabel = document.getElementById('rootThreeLabel');
-  const rootThreeResult = document.getElementById('rootThreeResult');
-  if (rootThreeSelect && rootThreeResult) {
-    const labels = ['1 = 1 + 0i · angle 0°','ω = −1/2 + (√3/2)i · angle 120°','ω² = −1/2 − (√3/2)i · angle 240°'];
-    const update = () => {
-      const k = Math.max(0,Math.min(2,Math.round(Number(rootThreeSelect.value))));
-      if (rootThreeLabel) rootThreeLabel.textContent = k;
-      rootThreeResult.textContent = labels[k];
-      [0,1,2].forEach(i => document.getElementById(`root${i}`)?.classList.toggle('active',i===k));
-    };
-    rootThreeSelect.addEventListener('input', update); update();
-  }
-
-  const sideA = document.getElementById('sideA'), sideB = document.getElementById('sideB'), sideC = document.getElementById('sideC');
-  const triangleResult = document.getElementById('triangleResult'), triangleShape = document.getElementById('triangleShape');
-  if (sideA && sideB && sideC && triangleResult) {
-    const update = () => {
-      const a=Number(sideA.value), b=Number(sideB.value), c=Number(sideC.value);
-      const finitePositive=[a,b,c].every(v => Number.isFinite(v)&&v>0);
-      const valid=finitePositive&&a+b>c&&a+c>b&&b+c>a;
-      triangleShape?.classList.toggle('invalid',!valid);
-      if (!valid) { triangleResult.textContent='NO NONDEGENERATE TRIANGLE · each pair of sides must sum to more than the third'; return; }
-      const s=(a+b+c)/2, area=Math.sqrt(Math.max(0,s*(s-a)*(s-b)*(s-c)));
-      const eps=1e-9*Math.max(a,b,c,1), eq=(x,y)=>Math.abs(x-y)<=eps;
-      const type=eq(a,b)&&eq(b,c)?'equilateral':(eq(a,b)||eq(a,c)||eq(b,c))?'isosceles':'scalene';
-      triangleResult.textContent=`${type.toUpperCase()} · perimeter = ${formatNumber(a+b+c)} · area = ${formatNumber(area)}`;
-    };
-    [sideA,sideB,sideC].forEach(input => input.addEventListener('input',update)); update();
-  }
-
-  function formatNumber(n) {
-    if (Math.abs(n) >= 1e7 || (Math.abs(n)>0 && Math.abs(n)<1e-5)) return n.toExponential(4);
-    return String(Number(n.toFixed(8)));
-  }
-
-  function initAtlas(canvas) {
-    const ctx=canvas.getContext('2d');
-    let center=0, unitsPerScreen=12, dragging=false, lastX=0, hoverValue=null;
-    const status=document.getElementById('atlasStatus');
-    const exhibits=[
+  function initAtlas(canvas){
+    const ctx=canvas.getContext('2d');let center=0,unitsPerScreen=12,dragging=false,lastX=0,hoverValue=null;const status=document.getElementById('atlasStatus');const exhibits=[
       {value:1,url:'one.html',color:'#d6ad58',glow:'rgba(214,173,88,.8)',name:'1'},
       {value:2,url:'two.html',color:'#6be7ff',glow:'rgba(107,231,255,.85)',name:'2'},
-      {value:3,url:'three.html',color:'#dfff72',glow:'rgba(223,255,114,.85)',name:'3'}
+      {value:3,url:'three.html',color:'#dfff72',glow:'rgba(223,255,114,.85)',name:'3'},
+      {value:4,url:'four.html',color:'#ffd166',glow:'rgba(255,209,102,.9)',name:'4'}
     ];
-    function resize(){const dpr=Math.max(1,Math.min(2,window.devicePixelRatio||1));const rect=canvas.getBoundingClientRect();canvas.width=Math.round(rect.width*dpr);canvas.height=Math.round(rect.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
-    function niceStep(raw){const power=Math.pow(10,Math.floor(Math.log10(raw)));const fraction=raw/power;const nice=fraction<1.5?1:fraction<3?2:fraction<7?5:10;return nice*power;}
-    function xFor(value,width){return width/2+(value-center)*width/unitsPerScreen;}
-    function valueFor(x,width){return center+(x-width/2)*unitsPerScreen/width;}
-    function exhibitAtTick(v,step){return exhibits.find(item=>Math.abs(v-item.value)<step*1e-8);}
-    function draw(){
-      const rect=canvas.getBoundingClientRect(),w=rect.width,h=rect.height;ctx.clearRect(0,0,w,h);const axisY=h*.53;
-      const gradient=ctx.createLinearGradient(0,0,w,0);gradient.addColorStop(0,'rgba(245,241,232,.08)');gradient.addColorStop(.43,'rgba(214,173,88,.12)');gradient.addColorStop(.52,'rgba(107,231,255,.12)');gradient.addColorStop(.61,'rgba(223,255,114,.12)');gradient.addColorStop(1,'rgba(245,241,232,.08)');ctx.fillStyle=gradient;ctx.fillRect(0,axisY-1,w,2);
-      ctx.fillStyle='rgba(245,241,232,.5)';ctx.font='12px Inter, system-ui, sans-serif';ctx.fillText('−∞',18,axisY-20);ctx.fillText('∞',w-26,axisY-20);
-      const rawStep=unitsPerScreen/9,step=niceStep(rawStep),start=Math.floor((center-unitsPerScreen/2)/step)*step,end=center+unitsPerScreen/2,decimals=Math.max(0,-Math.floor(Math.log10(step))+1);
-      for(let v=start;v<=end+step;v+=step){const x=xFor(v,w);if(x<-40||x>w+40)continue;const open=exhibitAtTick(v,step);ctx.strokeStyle=open?open.color:'rgba(245,241,232,.35)';ctx.lineWidth=open?2:1;ctx.beginPath();ctx.moveTo(x,axisY-(open?18:9));ctx.lineTo(x,axisY+(open?18:9));ctx.stroke();ctx.fillStyle=open?open.color:'rgba(245,241,232,.72)';ctx.font=open?'700 14px Inter, system-ui, sans-serif':'12px Inter, system-ui, sans-serif';const label=Math.abs(v)<step*1e-8?'0':Number(v.toFixed(decimals)).toString();const tw=ctx.measureText(label).width;ctx.fillText(label,x-tw/2,axisY+34);}
-      exhibits.forEach((item,index)=>{const x=xFor(item.value,w);if(x<-50||x>w+50)return;ctx.beginPath();ctx.arc(x,axisY,7,0,Math.PI*2);ctx.fillStyle=item.color;ctx.fill();ctx.shadowColor=item.glow;ctx.shadowBlur=20;ctx.fill();ctx.shadowBlur=0;ctx.fillStyle='#f5f1e8';ctx.font='600 12px Inter, system-ui, sans-serif';const offset=index===0?-82:16;const labelX=Math.max(8,Math.min(w-90,x+offset));ctx.fillText(`OPEN · ${item.name}`,labelX,axisY-26);});
-      if(hoverValue!==null){const hx=xFor(hoverValue,w);if(hx>=0&&hx<=w){ctx.strokeStyle='rgba(122,184,255,.38)';ctx.beginPath();ctx.moveTo(hx,52);ctx.lineTo(hx,h-42);ctx.stroke();const text=formatNumber(hoverValue);ctx.font='13px Inter, system-ui, sans-serif';const tw=ctx.measureText(text).width,bx=Math.max(8,Math.min(w-tw-24,hx-tw/2-10));ctx.fillStyle='rgba(17,19,24,.96)';ctx.fillRect(bx,18,tw+20,28);ctx.strokeStyle='rgba(255,255,255,.12)';ctx.strokeRect(bx,18,tw+20,28);ctx.fillStyle='#f5f1e8';ctx.fillText(text,bx+10,37);}}
-      if(status)status.textContent=`Viewing approximately ${formatNumber(center-unitsPerScreen/2)} to ${formatNumber(center+unitsPerScreen/2)} · exhibits 1, 2, and 3 are open · scroll to zoom · drag to pan`;
-    }
-    canvas.addEventListener('wheel',e=>{e.preventDefault();const rect=canvas.getBoundingClientRect(),mouse=valueFor(e.clientX-rect.left,rect.width),factor=Math.exp(e.deltaY*.0012),next=Math.max(1e-9,Math.min(1e12,unitsPerScreen*factor)),ratio=next/unitsPerScreen;center=mouse-(mouse-center)*ratio;unitsPerScreen=next;draw();},{passive:false});
-    canvas.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;canvas.setPointerCapture(e.pointerId);});
-    canvas.addEventListener('pointermove',e=>{const rect=canvas.getBoundingClientRect();if(dragging){const dx=e.clientX-lastX;center-=dx*unitsPerScreen/rect.width;lastX=e.clientX;}hoverValue=valueFor(e.clientX-rect.left,rect.width);draw();});
-    canvas.addEventListener('pointerup',e=>{dragging=false;canvas.releasePointerCapture(e.pointerId);});
-    canvas.addEventListener('pointerleave',()=>{if(!dragging){hoverValue=null;draw();}});
-    canvas.addEventListener('dblclick',e=>{const rect=canvas.getBoundingClientRect(),v=valueFor(e.clientX-rect.left,rect.width),nearest=exhibits.reduce((best,item)=>Math.abs(v-item.value)<Math.abs(v-best.value)?item:best,exhibits[0]);if(Math.abs(v-nearest.value)<unitsPerScreen*.025)location.href=nearest.url;});
-    document.getElementById('zoomIn')?.addEventListener('click',()=>{unitsPerScreen=Math.max(1e-9,unitsPerScreen/2);draw();});
-    document.getElementById('zoomOut')?.addEventListener('click',()=>{unitsPerScreen=Math.min(1e12,unitsPerScreen*2);draw();});
-    document.getElementById('findOne')?.addEventListener('click',()=>{center=1;unitsPerScreen=4;draw();});
-    document.getElementById('findTwo')?.addEventListener('click',()=>{center=2;unitsPerScreen=4;draw();});
-    document.getElementById('findThree')?.addEventListener('click',()=>{center=3;unitsPerScreen=4;draw();});
-    document.getElementById('resetAtlas')?.addEventListener('click',()=>{center=0;unitsPerScreen=12;draw();});
-    window.addEventListener('resize',resize);resize();
+    function resize(){const dpr=Math.max(1,Math.min(2,window.devicePixelRatio||1)),rect=canvas.getBoundingClientRect();canvas.width=Math.round(rect.width*dpr);canvas.height=Math.round(rect.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+    function niceStep(raw){const power=Math.pow(10,Math.floor(Math.log10(raw))),fraction=raw/power,nice=fraction<1.5?1:fraction<3?2:fraction<7?5:10;return nice*power;}
+    function xFor(value,width){return width/2+(value-center)*width/unitsPerScreen;}function valueFor(x,width){return center+(x-width/2)*unitsPerScreen/width;}function exhibitAtTick(v,step){return exhibits.find(item=>Math.abs(v-item.value)<step*1e-8);}
+    function draw(){const rect=canvas.getBoundingClientRect(),w=rect.width,h=rect.height;ctx.clearRect(0,0,w,h);const axisY=h*.54,gradient=ctx.createLinearGradient(0,0,w,0);gradient.addColorStop(0,'rgba(245,241,232,.08)');gradient.addColorStop(.38,'rgba(214,173,88,.12)');gradient.addColorStop(.48,'rgba(107,231,255,.12)');gradient.addColorStop(.58,'rgba(223,255,114,.12)');gradient.addColorStop(.68,'rgba(255,209,102,.13)');gradient.addColorStop(1,'rgba(245,241,232,.08)');ctx.fillStyle=gradient;ctx.fillRect(0,axisY-1,w,2);ctx.fillStyle='rgba(245,241,232,.5)';ctx.font='12px Inter, system-ui, sans-serif';ctx.fillText('−∞',18,axisY-20);ctx.fillText('∞',w-26,axisY-20);const rawStep=unitsPerScreen/9,step=niceStep(rawStep),start=Math.floor((center-unitsPerScreen/2)/step)*step,end=center+unitsPerScreen/2,decimals=Math.max(0,-Math.floor(Math.log10(step))+1);for(let v=start;v<=end+step;v+=step){const x=xFor(v,w);if(x< -40||x>w+40)continue;const open=exhibitAtTick(v,step);ctx.strokeStyle=open?open.color:'rgba(245,241,232,.35)';ctx.lineWidth=open?2:1;ctx.beginPath();ctx.moveTo(x,axisY-(open?18:9));ctx.lineTo(x,axisY+(open?18:9));ctx.stroke();ctx.fillStyle=open?open.color:'rgba(245,241,232,.72)';ctx.font=open?'700 14px Inter, system-ui, sans-serif':'12px Inter, system-ui, sans-serif';const label=Math.abs(v)<step*1e-8?'0':Number(v.toFixed(decimals)).toString(),tw=ctx.measureText(label).width;ctx.fillText(label,x-tw/2,axisY+34);}exhibits.forEach((item,index)=>{const x=xFor(item.value,w);if(x< -50||x>w+50)return;ctx.beginPath();ctx.arc(x,axisY,7,0,Math.PI*2);ctx.fillStyle=item.color;ctx.fill();ctx.shadowColor=item.glow;ctx.shadowBlur=20;ctx.fill();ctx.shadowBlur=0;ctx.fillStyle='#f5f1e8';ctx.font='600 12px Inter, system-ui, sans-serif';const labelY=axisY-26-(index%2)*20,labelX=Math.max(8,Math.min(w-78,x+(index===0?-68:12)));ctx.fillText(`OPEN · ${item.name}`,labelX,labelY);});if(hoverValue!==null){const hx=xFor(hoverValue,w);if(hx>=0&&hx<=w){ctx.strokeStyle='rgba(122,184,255,.38)';ctx.beginPath();ctx.moveTo(hx,52);ctx.lineTo(hx,h-42);ctx.stroke();const text=formatNumber(hoverValue);ctx.font='13px Inter, system-ui, sans-serif';const tw=ctx.measureText(text).width,bx=Math.max(8,Math.min(w-tw-24,hx-tw/2-10));ctx.fillStyle='rgba(17,19,24,.96)';ctx.fillRect(bx,18,tw+20,28);ctx.strokeStyle='rgba(255,255,255,.12)';ctx.strokeRect(bx,18,tw+20,28);ctx.fillStyle='#f5f1e8';ctx.fillText(text,bx+10,37);}}if(status)status.textContent=`Viewing approximately ${formatNumber(center-unitsPerScreen/2)} to ${formatNumber(center+unitsPerScreen/2)} · exhibits 1, 2, 3, and 4 are open · scroll to zoom · drag to pan`;}
+    canvas.addEventListener('wheel',e=>{e.preventDefault();const rect=canvas.getBoundingClientRect(),mouse=valueFor(e.clientX-rect.left,rect.width),factor=Math.exp(e.deltaY*.0012),next=Math.max(1e-9,Math.min(1e12,unitsPerScreen*factor)),ratio=next/unitsPerScreen;center=mouse-(mouse-center)*ratio;unitsPerScreen=next;draw();},{passive:false});canvas.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;canvas.setPointerCapture(e.pointerId);});canvas.addEventListener('pointermove',e=>{const rect=canvas.getBoundingClientRect();if(dragging){const dx=e.clientX-lastX;center-=dx*unitsPerScreen/rect.width;lastX=e.clientX;}hoverValue=valueFor(e.clientX-rect.left,rect.width);draw();});canvas.addEventListener('pointerup',e=>{dragging=false;canvas.releasePointerCapture(e.pointerId);});canvas.addEventListener('pointerleave',()=>{if(!dragging){hoverValue=null;draw();}});canvas.addEventListener('dblclick',e=>{const rect=canvas.getBoundingClientRect(),v=valueFor(e.clientX-rect.left,rect.width),nearest=exhibits.reduce((best,item)=>Math.abs(v-item.value)<Math.abs(v-best.value)?item:best,exhibits[0]);if(Math.abs(v-nearest.value)<unitsPerScreen*.025)location.href=nearest.url;});document.getElementById('zoomIn')?.addEventListener('click',()=>{unitsPerScreen=Math.max(1e-9,unitsPerScreen/2);draw();});document.getElementById('zoomOut')?.addEventListener('click',()=>{unitsPerScreen=Math.min(1e12,unitsPerScreen*2);draw();});document.getElementById('findOne')?.addEventListener('click',()=>{center=1;unitsPerScreen=4;draw();});document.getElementById('findTwo')?.addEventListener('click',()=>{center=2;unitsPerScreen=4;draw();});document.getElementById('findThree')?.addEventListener('click',()=>{center=3;unitsPerScreen=4;draw();});document.getElementById('findFour')?.addEventListener('click',()=>{center=4;unitsPerScreen=4;draw();});document.getElementById('resetAtlas')?.addEventListener('click',()=>{center=0;unitsPerScreen=12;draw();});window.addEventListener('resize',resize);resize();
   }
 })();
