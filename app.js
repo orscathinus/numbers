@@ -1,33 +1,241 @@
 (() => {
   const current = document.body.dataset.page;
 
+  // One shared registry powers global search, exhibit search, and the directory.
+  // Add future pages here once; every discovery surface updates from the same data.
+  const PAGES = [
+    { path:'index.html', page:'home', group:'Museum', number:null, room:'Entrance & Atlas', title:'Numbers — Museum Entrance', description:'The museum entrance and interactive real-number atlas, with open exhibits for 1, 2, and 3.', keywords:'atlas number line continuum zoom pan open exhibits museum home entrance one two three' },
+    { path:'directory.html', page:'directory', group:'Museum', number:null, room:'Directory', title:'All Pages — Museum Directory', description:'A complete floor plan linking every substantive page in the Numbers Museum.', keywords:'all pages directory sitemap navigation floor plan browse rooms' },
+    { path:'sources.html', page:'sources', group:'Museum', number:null, room:'Research Desk', title:'Sources & Fact-Checking', description:'Sources, historical cautions, conventions, and research notes supporting the open number exhibits.', keywords:'sources references research fact checking citations evidence conventions MathWorld MacTutor NASA NHGRI AMS' },
+
+    { path:'one.html', page:'one', group:'Gallery 001 · Number 1', number:1, room:'Curator’s Overview', title:'1 — Unity', description:'An overview of 1 as the first positive integer, multiplicative identity, odd number, perfect square, and unit.', keywords:'one 1 unity identity first positive integer odd square divisors reciprocal unit' },
+    { path:'mathematics.html', page:'mathematics', group:'Gallery 001 · Number 1', number:1, room:'Mathematics', title:'Mathematics of 1', description:'Classification, multiplicative identity, why 1 is neither prime nor composite, factorials, powers, reciprocals, roots of unity, and arithmetic functions.', keywords:'one 1 mathematics identity neither prime composite unique factorization factorial 0! 1! powers reciprocal roots unity tau sigma phi algebra' },
+    { path:'history.html', page:'history', group:'Gallery 001 · Number 1', number:1, room:'History', title:'History of 1', description:'The difference between the abstract number one and its glyph, from tallies and Brahmi traditions through Hindu–Arabic numeral history.', keywords:'one 1 history numeral glyph tally Roman I Brahmi Gupta Nagari Hindu Arabic Arabic-Indic Devanagari Chinese typography' },
+    { path:'significance.html', page:'significance', group:'Gallery 001 · Number 1', number:1, room:'Significance', title:'Why 1 Matters', description:'One as a unit, probability 1, normalization, binary digit, computing convention, and metaphor of unity.', keywords:'one 1 significance unit measurement probability certainty normalization binary computing true language unity' },
+    { path:'lab.html', page:'lab', group:'Gallery 001 · Number 1', number:1, room:'Laboratory', title:'Laboratory of 1', description:'Interactive identity, exponent, notation, and unit-square experiments.', keywords:'one 1 lab laboratory interactive identity machine exponent power notation bases Roman Arabic Indic Devanagari Chinese unit square area' },
+
+    { path:'two.html', page:'two', group:'Gallery 002 · Number 2', number:2, room:'Curator’s Overview', title:'2 — Pair, Prime, Parity', description:'An overview of 2 as the smallest prime, unique even prime, basis of pairing and parity, binary base, and the integer beneath √2.', keywords:'two 2 pair prime parity even smallest prime unique even prime binary square root sqrt2 dual' },
+    { path:'two-mathematics.html', page:'two-mathematics', group:'Gallery 002 · Number 2', number:2, room:'Mathematics', title:'Mathematics of 2 — Even Prime Reactor', description:'Parity, the unique even prime, modular arithmetic, 2-adic valuation, powers of two, arithmetic functions, C2, subsets, and √2 irrationality.', keywords:'two 2 mathematics even prime parity modulo modular 2-adic powers two subsets tau sigma phi mu C2 cyclic group involution sqrt2 irrational proof continued fraction' },
+    { path:'two-history.html', page:'two-history', group:'Gallery 002 · Number 2', number:2, room:'History', title:'History of 2', description:'Numeral traditions for two and the separate history of √2 and incommensurability, with careful treatment of the Hippasus legend.', keywords:'two 2 history numeral tally II Roman Brahmi Gupta Nagari Arabic Indic Devanagari Chinese sqrt2 irrationality incommensurability Hippasus legend Fibonacci Liber Abaci' },
+    { path:'two-significance.html', page:'two-significance', group:'Gallery 002 · Number 2', number:2, room:'Significance', title:'Why 2 Matters — Binary Cathedral', description:'Binary information, two-state systems, symmetry, two-dimensional geometry, octave ratio 2:1, helium, two-body mechanics, and grammatical duals.', keywords:'two 2 significance binary bit information symmetry C2 two dimensional geometry 2D octave music ratio helium atomic number two body problem dual grammar' },
+    { path:'two-lab.html', page:'two-lab', group:'Gallery 002 · Number 2', number:2, room:'Laboratory', title:'Laboratory of 2', description:'Interactive pairing, parity, powers-of-two, binary conversion, and Newton approximations to √2.', keywords:'two 2 lab laboratory pair pairing parity even odd powers binary translator bits Newton method sqrt2 square root interactive' },
+
+    { path:'three.html', page:'three', group:'Gallery 003 · Number 3', number:3, room:'Curator’s Overview', title:'3 — Prime, Triangle, Triad', description:'An overview of 3 as the first odd prime, second triangular number, base of ternary, and a gateway to threefold geometry and triplets.', keywords:'three 3 prime first odd prime triangle triangular triad ternary cube roots unity one plus two' },
+    { path:'three-mathematics.html', page:'three-mathematics', group:'Gallery 003 · Number 3', number:3, room:'Mathematics', title:'Mathematics of 3 — Triangle Reactor', description:'Prime structure, triangular numbers, modulo 3, digit-sum divisibility, arithmetic functions, ternary, cubes, cube roots of unity, C3, Fermat and Mersenne connections.', keywords:'three 3 mathematics prime triangular modulo residues digit sum divisibility ternary balanced ternary cube cubic roots unity omega 120 degrees C3 cyclic group Fermat Mersenne tau sigma phi mu' },
+    { path:'three-history.html', page:'three-history', group:'Gallery 003 · Number 3', number:3, room:'History', title:'History of 3', description:'Numeral traditions for three plus a separate history of cubic equations and the classical problem of angle trisection.', keywords:'three 3 history numeral III Roman Brahmi Gupta Nagari Arabic Indic Devanagari Chinese cubic Cardano Tartaglia del Ferro Ars Magna trisection Wantzel' },
+    { path:'three-significance.html', page:'three-significance', group:'Gallery 003 · Number 3', number:3, room:'Significance', title:'Why 3 Matters — Triplet Universe', description:'Triangle rigidity, three coordinates, RGB channels, genetic codon triplets, C3 symmetry, ternary information, lithium, musical triads, and the three-body problem.', keywords:'three 3 significance triangle rigidity coordinates 3D RGB red green blue codon triplet genetics 64 C3 symmetry ternary lithium atomic number music triad three body Lagrange' },
+    { path:'three-lab.html', page:'three-lab', group:'Gallery 003 · Number 3', number:3, room:'Laboratory', title:'Laboratory of 3', description:'Interactive triplet grouping, divisibility-by-3, powers of three, ordinary and balanced ternary, cube roots of unity, and triangle testing with Heron’s formula.', keywords:'three 3 lab laboratory triplet divisibility digit sum powers ternary balanced ternary roots unity omega triangle inequality Heron area interactive' }
+  ];
+
+  window.NUMBERS_MUSEUM_PAGES = PAGES;
+
+  const uiStyles = document.createElement('link');
+  uiStyles.rel = 'stylesheet';
+  uiStyles.href = 'museum-ui.css';
+  document.head.appendChild(uiStyles);
+
+  function pageNumber() {
+    if (document.body.dataset.number) return Number(document.body.dataset.number);
+    if (['one','mathematics','history','significance','lab'].includes(current)) return 1;
+    if (current?.startsWith('two')) return 2;
+    if (current?.startsWith('three')) return 3;
+    return null;
+  }
+
   // Preserve older gallery navigation while exposing every open number museum.
   document.querySelectorAll('.nav').forEach(nav => {
+    if (current === 'home') {
+      nav.querySelectorAll('a[href="mathematics.html"],a[href="history.html"],a[href="lab.html"]').forEach(a => a.remove());
+    }
     if (!nav.querySelector('a[href="two.html"]')) {
       const oneLink = nav.querySelector('a[href="one.html"]');
       const twoLink = document.createElement('a');
-      twoLink.href = 'two.html';
-      twoLink.dataset.page = 'two';
-      twoLink.textContent = 'Exhibit 2';
+      twoLink.href = 'two.html'; twoLink.dataset.page = 'two'; twoLink.textContent = 'Exhibit 2';
       if (oneLink) oneLink.insertAdjacentElement('afterend', twoLink); else nav.appendChild(twoLink);
     }
     if (!nav.querySelector('a[href="three.html"]')) {
       const twoLink = nav.querySelector('a[href="two.html"]');
       const threeLink = document.createElement('a');
-      threeLink.href = 'three.html';
-      threeLink.dataset.page = 'three';
-      threeLink.textContent = 'Exhibit 3';
+      threeLink.href = 'three.html'; threeLink.dataset.page = 'three'; threeLink.textContent = 'Exhibit 3';
       if (twoLink) twoLink.insertAdjacentElement('afterend', threeLink); else nav.appendChild(threeLink);
+    }
+    if (!nav.querySelector('a[href="directory.html"]')) {
+      const directoryLink = document.createElement('a');
+      directoryLink.href = 'directory.html'; directoryLink.dataset.page = 'directory'; directoryLink.textContent = 'All Pages';
+      nav.appendChild(directoryLink);
+    }
+    if (!nav.querySelector('.nav-search-trigger')) {
+      const searchButton = document.createElement('button');
+      searchButton.type = 'button'; searchButton.className = 'nav-search-trigger'; searchButton.textContent = '⌕ Search';
+      searchButton.setAttribute('aria-label', 'Search the entire Numbers Museum');
+      nav.appendChild(searchButton);
     }
   });
   document.querySelectorAll('.nav a').forEach(a => {
     if (a.dataset.page === current) a.setAttribute('aria-current', 'page');
   });
 
-  const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+  function normalize(value) {
+    return String(value ?? '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function matchingPages(query, number = null) {
+    const words = normalize(query).trim().split(/\s+/).filter(Boolean);
+    const candidates = number == null ? PAGES : PAGES.filter(page => page.number === number);
+    if (!words.length) return candidates;
+    return candidates.map(page => {
+      const title = normalize(page.title);
+      const description = normalize(page.description);
+      const keywords = normalize(page.keywords);
+      const room = normalize(page.room);
+      const path = normalize(page.path);
+      const numberWords = page.number === 1 ? '1 one unity' : page.number === 2 ? '2 two pair dual' : page.number === 3 ? '3 three triad triple' : '';
+      const haystack = `${title} ${description} ${keywords} ${room} ${path} ${numberWords}`;
+      if (!words.every(word => haystack.includes(word))) return null;
+      let score = 0;
+      words.forEach(word => {
+        if (title.includes(word)) score += 9;
+        if (room.includes(word)) score += 6;
+        if (keywords.includes(word)) score += 4;
+        if (description.includes(word)) score += 2;
+        if (path.includes(word)) score += 1;
+      });
+      return { ...page, score };
+    }).filter(Boolean).sort((a,b) => b.score - a.score || a.title.localeCompare(b.title));
+  }
+
+  function makeSearchResult(page, compact = false) {
+    const link = document.createElement('a');
+    link.href = page.path;
+    link.dataset.number = page.number ?? '';
+    link.className = compact ? 'exhibit-mini-result' : 'search-result';
+    if (compact) {
+      const title = document.createElement('b'); title.textContent = page.room;
+      const desc = document.createElement('span'); desc.textContent = page.description;
+      link.append(title, desc);
+      return link;
+    }
+    const badge = document.createElement('span'); badge.className = 'search-result-badge'; badge.textContent = page.number ?? '∞';
+    const copy = document.createElement('div');
+    const title = document.createElement('strong'); title.textContent = page.title;
+    const desc = document.createElement('p'); desc.textContent = page.description;
+    copy.append(title, desc);
+    const room = document.createElement('span'); room.className = 'search-result-room'; room.textContent = page.group === 'Museum' ? page.room : `${page.group} · ${page.room}`;
+    link.append(badge, copy, room);
+    return link;
+  }
+
+  function buildGlobalSearch() {
+    const overlay = document.createElement('div');
+    overlay.className = 'search-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.innerHTML = `<div class="search-dialog" role="dialog" aria-modal="true" aria-label="Search the Numbers Museum"><div class="search-dialog-head"><input type="search" autocomplete="off" placeholder="Search every gallery…" aria-label="Search all museum pages"><button class="search-close" type="button" aria-label="Close search">×</button></div><div class="search-hint">Search all pages · try “prime”, “Brahmi”, “binary”, “roots of unity”, “codon”, “triangle”, or “certainty” · Ctrl/⌘ K</div><div class="search-results" aria-live="polite"></div></div>`;
+    document.body.appendChild(overlay);
+    const input = overlay.querySelector('input');
+    const results = overlay.querySelector('.search-results');
+    const close = overlay.querySelector('.search-close');
+
+    const render = () => {
+      const matches = matchingPages(input.value).slice(0, 12);
+      results.innerHTML = '';
+      if (!matches.length) {
+        const empty = document.createElement('div'); empty.className = 'search-empty'; empty.textContent = 'No museum room matches that search yet.'; results.appendChild(empty); return;
+      }
+      matches.forEach(page => results.appendChild(makeSearchResult(page)));
+    };
+    const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); render(); requestAnimationFrame(() => input.focus()); };
+    const shut = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); };
+    document.querySelectorAll('.nav-search-trigger').forEach(button => button.addEventListener('click', open));
+    close.addEventListener('click', shut);
+    overlay.addEventListener('click', e => { if (e.target === overlay) shut(); });
+    input.addEventListener('input', render);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const first = results.querySelector('a');
+        if (first) location.href = first.href;
+      }
     });
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); overlay.classList.contains('open') ? shut() : open(); }
+      else if (e.key === 'Escape' && overlay.classList.contains('open')) shut();
+    });
+  }
+  buildGlobalSearch();
+
+  function buildExhibitSearch() {
+    const number = pageNumber();
+    const header = document.querySelector('.site-header');
+    if (!number || !header) return;
+    const strip = document.createElement('div');
+    strip.className = 'exhibit-search-strip';
+    strip.innerHTML = `<div class="exhibit-search-inner"><div class="exhibit-search-label">Search Exhibit ${number}</div><div class="exhibit-search-box"><input type="search" autocomplete="off" placeholder="Search all rooms about ${number}…" aria-label="Search Exhibit ${number}"><div class="exhibit-search-results"></div></div></div>`;
+    header.insertAdjacentElement('afterend', strip);
+    const input = strip.querySelector('input');
+    const results = strip.querySelector('.exhibit-search-results');
+    const render = () => {
+      const matches = matchingPages(input.value, number);
+      results.innerHTML = '';
+      if (!matches.length) {
+        const empty = document.createElement('div'); empty.className = 'search-empty'; empty.textContent = `No room in Exhibit ${number} matches that search.`; results.appendChild(empty);
+      } else {
+        matches.forEach(page => results.appendChild(makeSearchResult(page, true)));
+      }
+      results.classList.add('open');
+    };
+    input.addEventListener('focus', render);
+    input.addEventListener('input', render);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const first = results.querySelector('a');
+        if (first) location.href = first.href;
+      } else if (e.key === 'Escape') results.classList.remove('open');
+    });
+    document.addEventListener('click', e => { if (!strip.contains(e.target)) results.classList.remove('open'); });
+  }
+  buildExhibitSearch();
+
+  function renderDirectory(query = '') {
+    const host = document.getElementById('pageDirectory');
+    if (!host) return;
+    const summary = document.getElementById('directorySummary');
+    const pages = matchingPages(query).filter(page => page.path !== 'directory.html');
+    host.innerHTML = '';
+    const groups = ['Museum','Gallery 001 · Number 1','Gallery 002 · Number 2','Gallery 003 · Number 3'];
+    groups.forEach(group => {
+      const items = pages.filter(page => page.group === group);
+      if (!items.length) return;
+      const section = document.createElement('section'); section.className = 'directory-group';
+      const head = document.createElement('div'); head.className = 'directory-group-head';
+      const titleWrap = document.createElement('div');
+      const eyebrow = document.createElement('div'); eyebrow.className = 'eyebrow'; eyebrow.textContent = group === 'Museum' ? 'Museum shell' : group.split(' · ')[0];
+      const title = document.createElement('h2'); title.textContent = group === 'Museum' ? 'Shared museum pages' : group.split(' · ')[1];
+      titleWrap.append(eyebrow, title);
+      const count = document.createElement('div'); count.className = 'directory-group-count'; count.textContent = `${items.length} page${items.length === 1 ? '' : 's'}`;
+      head.append(titleWrap, count);
+      const grid = document.createElement('div'); grid.className = 'directory-grid';
+      items.forEach(page => {
+        const card = document.createElement('a'); card.className = 'directory-card'; card.href = page.path; card.dataset.number = page.number ?? '';
+        const kicker = document.createElement('div'); kicker.className = 'dir-kicker'; kicker.textContent = page.room;
+        const h3 = document.createElement('h3'); h3.textContent = page.title;
+        const p = document.createElement('p'); p.textContent = page.description;
+        const arrow = document.createElement('span'); arrow.className = 'dir-arrow'; arrow.textContent = '↗';
+        card.append(kicker,h3,p,arrow); grid.appendChild(card);
+      });
+      section.append(head, grid); host.appendChild(section);
+    });
+    if (!pages.length) {
+      const empty = document.createElement('div'); empty.className = 'search-empty'; empty.textContent = 'No pages match this filter.'; host.appendChild(empty);
+    }
+    if (summary) summary.textContent = `${pages.length} page${pages.length === 1 ? '' : 's'} shown${query ? ` for “${query}”` : ''}`;
+  }
+  const directoryFilter = document.getElementById('directoryFilter');
+  if (directoryFilter) {
+    directoryFilter.addEventListener('input', () => renderDirectory(directoryFilter.value));
+    renderDirectory('');
+  }
+
+  const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: .12 }) : null;
   document.querySelectorAll('.reveal').forEach(el => observer ? observer.observe(el) : el.classList.add('visible'));
 
@@ -42,40 +250,30 @@
       const x = Number(identityInput.value);
       identityResult.textContent = Number.isFinite(x) ? `1 × ${formatNumber(x)} = ${formatNumber(x)}` : 'Enter a finite number';
     };
-    identityInput.addEventListener('input', update);
-    update();
+    identityInput.addEventListener('input', update); update();
   }
 
   const powerSlider = document.getElementById('powerSlider');
   const powerResult = document.getElementById('powerResult');
   if (powerSlider && powerResult) {
-    const update = () => {
-      const n = Number(powerSlider.value);
-      powerResult.innerHTML = `1<sup>${n}</sup> = 1`;
-    };
-    powerSlider.addEventListener('input', update);
-    update();
+    const update = () => { const n = Number(powerSlider.value); powerResult.innerHTML = `1<sup>${n}</sup> = 1`; };
+    powerSlider.addEventListener('input', update); update();
   }
 
   const baseSelect = document.getElementById('baseSelect');
   const baseResult = document.getElementById('baseResult');
   if (baseSelect && baseResult) {
-    const labels = { decimal: '1', binary: '1', octal: '1', hexadecimal: '1', roman: 'I', unary: '|', arabicIndic: '١', devanagari: '१', chinese: '一' };
-    const names = { decimal: 'Decimal', binary: 'Binary', octal: 'Octal', hexadecimal: 'Hexadecimal', roman: 'Roman numeral', unary: 'Unary tally', arabicIndic: 'Arabic-Indic', devanagari: 'Devanagari', chinese: 'Chinese numeral' };
+    const labels = { decimal:'1', binary:'1', octal:'1', hexadecimal:'1', roman:'I', unary:'|', arabicIndic:'١', devanagari:'१', chinese:'一' };
+    const names = { decimal:'Decimal', binary:'Binary', octal:'Octal', hexadecimal:'Hexadecimal', roman:'Roman numeral', unary:'Unary tally', arabicIndic:'Arabic-Indic', devanagari:'Devanagari', chinese:'Chinese numeral' };
     const update = () => baseResult.innerHTML = `<span>${labels[baseSelect.value]}</span><small style="display:block;font-family:Inter,sans-serif;color:var(--muted);font-size:.85rem;margin-top:8px">${names[baseSelect.value]}</small>`;
-    baseSelect.addEventListener('change', update);
-    update();
+    baseSelect.addEventListener('change', update); update();
   }
 
   const certainty = document.getElementById('certainty');
   const certaintyResult = document.getElementById('certaintyResult');
   if (certainty && certaintyResult) {
-    const update = () => {
-      const p = Number(certainty.value) / 100;
-      certaintyResult.textContent = `P = ${p.toFixed(2)}${p === 1 ? ' — certainty' : ''}`;
-    };
-    certainty.addEventListener('input', update);
-    update();
+    const update = () => { const p = Number(certainty.value) / 100; certaintyResult.textContent = `P = ${p.toFixed(2)}${p === 1 ? ' — certainty' : ''}`; };
+    certainty.addEventListener('input', update); update();
   }
 
   // ---------------- Number 2 laboratory (preserved) ----------------
@@ -85,8 +283,7 @@
   if (pairCount && pairSummary && pairViz) {
     const update = () => {
       const n = Math.max(0, Math.min(20, Math.round(Number(pairCount.value))));
-      const pairs = Math.floor(n / 2);
-      const remainder = n % 2;
+      const pairs = Math.floor(n / 2), remainder = n % 2;
       pairSummary.textContent = `${n} object${n === 1 ? '' : 's'} = ${pairs} pair${pairs === 1 ? '' : 's'}${remainder ? ' + 1 unpaired' : ' + 0 unpaired'}`;
       pairViz.innerHTML = '';
       for (let i = 0; i < n; i++) {
@@ -97,8 +294,7 @@
         pairViz.appendChild(token);
       }
     };
-    pairCount.addEventListener('input', update);
-    update();
+    pairCount.addEventListener('input', update); update();
   }
 
   const parityInput = document.getElementById('parityInput');
@@ -106,21 +302,14 @@
   if (parityInput && parityResult) {
     const update = () => {
       const raw = Number(parityInput.value);
-      if (!Number.isFinite(raw) || !Number.isInteger(raw)) {
-        parityResult.textContent = 'Enter an integer';
-        return;
-      }
-      const even = raw % 2 === 0;
-      if (even) {
-        parityResult.textContent = `${raw} = 2 × ${raw / 2} → EVEN`;
-      } else {
-        const q = Math.trunc(raw / 2);
-        const r = raw - 2 * q;
+      if (!Number.isFinite(raw) || !Number.isInteger(raw)) { parityResult.textContent = 'Enter an integer'; return; }
+      if (raw % 2 === 0) parityResult.textContent = `${raw} = 2 × ${raw / 2} → EVEN`;
+      else {
+        const q = Math.trunc(raw / 2), r = raw - 2 * q;
         parityResult.textContent = `${raw} = 2 × ${q} ${r > 0 ? '+ 1' : '− 1'} → ODD`;
       }
     };
-    parityInput.addEventListener('input', update);
-    update();
+    parityInput.addEventListener('input', update); update();
   }
 
   const powerTwoSlider = document.getElementById('powerTwoSlider');
@@ -129,12 +318,10 @@
   if (powerTwoSlider && powerTwoResult) {
     const update = () => {
       const n = Math.max(0, Math.min(30, Math.round(Number(powerTwoSlider.value))));
-      const value = 2 ** n;
-      powerTwoResult.innerHTML = `2<sup>${n}</sup> = ${value.toLocaleString('en-US')}`;
+      powerTwoResult.innerHTML = `2<sup>${n}</sup> = ${(2 ** n).toLocaleString('en-US')}`;
       if (powerTwoLabel) powerTwoLabel.textContent = n;
     };
-    powerTwoSlider.addEventListener('input', update);
-    update();
+    powerTwoSlider.addEventListener('input', update); update();
   }
 
   const binaryInput = document.getElementById('binaryInput');
@@ -143,24 +330,15 @@
   if (binaryInput && binaryResult && binaryStrip) {
     const update = () => {
       const raw = Number(binaryInput.value);
-      if (!Number.isInteger(raw) || raw < 0 || raw > 255) {
-        binaryResult.textContent = 'Enter an integer from 0 to 255';
-        binaryStrip.innerHTML = '';
-        return;
-      }
+      if (!Number.isInteger(raw) || raw < 0 || raw > 255) { binaryResult.textContent = 'Enter an integer from 0 to 255'; binaryStrip.innerHTML = ''; return; }
       const bits = raw.toString(2).padStart(8, '0');
       binaryResult.innerHTML = `${raw}<sub>10</sub> = ${raw.toString(2)}<sub>2</sub>`;
       binaryStrip.innerHTML = '';
-      bits.split('').forEach((bit, index) => {
-        const cell = document.createElement('span');
-        cell.className = `binary-bit${bit === '1' ? ' on' : ''}`;
-        cell.textContent = bit;
-        cell.title = `${2 ** (7 - index)}s place`;
-        binaryStrip.appendChild(cell);
+      bits.split('').forEach((bit,index) => {
+        const cell = document.createElement('span'); cell.className = `binary-bit${bit === '1' ? ' on' : ''}`; cell.textContent = bit; cell.title = `${2 ** (7-index)}s place`; binaryStrip.appendChild(cell);
       });
     };
-    binaryInput.addEventListener('input', update);
-    update();
+    binaryInput.addEventListener('input', update); update();
   }
 
   const sqrtIterations = document.getElementById('sqrtIterations');
@@ -169,21 +347,16 @@
   if (sqrtIterations && sqrtResult) {
     const update = () => {
       const iterations = Math.max(0, Math.min(7, Math.round(Number(sqrtIterations.value))));
-      let x = 1;
-      const trail = [x];
-      for (let i = 0; i < iterations; i++) {
-        x = (x + 2 / x) / 2;
-        trail.push(x);
-      }
+      let x = 1; const trail = [x];
+      for (let i=0;i<iterations;i++) { x = (x + 2/x)/2; trail.push(x); }
       const error = Math.abs(x - Math.SQRT2);
       sqrtResult.innerHTML = `x<sub>${iterations}</sub> = ${x.toPrecision(14)}`;
       if (sqrtDetail) sqrtDetail.textContent = `${iterations} Newton iteration${iterations === 1 ? '' : 's'} · absolute error ≈ ${error.toExponential(3)}${iterations ? ` · path: ${trail.map(v => Number(v.toFixed(8))).join(' → ')}` : ''}`;
     };
-    sqrtIterations.addEventListener('input', update);
-    update();
+    sqrtIterations.addEventListener('input', update); update();
   }
 
-  // ---------------- Number 3 laboratory ----------------
+  // ---------------- Number 3 laboratory (preserved) ----------------
   const tripletCount = document.getElementById('tripletCount');
   const tripletCountLabel = document.getElementById('tripletCountLabel');
   const tripletSummary = document.getElementById('tripletSummary');
@@ -191,22 +364,20 @@
   if (tripletCount && tripletSummary && tripletViz) {
     const update = () => {
       const n = Math.max(0, Math.min(24, Math.round(Number(tripletCount.value))));
-      const groups = Math.floor(n / 3);
-      const remainder = n % 3;
+      const groups = Math.floor(n/3), remainder = n%3;
       if (tripletCountLabel) tripletCountLabel.textContent = n;
       tripletSummary.textContent = `${n} object${n === 1 ? '' : 's'} = 3 × ${groups} + ${remainder} · remainder ${remainder}`;
       tripletViz.innerHTML = '';
-      for (let i = 0; i < n; i++) {
+      for (let i=0;i<n;i++) {
         const token = document.createElement('span');
-        const isRemainder = remainder > 0 && i >= n - remainder;
+        const isRemainder = remainder > 0 && i >= n-remainder;
         token.className = `triplet-token${isRemainder ? ' remainder' : ''}`;
-        token.textContent = i + 1;
-        token.title = isRemainder ? `Remainder object ${i - (n - remainder) + 1}` : `Triplet ${Math.floor(i / 3) + 1}`;
+        token.textContent = i+1;
+        token.title = isRemainder ? `Remainder object ${i-(n-remainder)+1}` : `Triplet ${Math.floor(i/3)+1}`;
         tripletViz.appendChild(token);
       }
     };
-    tripletCount.addEventListener('input', update);
-    update();
+    tripletCount.addEventListener('input', update); update();
   }
 
   const div3Input = document.getElementById('div3Input');
@@ -215,22 +386,16 @@
   if (div3Input && div3Result) {
     const update = () => {
       const raw = div3Input.value.trim();
-      if (!/^[+-]?\d+$/.test(raw)) {
-        div3Result.textContent = 'Enter a decimal integer';
-        if (div3Steps) div3Steps.textContent = '';
-        return;
-      }
-      const digits = raw.replace(/^[+-]/, '').split('').map(Number);
-      const sum = digits.reduce((a, b) => a + b, 0);
-      const divisible = sum % 3 === 0;
+      if (!/^[+-]?\d+$/.test(raw)) { div3Result.textContent = 'Enter a decimal integer'; if (div3Steps) div3Steps.textContent=''; return; }
+      const digits = raw.replace(/^[+-]/,'').split('').map(Number);
+      const sum = digits.reduce((a,b) => a+b,0), divisible = sum%3===0;
       div3Result.textContent = `${divisible ? 'DIVISIBLE BY 3' : 'NOT DIVISIBLE BY 3'} · digit sum = ${sum}`;
       if (div3Steps) {
-        const preview = digits.length <= 28 ? digits.join(' + ') : `${digits.slice(0, 12).join(' + ')} + … + ${digits.slice(-12).join(' + ')}`;
-        div3Steps.textContent = `${preview} = ${sum}; ${sum} mod 3 = ${sum % 3}.`;
+        const preview = digits.length <= 28 ? digits.join(' + ') : `${digits.slice(0,12).join(' + ')} + … + ${digits.slice(-12).join(' + ')}`;
+        div3Steps.textContent = `${preview} = ${sum}; ${sum} mod 3 = ${sum%3}.`;
       }
     };
-    div3Input.addEventListener('input', update);
-    update();
+    div3Input.addEventListener('input', update); update();
   }
 
   const powerThreeSlider = document.getElementById('powerThreeSlider');
@@ -243,26 +408,17 @@
       if (powerThreeLabel) powerThreeLabel.textContent = n;
       powerThreeResult.innerHTML = `3<sup>${n}</sup> = ${value.toLocaleString('en-US')} <small style="display:block;font-family:Inter,sans-serif;color:var(--muted);font-size:.84rem;margin-top:8px">${n} ternary digit${n === 1 ? '' : 's'} can form ${value.toLocaleString('en-US')} strings</small>`;
     };
-    powerThreeSlider.addEventListener('input', update);
-    update();
+    powerThreeSlider.addEventListener('input', update); update();
   }
 
   function toBalancedTernary(number) {
     if (number === 0) return '0';
-    let n = number;
-    const out = [];
+    let n = number; const out = [];
     while (n !== 0) {
       const r = ((n % 3) + 3) % 3;
-      if (r === 0) {
-        out.push('0');
-        n /= 3;
-      } else if (r === 1) {
-        out.push('+');
-        n = (n - 1) / 3;
-      } else {
-        out.push('−');
-        n = (n + 1) / 3;
-      }
+      if (r === 0) { out.push('0'); n /= 3; }
+      else if (r === 1) { out.push('+'); n = (n-1)/3; }
+      else { out.push('−'); n = (n+1)/3; }
     }
     return out.reverse().join('');
   }
@@ -274,233 +430,88 @@
   if (ternaryInput && ternaryResult && ternaryDisplay) {
     const update = () => {
       const raw = Number(ternaryInput.value);
-      if (!Number.isInteger(raw) || raw < -100000 || raw > 100000) {
-        ternaryResult.textContent = 'Enter an integer from −100000 to 100000';
-        ternaryDisplay.innerHTML = '';
-        if (balancedResult) balancedResult.textContent = '';
-        return;
-      }
+      if (!Number.isInteger(raw) || raw < -100000 || raw > 100000) { ternaryResult.textContent='Enter an integer from −100000 to 100000'; ternaryDisplay.innerHTML=''; if (balancedResult) balancedResult.textContent=''; return; }
       const ordinary = `${raw < 0 ? '−' : ''}${Math.abs(raw).toString(3)}`;
       ternaryResult.innerHTML = `${raw}<sub>10</sub> = ${ordinary}<sub>3</sub>`;
       ternaryDisplay.innerHTML = '';
-      Math.abs(raw).toString(3).split('').forEach(digit => {
-        const cell = document.createElement('span');
-        cell.className = `trit ${digit === '0' ? 'zero' : digit === '1' ? 'one' : 'two'}`;
-        cell.textContent = digit;
-        ternaryDisplay.appendChild(cell);
-      });
+      Math.abs(raw).toString(3).split('').forEach(digit => { const cell=document.createElement('span'); cell.className=`trit ${digit==='0'?'zero':digit==='1'?'one':'two'}`; cell.textContent=digit; ternaryDisplay.appendChild(cell); });
       if (balancedResult) balancedResult.textContent = `Balanced ternary: ${toBalancedTernary(raw)} · symbols mean +1, 0, −1 at successive powers of 3.`;
     };
-    ternaryInput.addEventListener('input', update);
-    update();
+    ternaryInput.addEventListener('input', update); update();
   }
 
   const rootThreeSelect = document.getElementById('rootThreeSelect');
   const rootThreeLabel = document.getElementById('rootThreeLabel');
   const rootThreeResult = document.getElementById('rootThreeResult');
   if (rootThreeSelect && rootThreeResult) {
-    const labels = [
-      '1 = 1 + 0i · angle 0°',
-      'ω = −1/2 + (√3/2)i · angle 120°',
-      'ω² = −1/2 − (√3/2)i · angle 240°'
-    ];
+    const labels = ['1 = 1 + 0i · angle 0°','ω = −1/2 + (√3/2)i · angle 120°','ω² = −1/2 − (√3/2)i · angle 240°'];
     const update = () => {
-      const k = Math.max(0, Math.min(2, Math.round(Number(rootThreeSelect.value))));
+      const k = Math.max(0,Math.min(2,Math.round(Number(rootThreeSelect.value))));
       if (rootThreeLabel) rootThreeLabel.textContent = k;
       rootThreeResult.textContent = labels[k];
-      [0, 1, 2].forEach(i => document.getElementById(`root${i}`)?.classList.toggle('active', i === k));
+      [0,1,2].forEach(i => document.getElementById(`root${i}`)?.classList.toggle('active',i===k));
     };
-    rootThreeSelect.addEventListener('input', update);
-    update();
+    rootThreeSelect.addEventListener('input', update); update();
   }
 
-  const sideA = document.getElementById('sideA');
-  const sideB = document.getElementById('sideB');
-  const sideC = document.getElementById('sideC');
-  const triangleResult = document.getElementById('triangleResult');
-  const triangleShape = document.getElementById('triangleShape');
+  const sideA = document.getElementById('sideA'), sideB = document.getElementById('sideB'), sideC = document.getElementById('sideC');
+  const triangleResult = document.getElementById('triangleResult'), triangleShape = document.getElementById('triangleShape');
   if (sideA && sideB && sideC && triangleResult) {
     const update = () => {
-      const a = Number(sideA.value), b = Number(sideB.value), c = Number(sideC.value);
-      const finitePositive = [a, b, c].every(v => Number.isFinite(v) && v > 0);
-      const valid = finitePositive && a + b > c && a + c > b && b + c > a;
-      triangleShape?.classList.toggle('invalid', !valid);
-      if (!valid) {
-        triangleResult.textContent = 'NO NONDEGENERATE TRIANGLE · each pair of sides must sum to more than the third';
-        return;
-      }
-      const s = (a + b + c) / 2;
-      const area = Math.sqrt(Math.max(0, s * (s - a) * (s - b) * (s - c)));
-      const eps = 1e-9 * Math.max(a, b, c, 1);
-      const eq = (x, y) => Math.abs(x - y) <= eps;
-      const type = eq(a, b) && eq(b, c) ? 'equilateral' : (eq(a, b) || eq(a, c) || eq(b, c)) ? 'isosceles' : 'scalene';
-      triangleResult.textContent = `${type.toUpperCase()} · perimeter = ${formatNumber(a + b + c)} · area = ${formatNumber(area)}`;
+      const a=Number(sideA.value), b=Number(sideB.value), c=Number(sideC.value);
+      const finitePositive=[a,b,c].every(v => Number.isFinite(v)&&v>0);
+      const valid=finitePositive&&a+b>c&&a+c>b&&b+c>a;
+      triangleShape?.classList.toggle('invalid',!valid);
+      if (!valid) { triangleResult.textContent='NO NONDEGENERATE TRIANGLE · each pair of sides must sum to more than the third'; return; }
+      const s=(a+b+c)/2, area=Math.sqrt(Math.max(0,s*(s-a)*(s-b)*(s-c)));
+      const eps=1e-9*Math.max(a,b,c,1), eq=(x,y)=>Math.abs(x-y)<=eps;
+      const type=eq(a,b)&&eq(b,c)?'equilateral':(eq(a,b)||eq(a,c)||eq(b,c))?'isosceles':'scalene';
+      triangleResult.textContent=`${type.toUpperCase()} · perimeter = ${formatNumber(a+b+c)} · area = ${formatNumber(area)}`;
     };
-    [sideA, sideB, sideC].forEach(input => input.addEventListener('input', update));
-    update();
+    [sideA,sideB,sideC].forEach(input => input.addEventListener('input',update)); update();
   }
 
   function formatNumber(n) {
-    if (Math.abs(n) >= 1e7 || (Math.abs(n) > 0 && Math.abs(n) < 1e-5)) return n.toExponential(4);
+    if (Math.abs(n) >= 1e7 || (Math.abs(n)>0 && Math.abs(n)<1e-5)) return n.toExponential(4);
     return String(Number(n.toFixed(8)));
   }
 
   function initAtlas(canvas) {
-    const ctx = canvas.getContext('2d');
-    let center = 0;
-    let unitsPerScreen = 12;
-    let dragging = false;
-    let lastX = 0;
-    let hoverValue = null;
-    const status = document.getElementById('atlasStatus');
-    const exhibits = [
-      { value: 1, url: 'one.html', color: '#d6ad58', glow: 'rgba(214,173,88,.8)', name: '1' },
-      { value: 2, url: 'two.html', color: '#6be7ff', glow: 'rgba(107,231,255,.85)', name: '2' },
-      { value: 3, url: 'three.html', color: '#dfff72', glow: 'rgba(223,255,114,.85)', name: '3' }
+    const ctx=canvas.getContext('2d');
+    let center=0, unitsPerScreen=12, dragging=false, lastX=0, hoverValue=null;
+    const status=document.getElementById('atlasStatus');
+    const exhibits=[
+      {value:1,url:'one.html',color:'#d6ad58',glow:'rgba(214,173,88,.8)',name:'1'},
+      {value:2,url:'two.html',color:'#6be7ff',glow:'rgba(107,231,255,.85)',name:'2'},
+      {value:3,url:'three.html',color:'#dfff72',glow:'rgba(223,255,114,.85)',name:'3'}
     ];
-
-    function resize() {
-      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = Math.round(rect.width * dpr);
-      canvas.height = Math.round(rect.height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      draw();
+    function resize(){const dpr=Math.max(1,Math.min(2,window.devicePixelRatio||1));const rect=canvas.getBoundingClientRect();canvas.width=Math.round(rect.width*dpr);canvas.height=Math.round(rect.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
+    function niceStep(raw){const power=Math.pow(10,Math.floor(Math.log10(raw)));const fraction=raw/power;const nice=fraction<1.5?1:fraction<3?2:fraction<7?5:10;return nice*power;}
+    function xFor(value,width){return width/2+(value-center)*width/unitsPerScreen;}
+    function valueFor(x,width){return center+(x-width/2)*unitsPerScreen/width;}
+    function exhibitAtTick(v,step){return exhibits.find(item=>Math.abs(v-item.value)<step*1e-8);}
+    function draw(){
+      const rect=canvas.getBoundingClientRect(),w=rect.width,h=rect.height;ctx.clearRect(0,0,w,h);const axisY=h*.53;
+      const gradient=ctx.createLinearGradient(0,0,w,0);gradient.addColorStop(0,'rgba(245,241,232,.08)');gradient.addColorStop(.43,'rgba(214,173,88,.12)');gradient.addColorStop(.52,'rgba(107,231,255,.12)');gradient.addColorStop(.61,'rgba(223,255,114,.12)');gradient.addColorStop(1,'rgba(245,241,232,.08)');ctx.fillStyle=gradient;ctx.fillRect(0,axisY-1,w,2);
+      ctx.fillStyle='rgba(245,241,232,.5)';ctx.font='12px Inter, system-ui, sans-serif';ctx.fillText('−∞',18,axisY-20);ctx.fillText('∞',w-26,axisY-20);
+      const rawStep=unitsPerScreen/9,step=niceStep(rawStep),start=Math.floor((center-unitsPerScreen/2)/step)*step,end=center+unitsPerScreen/2,decimals=Math.max(0,-Math.floor(Math.log10(step))+1);
+      for(let v=start;v<=end+step;v+=step){const x=xFor(v,w);if(x<-40||x>w+40)continue;const open=exhibitAtTick(v,step);ctx.strokeStyle=open?open.color:'rgba(245,241,232,.35)';ctx.lineWidth=open?2:1;ctx.beginPath();ctx.moveTo(x,axisY-(open?18:9));ctx.lineTo(x,axisY+(open?18:9));ctx.stroke();ctx.fillStyle=open?open.color:'rgba(245,241,232,.72)';ctx.font=open?'700 14px Inter, system-ui, sans-serif':'12px Inter, system-ui, sans-serif';const label=Math.abs(v)<step*1e-8?'0':Number(v.toFixed(decimals)).toString();const tw=ctx.measureText(label).width;ctx.fillText(label,x-tw/2,axisY+34);}
+      exhibits.forEach((item,index)=>{const x=xFor(item.value,w);if(x<-50||x>w+50)return;ctx.beginPath();ctx.arc(x,axisY,7,0,Math.PI*2);ctx.fillStyle=item.color;ctx.fill();ctx.shadowColor=item.glow;ctx.shadowBlur=20;ctx.fill();ctx.shadowBlur=0;ctx.fillStyle='#f5f1e8';ctx.font='600 12px Inter, system-ui, sans-serif';const offset=index===0?-82:16;const labelX=Math.max(8,Math.min(w-90,x+offset));ctx.fillText(`OPEN · ${item.name}`,labelX,axisY-26);});
+      if(hoverValue!==null){const hx=xFor(hoverValue,w);if(hx>=0&&hx<=w){ctx.strokeStyle='rgba(122,184,255,.38)';ctx.beginPath();ctx.moveTo(hx,52);ctx.lineTo(hx,h-42);ctx.stroke();const text=formatNumber(hoverValue);ctx.font='13px Inter, system-ui, sans-serif';const tw=ctx.measureText(text).width,bx=Math.max(8,Math.min(w-tw-24,hx-tw/2-10));ctx.fillStyle='rgba(17,19,24,.96)';ctx.fillRect(bx,18,tw+20,28);ctx.strokeStyle='rgba(255,255,255,.12)';ctx.strokeRect(bx,18,tw+20,28);ctx.fillStyle='#f5f1e8';ctx.fillText(text,bx+10,37);}}
+      if(status)status.textContent=`Viewing approximately ${formatNumber(center-unitsPerScreen/2)} to ${formatNumber(center+unitsPerScreen/2)} · exhibits 1, 2, and 3 are open · scroll to zoom · drag to pan`;
     }
-
-    function niceStep(raw) {
-      const power = Math.pow(10, Math.floor(Math.log10(raw)));
-      const fraction = raw / power;
-      const nice = fraction < 1.5 ? 1 : fraction < 3 ? 2 : fraction < 7 ? 5 : 10;
-      return nice * power;
-    }
-
-    function xFor(value, width) { return width / 2 + (value - center) * width / unitsPerScreen; }
-    function valueFor(x, width) { return center + (x - width / 2) * unitsPerScreen / width; }
-    function exhibitAtTick(v, step) { return exhibits.find(item => Math.abs(v - item.value) < step * 1e-8); }
-
-    function draw() {
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width, h = rect.height;
-      ctx.clearRect(0, 0, w, h);
-      const axisY = h * .53;
-
-      const gradient = ctx.createLinearGradient(0, 0, w, 0);
-      gradient.addColorStop(0, 'rgba(245,241,232,.08)');
-      gradient.addColorStop(.43, 'rgba(214,173,88,.12)');
-      gradient.addColorStop(.52, 'rgba(107,231,255,.12)');
-      gradient.addColorStop(.61, 'rgba(223,255,114,.12)');
-      gradient.addColorStop(1, 'rgba(245,241,232,.08)');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, axisY - 1, w, 2);
-
-      ctx.fillStyle = 'rgba(245,241,232,.5)';
-      ctx.font = '12px Inter, system-ui, sans-serif';
-      ctx.fillText('−∞', 18, axisY - 20);
-      ctx.fillText('∞', w - 26, axisY - 20);
-
-      const rawStep = unitsPerScreen / 9;
-      const step = niceStep(rawStep);
-      const start = Math.floor((center - unitsPerScreen / 2) / step) * step;
-      const end = center + unitsPerScreen / 2;
-      const decimals = Math.max(0, -Math.floor(Math.log10(step)) + 1);
-
-      for (let v = start; v <= end + step; v += step) {
-        const x = xFor(v, w);
-        if (x < -40 || x > w + 40) continue;
-        const open = exhibitAtTick(v, step);
-        ctx.strokeStyle = open ? open.color : 'rgba(245,241,232,.35)';
-        ctx.lineWidth = open ? 2 : 1;
-        ctx.beginPath();
-        ctx.moveTo(x, axisY - (open ? 18 : 9));
-        ctx.lineTo(x, axisY + (open ? 18 : 9));
-        ctx.stroke();
-        ctx.fillStyle = open ? open.color : 'rgba(245,241,232,.72)';
-        ctx.font = open ? '700 14px Inter, system-ui, sans-serif' : '12px Inter, system-ui, sans-serif';
-        const label = Math.abs(v) < step * 1e-8 ? '0' : Number(v.toFixed(decimals)).toString();
-        const tw = ctx.measureText(label).width;
-        ctx.fillText(label, x - tw / 2, axisY + 34);
-      }
-
-      exhibits.forEach((item, index) => {
-        const x = xFor(item.value, w);
-        if (x < -50 || x > w + 50) return;
-        ctx.beginPath();
-        ctx.arc(x, axisY, 7, 0, Math.PI * 2);
-        ctx.fillStyle = item.color;
-        ctx.fill();
-        ctx.shadowColor = item.glow;
-        ctx.shadowBlur = 20;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-        ctx.fillStyle = '#f5f1e8';
-        ctx.font = '600 12px Inter, system-ui, sans-serif';
-        const offset = index === 0 ? -82 : 16;
-        const labelX = Math.max(8, Math.min(w - 90, x + offset));
-        ctx.fillText(`OPEN · ${item.name}`, labelX, axisY - 26);
-      });
-
-      if (hoverValue !== null) {
-        const hx = xFor(hoverValue, w);
-        if (hx >= 0 && hx <= w) {
-          ctx.strokeStyle = 'rgba(122,184,255,.38)';
-          ctx.beginPath(); ctx.moveTo(hx, 52); ctx.lineTo(hx, h - 42); ctx.stroke();
-          const text = formatNumber(hoverValue);
-          ctx.font = '13px Inter, system-ui, sans-serif';
-          const tw = ctx.measureText(text).width;
-          const bx = Math.max(8, Math.min(w - tw - 24, hx - tw / 2 - 10));
-          ctx.fillStyle = 'rgba(17,19,24,.96)';
-          ctx.fillRect(bx, 18, tw + 20, 28);
-          ctx.strokeStyle = 'rgba(255,255,255,.12)';
-          ctx.strokeRect(bx, 18, tw + 20, 28);
-          ctx.fillStyle = '#f5f1e8';
-          ctx.fillText(text, bx + 10, 37);
-        }
-      }
-
-      if (status) status.textContent = `Viewing approximately ${formatNumber(center - unitsPerScreen/2)} to ${formatNumber(center + unitsPerScreen/2)} · exhibits 1, 2, and 3 are open · scroll to zoom · drag to pan`;
-    }
-
-    canvas.addEventListener('wheel', e => {
-      e.preventDefault();
-      const rect = canvas.getBoundingClientRect();
-      const mouse = valueFor(e.clientX - rect.left, rect.width);
-      const factor = Math.exp(e.deltaY * .0012);
-      const next = Math.max(1e-9, Math.min(1e12, unitsPerScreen * factor));
-      const ratio = next / unitsPerScreen;
-      center = mouse - (mouse - center) * ratio;
-      unitsPerScreen = next;
-      draw();
-    }, { passive: false });
-
-    canvas.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; canvas.setPointerCapture(e.pointerId); });
-    canvas.addEventListener('pointermove', e => {
-      const rect = canvas.getBoundingClientRect();
-      if (dragging) {
-        const dx = e.clientX - lastX;
-        center -= dx * unitsPerScreen / rect.width;
-        lastX = e.clientX;
-      }
-      hoverValue = valueFor(e.clientX - rect.left, rect.width);
-      draw();
-    });
-    canvas.addEventListener('pointerup', e => { dragging = false; canvas.releasePointerCapture(e.pointerId); });
-    canvas.addEventListener('pointerleave', () => { if (!dragging) { hoverValue = null; draw(); } });
-    canvas.addEventListener('dblclick', e => {
-      const rect = canvas.getBoundingClientRect();
-      const v = valueFor(e.clientX - rect.left, rect.width);
-      const nearest = exhibits.reduce((best, item) => Math.abs(v - item.value) < Math.abs(v - best.value) ? item : best, exhibits[0]);
-      if (Math.abs(v - nearest.value) < unitsPerScreen * .025) location.href = nearest.url;
-    });
-
-    document.getElementById('zoomIn')?.addEventListener('click', () => { unitsPerScreen = Math.max(1e-9, unitsPerScreen / 2); draw(); });
-    document.getElementById('zoomOut')?.addEventListener('click', () => { unitsPerScreen = Math.min(1e12, unitsPerScreen * 2); draw(); });
-    document.getElementById('findOne')?.addEventListener('click', () => { center = 1; unitsPerScreen = 4; draw(); });
-    document.getElementById('findTwo')?.addEventListener('click', () => { center = 2; unitsPerScreen = 4; draw(); });
-    document.getElementById('findThree')?.addEventListener('click', () => { center = 3; unitsPerScreen = 4; draw(); });
-    document.getElementById('resetAtlas')?.addEventListener('click', () => { center = 0; unitsPerScreen = 12; draw(); });
-
-    window.addEventListener('resize', resize);
-    resize();
+    canvas.addEventListener('wheel',e=>{e.preventDefault();const rect=canvas.getBoundingClientRect(),mouse=valueFor(e.clientX-rect.left,rect.width),factor=Math.exp(e.deltaY*.0012),next=Math.max(1e-9,Math.min(1e12,unitsPerScreen*factor)),ratio=next/unitsPerScreen;center=mouse-(mouse-center)*ratio;unitsPerScreen=next;draw();},{passive:false});
+    canvas.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;canvas.setPointerCapture(e.pointerId);});
+    canvas.addEventListener('pointermove',e=>{const rect=canvas.getBoundingClientRect();if(dragging){const dx=e.clientX-lastX;center-=dx*unitsPerScreen/rect.width;lastX=e.clientX;}hoverValue=valueFor(e.clientX-rect.left,rect.width);draw();});
+    canvas.addEventListener('pointerup',e=>{dragging=false;canvas.releasePointerCapture(e.pointerId);});
+    canvas.addEventListener('pointerleave',()=>{if(!dragging){hoverValue=null;draw();}});
+    canvas.addEventListener('dblclick',e=>{const rect=canvas.getBoundingClientRect(),v=valueFor(e.clientX-rect.left,rect.width),nearest=exhibits.reduce((best,item)=>Math.abs(v-item.value)<Math.abs(v-best.value)?item:best,exhibits[0]);if(Math.abs(v-nearest.value)<unitsPerScreen*.025)location.href=nearest.url;});
+    document.getElementById('zoomIn')?.addEventListener('click',()=>{unitsPerScreen=Math.max(1e-9,unitsPerScreen/2);draw();});
+    document.getElementById('zoomOut')?.addEventListener('click',()=>{unitsPerScreen=Math.min(1e12,unitsPerScreen*2);draw();});
+    document.getElementById('findOne')?.addEventListener('click',()=>{center=1;unitsPerScreen=4;draw();});
+    document.getElementById('findTwo')?.addEventListener('click',()=>{center=2;unitsPerScreen=4;draw();});
+    document.getElementById('findThree')?.addEventListener('click',()=>{center=3;unitsPerScreen=4;draw();});
+    document.getElementById('resetAtlas')?.addEventListener('click',()=>{center=0;unitsPerScreen=12;draw();});
+    window.addEventListener('resize',resize);resize();
   }
 })();
