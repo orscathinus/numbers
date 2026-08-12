@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Numbers is an interactive museum of numbers. Exhibitions 1, 2, and 3 are now open.">
-  <title>Numbers — Museum of 1, 2, and 3</title>
+  <meta name="description" content="Numbers is an interactive museum of numbers. Exhibitions 1, 2, 3, and 4 are now open.">
+  <title>Numbers — Museum of 1, 2, 3, and 4</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="vivid.css">
   <link rel="stylesheet" href="number2-home.css">
   <link rel="stylesheet" href="number3-home.css">
+  <link rel="stylesheet" href="number4-home.css">
 </head>
 <body data-page="home">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -19,23 +20,25 @@
     <a href="one.html" data-page="one">Exhibit 1</a>
     <a href="two.html" data-page="two">Exhibit 2</a>
     <a href="three.html" data-page="three">Exhibit 3</a>
+    <a href="four.html" data-page="four">Exhibit 4</a>
     <a href="directory.html" data-page="directory">All Pages</a>
   </nav>
 </header>
 <main id="main">
   <div class="shell hero">
     <section>
-      <div class="eyebrow">Museum release 003 · Three galleries illuminated</div>
+      <div class="eyebrow">Museum release 004 · Four galleries illuminated</div>
       <h1>Every number deserves a <em>museum.</em></h1>
-      <p class="lede">Numbers is an expanding atlas of mathematical objects, their stories, their behavior, and the ideas humans built around them. The doors for 1, 2, and 3 are now open; the rest of the continuum is waiting.</p>
+      <p class="lede">Numbers is an expanding atlas of mathematical objects, their stories, their behavior, and the ideas humans built around them. The doors for 1, 2, 3, and 4 are now open; the rest of the continuum is waiting.</p>
       <div class="actions">
         <a class="button primary" href="one.html">Enter exhibition 1 →</a>
         <a class="button primary" href="two.html">Enter exhibition 2 →</a>
         <a class="button primary" href="three.html">Enter exhibition 3 →</a>
+        <a class="button primary" href="four.html">Enter exhibition 4 →</a>
         <a class="button" href="#atlas">Explore the number atlas</a>
         <a class="button" href="directory.html">Browse all pages</a>
       </div>
-      <div class="exhibit-count"><b class="three-open">3</b> open number museums · infinitely many future rooms</div>
+      <div class="exhibit-count"><b>4</b> open number museums · infinitely many future rooms</div>
     </section>
     <div class="one-orbit" aria-label="Animated sculptural representation of the number one">
       <div class="hero-one">1</div>
@@ -58,7 +61,7 @@
     <div class="shell">
       <div class="section-head">
         <div><div class="eyebrow">The Atlas</div><h2>A chart with no edge</h2></div>
-        <p class="section-intro">The real number line cannot be exhaustively listed: between any two distinct real numbers lie infinitely many more. This instrument represents the continuum algorithmically. Zoom, pan, and inspect. Numbers 1, 2, and 3 now have open exhibits.</p>
+        <p class="section-intro">The real number line cannot be exhaustively listed: between any two distinct real numbers lie infinitely many more. This instrument represents the continuum algorithmically. Zoom, pan, and inspect. Numbers 1, 2, 3, and 4 now have open exhibits.</p>
       </div>
       <div class="atlas-wrap reveal">
         <div class="atlas-toolbar">
@@ -69,11 +72,12 @@
             <button class="button" id="findOne" type="button">Find 1</button>
             <button class="button" id="findTwo" type="button">Find 2</button>
             <button class="button" id="findThree" type="button">Find 3</button>
+            <button class="button" id="findFour" type="button">Find 4</button>
             <button class="button" id="resetAtlas" type="button">Reset</button>
           </div>
         </div>
-        <canvas id="numberCanvas" aria-label="Interactive real number line. Drag to pan, scroll to zoom, and double-click near 1, 2, or 3 to open its exhibit."></canvas>
-        <div class="atlas-legend"><span><i class="legend-dot"></i>Open museum exhibit</span><span><i class="legend-line"></i>Real-number continuum</span><span>Double-click 1, 2, or 3 to enter</span></div>
+        <canvas id="numberCanvas" aria-label="Interactive real number line. Drag to pan, scroll to zoom, and double-click near 1, 2, 3, or 4 to open its exhibit."></canvas>
+        <div class="atlas-legend"><span><i class="legend-dot"></i>Open museum exhibit</span><span><i class="legend-line"></i>Real-number continuum</span><span>Double-click 1, 2, 3, or 4 to enter</span></div>
       </div>
     </div>
   </section>
@@ -94,10 +98,7 @@
   <section class="section gallery-two">
     <div class="shell">
       <div class="section-head"><div><div class="eyebrow">Gallery 002</div><h2>Two, where the museum splits in two.</h2></div><p class="section-intro">Pairing, parity, primality, binary growth, symmetry, and √2 give the second gallery a completely different architecture from the first.</p></div>
-      <div class="two-feature reveal">
-        <figure><img src="assets/two-monument.svg" alt="A monumental number two between mirrored cyan and orange chambers"></figure>
-        <div class="two-feature-copy"><div class="huge-two">2</div><div class="card-kicker">Object 002 · Two</div><h3 style="font-size:2rem;margin:12px 0">The only even prime.</h3><p class="section-intro">Two is the first number that makes a pair, the divisor that defines evenness, the base of binary notation, and the integer beneath one of the most famous irrational numbers: √2.</p><div class="actions"><a class="button primary" href="two.html">Enter Gallery 002 →</a><a class="button" href="two-lab.html">Go straight to the lab</a></div></div>
-      </div>
+      <div class="two-feature reveal"><figure><img src="assets/two-monument.svg" alt="A monumental number two between mirrored cyan and orange chambers"></figure><div class="two-feature-copy"><div class="huge-two">2</div><div class="card-kicker">Object 002 · Two</div><h3 style="font-size:2rem;margin:12px 0">The only even prime.</h3><p class="section-intro">Two is the first number that makes a pair, the divisor that defines evenness, the base of binary notation, and the integer beneath one of the most famous irrational numbers: √2.</p><div class="actions"><a class="button primary" href="two.html">Enter Gallery 002 →</a><a class="button" href="two-lab.html">Go straight to the lab</a></div></div></div>
       <div class="museum-grid">
         <a class="exhibit-card wide tall reveal" href="two.html"><div class="card-kicker">Curator's overview</div><div class="number">2</div><h3>Pair, prime, parity</h3><p>Meet the smallest prime and the only prime divisible by 2—the exception that defines the even/odd divide.</p></a>
         <a class="exhibit-card tall reveal" href="two-mathematics.html"><div class="card-kicker">Even Prime Reactor</div><h3>The smallest prime breaks the prime pattern</h3><p>Explore modular parity, 2-adic valuation, arithmetic functions, powers of two, C₂, and a rigorous proof that √2 is irrational.</p></a>
@@ -110,11 +111,8 @@
 
   <section class="section gallery-three">
     <div class="shell">
-      <div class="section-head"><div><div class="eyebrow">Gallery 003 · Newly opened</div><h2>Three, where lines become a triangle.</h2></div><p class="section-intro">The third museum branches in three directions at once: odd-prime arithmetic, triangular geometry, and ternary structure—then keeps going into algebra, genetics, color, and celestial mechanics.</p></div>
-      <div class="three-feature reveal">
-        <figure><img src="assets/three-monument.svg" alt="A monumental glowing three inside a triangular cosmic chamber"></figure>
-        <div class="three-feature-copy"><div class="huge-three">3</div><div class="card-kicker">Object 003 · Three</div><h3 style="font-size:2rem;margin:12px 0">The first odd prime.</h3><p class="section-intro">Three is 1+2, the second triangular number, 10 in base 3, the number of vertices in the simplest polygon, and the order of the symmetry hidden in the cube roots of unity.</p><div class="actions"><a class="button primary" href="three.html">Enter Gallery 003 →</a><a class="button" href="three-lab.html">Go straight to the lab</a></div></div>
-      </div>
+      <div class="section-head"><div><div class="eyebrow">Gallery 003</div><h2>Three, where lines become a triangle.</h2></div><p class="section-intro">The third museum branches in three directions at once: odd-prime arithmetic, triangular geometry, and ternary structure—then keeps going into algebra, genetics, color, and celestial mechanics.</p></div>
+      <div class="three-feature reveal"><figure><img src="assets/three-monument.svg" alt="A monumental glowing three inside a triangular cosmic chamber"></figure><div class="three-feature-copy"><div class="huge-three">3</div><div class="card-kicker">Object 003 · Three</div><h3 style="font-size:2rem;margin:12px 0">The first odd prime.</h3><p class="section-intro">Three is 1+2, the second triangular number, 10 in base 3, the number of vertices in the simplest polygon, and the order of the symmetry hidden in the cube roots of unity.</p><div class="actions"><a class="button primary" href="three.html">Enter Gallery 003 →</a><a class="button" href="three-lab.html">Go straight to the lab</a></div></div></div>
       <div class="museum-grid">
         <a class="exhibit-card wide tall reveal" href="three.html"><div class="card-kicker">Curator's overview</div><div class="number">3</div><h3>Prime, triangle, triad</h3><p>Meet the first odd prime and the only integer equal to the sum of every positive integer before it.</p></a>
         <a class="exhibit-card tall reveal" href="three-mathematics.html"><div class="card-kicker">Triangle Reactor</div><h3>Arithmetic turns through 120 degrees</h3><p>Explore divisibility by digit sum, modulo-3 classes, ternary notation, arithmetic functions, C₃, Fermat and Mersenne structure, cubes, and roots of unity.</p></a>
@@ -124,8 +122,22 @@
       </div>
     </div>
   </section>
+
+  <section class="section gallery-four">
+    <div class="shell">
+      <div class="section-head"><div><div class="eyebrow">Gallery 004 · Newly opened</div><h2>Four, where arithmetic gets corners.</h2></div><p class="section-intro">The fourth museum is built from squares, factorization, quarter-turns, four-state alphabets, map coloring, and dimensional projection. Four is the first composite number—and the first gallery whose number is itself a nontrivial square.</p></div>
+      <div class="four-feature reveal"><figure><img src="assets/four-monument.svg" alt="A monumental glowing four surrounded by nested squares"></figure><div class="four-feature-copy"><div class="huge-four">4</div><div class="card-kicker">Object 004 · Four</div><h3 style="font-size:2rem;margin:12px 0">The first composite.</h3><p class="section-intro">Four is 2², the first even square, the first repeated prime power, 10 in base 4, and the number of roots in z⁴=1. Its museum expands from elementary factors to group theory, quaternions, DNA, and the tesseract.</p><div class="actions"><a class="button primary" href="four.html">Enter Gallery 004 →</a><a class="button" href="four-lab.html">Go straight to the lab</a></div></div></div>
+      <div class="museum-grid">
+        <a class="exhibit-card wide tall reveal" href="four.html"><div class="card-kicker">Curator's overview</div><div class="number">4</div><h3>Square, composite, quartet</h3><p>Meet the smallest composite integer, the first even perfect square, and the first group order with two non-isomorphic structures.</p></a>
+        <a class="exhibit-card tall reveal" href="four-mathematics.html"><div class="card-kicker">Square Reactor</div><h3>2² opens a new arithmetic regime</h3><p>Explore divisor functions, modulo 4, C₄ versus V₄, fourth roots of unity, quartic equations, and Lagrange's four-square theorem.</p></a>
+        <a class="exhibit-card reveal" href="four-history.html"><div class="card-kicker">History wing</div><h3>From Brahmi four to four colors</h3><p>Follow the numeral through Indian and Arabic traditions, then enter Ferrari's quartic, Hamilton's quaternions, and the 124-year Four Color problem.</p></a>
+        <a class="exhibit-card reveal" href="four-significance.html"><div class="card-kicker">Quartet Worlds</div><h3>DNA, tetrahedra, maps, dimensions</h3><p>Four nucleotide bases, tetrahedral geometry, quaternary information, beryllium, quaternions, four-color maps, and the tesseract.</p></a>
+        <a class="exhibit-card reveal" href="four-lab.html"><div class="card-kicker">Hands-on lab</div><h3>Square. Quarter. Project.</h3><p>Test divisibility, translate base 4, rotate through fourth roots, search four squares, climb hypercube dimensions, and color a map.</p></a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="footer"><div class="shell footer-inner"><span>NUMBERS · Museum release 003</span><a href="sources.html">Sources & fact-checking</a></div></footer>
+<footer class="footer"><div class="shell footer-inner"><span>NUMBERS · Museum release 004</span><a href="sources.html">Sources & fact-checking</a></div></footer>
 <script src="app.js"></script>
 </body>
 </html>
