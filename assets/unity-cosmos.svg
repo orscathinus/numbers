@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="t d">
+<title id="t">Unity cosmos</title><desc id="d">A luminous number one surrounded by concentric orbital forms, stars, and geometric traces.</desc>
+<defs>
+<radialGradient id="bg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#33205f"/><stop offset=".42" stop-color="#121a45"/><stop offset="1" stop-color="#05050a"/></radialGradient>
+<linearGradient id="one" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6aa"/><stop offset=".35" stop-color="#ffbd3f"/><stop offset=".68" stop-color="#ff4fb8"/><stop offset="1" stop-color="#6bdcff"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/>
+<g fill="none" stroke-linecap="round">
+<ellipse cx="600" cy="450" rx="430" ry="165" stroke="#6bdcff" stroke-opacity=".4" stroke-width="3" transform="rotate(-16 600 450)"/>
+<ellipse cx="600" cy="450" rx="365" ry="300" stroke="#ff4fb8" stroke-opacity=".28" stroke-width="2" transform="rotate(28 600 450)"/>
+<circle cx="600" cy="450" r="248" stroke="#ffcf66" stroke-opacity=".26" stroke-width="2" stroke-dasharray="8 16"/>
+<circle cx="600" cy="450" r="345" stroke="#ffffff" stroke-opacity=".09"/>
+</g>
+<g fill="#fff" opacity=".85">
+<circle cx="172" cy="224" r="3"/><circle cx="1030" cy="170" r="4"/><circle cx="1010" cy="720" r="2"/><circle cx="218" cy="690" r="4"/><circle cx="875" cy="286" r="2"/><circle cx="331" cy="331" r="2"/><circle cx="920" cy="520" r="3"/><circle cx="304" cy="565" r="2"/>
+</g>
+<g filter="url(#glow)"><text x="600" y="635" text-anchor="middle" font-family="Georgia,serif" font-size="520" font-weight="700" fill="url(#one)">1</text></g>
+<g fill="#ffcf66"><circle cx="187" cy="510" r="11"/><circle cx="963" cy="348" r="8"/></g>
+<g fill="#6bdcff"><circle cx="746" cy="117" r="7"/></g>
+<g fill="#ff4fb8"><circle cx="459" cy="753" r="9"/></g>
+</svg>
