@@ -103,8 +103,13 @@
         return;
       }
       const even = raw % 2 === 0;
-      if (even) parityResult.textContent = `${raw} = 2 × ${raw / 2} → EVEN`;
-      else parityResult.textContent = `${raw} = 2 × ${Math.floor(raw / 2)} + ${raw >= 0 ? 1 : -1} → ODD`;
+      if (even) {
+        parityResult.textContent = `${raw} = 2 × ${raw / 2} → EVEN`;
+      } else {
+        const q = Math.trunc(raw / 2);
+        const r = raw - 2 * q;
+        parityResult.textContent = `${raw} = 2 × ${q} ${r > 0 ? '+ 1' : '− 1'} → ODD`;
+      }
     };
     parityInput.addEventListener('input', update);
     update();
