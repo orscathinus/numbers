@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Numbers is an interactive museum of numbers. The first exhibition is devoted entirely to the number 1.">
+  <title>Numbers — Museum of 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">1</span><span>NUMBERS</span></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html" data-page="home">Atlas</a>
+    <a href="one.html" data-page="one">Exhibit 1</a>
+    <a href="mathematics.html" data-page="mathematics">Mathematics</a>
+    <a href="history.html" data-page="history">History</a>
+    <a href="significance.html" data-page="significance">Significance</a>
+    <a href="lab.html" data-page="lab">Laboratory</a>
+  </nav>
+</header>
+<main id="main">
+  <div class="shell hero">
+    <section>
+      <div class="eyebrow">Museum opening · Gallery 001</div>
+      <h1>Every number deserves a <em>museum.</em></h1>
+      <p class="lede">Numbers is an expanding atlas of mathematical objects, their stories, their behavior, and the ideas humans built around them. For now, every gallery door is dark except one.</p>
+      <div class="actions">
+        <a class="button primary" href="one.html">Enter the exhibition: 1 →</a>
+        <a class="button" href="#atlas">Explore the number atlas</a>
+      </div>
+    </section>
+    <div class="one-orbit" aria-label="Animated sculptural representation of the number one">
+      <div class="hero-one">1</div>
+      <span class="orbit-dot" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <section class="section" id="atlas">
+    <div class="shell">
+      <div class="section-head">
+        <div><div class="eyebrow">The Atlas</div><h2>A chart with no edge</h2></div>
+        <p class="section-intro">The real number line cannot be exhaustively listed: between any two distinct real numbers lie infinitely many more. This instrument represents the continuum algorithmically. Zoom, pan, and inspect. Number 1 is the only exhibit currently open.</p>
+      </div>
+      <div class="atlas-wrap reveal">
+        <div class="atlas-toolbar">
+          <div id="atlasStatus" class="status" aria-live="polite">Loading atlas…</div>
+          <div class="atlas-controls">
+            <button class="button" id="zoomIn" type="button" aria-label="Zoom in">＋</button>
+            <button class="button" id="zoomOut" type="button" aria-label="Zoom out">−</button>
+            <button class="button" id="findOne" type="button">Find 1</button>
+            <button class="button" id="resetAtlas" type="button">Reset</button>
+          </div>
+        </div>
+        <canvas id="numberCanvas" aria-label="Interactive real number line. Drag to pan, scroll to zoom, and double-click near 1 to open its exhibit."></canvas>
+        <div class="atlas-legend"><span><i class="legend-dot"></i>Open museum exhibit</span><span><i class="legend-line"></i>Real-number continuum</span><span>Double-click 1 to enter</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head"><div><div class="eyebrow">Gallery 001</div><h2>One, seen from many rooms</h2></div><p class="section-intro">Instead of reducing a number to one encyclopedia page, the museum treats it as a subject with multiple galleries.</p></div>
+      <div class="museum-grid">
+        <a class="exhibit-card wide tall reveal" href="one.html"><div class="card-kicker">Curator's overview</div><div class="number">1</div><h3>The number that leaves multiplication unchanged</h3><p>Meet unity: the first positive integer, an odd number, a perfect square, and the multiplicative identity.</p></a>
+        <a class="exhibit-card tall reveal" href="mathematics.html"><div class="card-kicker">Mathematics wing</div><h3>Neither prime nor composite</h3><p>Why excluding 1 from the primes protects unique factorization—and why its identity role reaches through algebra.</p></a>
+        <a class="exhibit-card reveal" href="history.html"><div class="card-kicker">History wing</div><h3>From stroke to glyph</h3><p>A cautious tour from tally-like marks and Brahmi numerals to the modern Hindu–Arabic “1.”</p></a>
+        <a class="exhibit-card reveal" href="significance.html"><div class="card-kicker">Ideas wing</div><h3>Unity, certainty, normalization</h3><p>One as a unit, a complete probability, a Boolean signal, and a reference scale.</p></a>
+        <a class="exhibit-card reveal" href="lab.html"><div class="card-kicker">Hands-on lab</div><h3>Touch the identity</h3><p>Run interactive experiments: multiply anything by 1, change bases, raise 1 to powers, and explore a unit square.</p></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="shell footer-inner"><span>NUMBERS · Museum release 001</span><a href="sources.html">Sources & fact-checking</a></div></footer>
+<script src="app.js"></script>
+</body>
+</html>
