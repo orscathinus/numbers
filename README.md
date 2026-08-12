@@ -1,12 +1,12 @@
-# Numbers — Museum of 1, 2, and 3
+# Numbers — Museum of 1, 2, 3, and 4
 
-A static, interactive museum about numbers. **Gallery 001 (1)**, **Gallery 002 (2)**, and **Gallery 003 (3)** are now open.
+A static, interactive museum about numbers. **Gallery 001 (1)**, **Gallery 002 (2)**, **Gallery 003 (3)**, and **Gallery 004 (4)** are now open.
 
-The homepage contains an algorithmic, zoomable number atlas that represents the real-number line and dynamically labels visible values. Numbers 1, 2, and 3 are interactive open exhibits; future numbers can be added without pretending that the real continuum can be exhaustively listed.
+The homepage contains an algorithmic, zoomable number atlas that represents the real-number line and dynamically labels visible values. Numbers 1, 2, 3, and 4 are interactive open exhibits; future numbers can be added without pretending that the real continuum can be exhaustively listed.
 
 ## Discovery system
 
-The museum now has three connected ways to find material:
+The museum has three connected ways to find material:
 
 - **Global search** — the Search control in the header searches every registered museum page. `Ctrl+K` / `Cmd+K` opens it from anywhere.
 - **Exhibit search** — every numbered exhibit page gets a dedicated search field that searches only the rooms belonging to that number.
@@ -42,6 +42,13 @@ All three are powered by the single `PAGES` registry at the top of `app.js`. Whe
 - `three-significance.html` — Triangle rigidity, 3D coordinates, RGB, genetic codons, ternary information, C₃ symmetry, lithium, and three-body dynamics
 - `three-lab.html` — Interactive triplet grouping, digit-sum divisibility, powers of 3, ternary/balanced ternary, cube roots of unity, and triangle geometry
 
+### Gallery 004 — Number 4
+- `four.html` — Curator's overview of 4 as the smallest composite number, first even square, and fourfold structural object
+- `four-mathematics.html` — 2² factorization, divisor functions, modulo 4, C₄ versus V₄, fourth roots of unity, quartics, and Lagrange's four-square theorem
+- `four-history.html` — Numeral history plus Ferrari's quartic, Hamilton's quaternions, Lagrange's theorem, and the Four Color problem
+- `four-significance.html` — DNA's four bases, tetrahedral and tesseract geometry, quaternions, map coloring, beryllium, quaternary information, and cultural conventions
+- `four-lab.html` — Interactive divisibility-by-4, base-4 translation, roots of unity, four-square search, hypercube dimensions, powers of four, and map coloring
+
 ## Visual system
 
 The museum uses locally stored SVG artwork rather than fragile hotlinks. Each number has a deliberately distinct exhibition identity:
@@ -49,10 +56,11 @@ The museum uses locally stored SVG artwork rather than fragile hotlinks. Each nu
 - **1** — gold, magenta, cyan, monumental identity imagery and glyph constellations.
 - **2** — mirrored cyan/orange lighting, binary branching, paired geometry, an Even Prime Reactor, and a √2 chamber.
 - **3** — ultraviolet, acid-lime, coral, triangular architecture, a Triangle Reactor, Ternary Cathedral, Triplet Universe, glyph atlas, and Three-Body Chamber.
+- **4** — electric blue, violet, gold, and coral; nested squares, a Square Reactor, Quaternary Vault, Four Color installation, DNA Quartet, glyph atlas, and Tesseract Chamber.
 
 ## Interactive atlas
 
-The atlas is not a finite list. The real numbers are uncountable, so the interface behaves like a mathematical instrument: it renders the visible interval, generates suitable ticks dynamically, and highlights only numbers whose museum galleries are currently open. Double-clicking 1, 2, or 3 enters that number's exhibit.
+The atlas is not a finite list. The real numbers are uncountable, so the interface behaves like a mathematical instrument: it renders the visible interval, generates suitable ticks dynamically, and highlights only numbers whose museum galleries are currently open. Double-clicking 1, 2, 3, or 4 enters that number's exhibit.
 
 ## Run locally
 
