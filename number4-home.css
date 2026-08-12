@@ -1,0 +1,14 @@
+/* Homepage installation for Gallery 004. */
+.gallery-four{position:relative;background:linear-gradient(180deg,rgba(87,166,255,.018),rgba(142,108,255,.045),rgba(255,209,102,.02),transparent)}
+.gallery-four:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px);background-size:82px 82px;mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent)}
+.four-feature{position:relative;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr);gap:0;margin:28px 0 36px;border:1px solid rgba(255,255,255,.14);border-radius:34px;overflow:hidden;background:#070b18;box-shadow:0 35px 100px rgba(29,50,110,.24)}
+.four-feature figure{margin:0;min-height:480px}.four-feature img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(1.3) contrast(1.05)}
+.four-feature-copy{position:relative;padding:40px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 92% 12%,rgba(255,209,102,.13),transparent 18rem),linear-gradient(155deg,rgba(87,166,255,.09),rgba(142,108,255,.06),rgba(255,127,106,.045))}
+.huge-four{position:absolute;right:20px;top:-54px;font:700 16rem/1 Georgia,serif;color:#ffd166;opacity:.075;pointer-events:none}
+.gallery-four .museum-grid .exhibit-card:nth-child(1){--card-glow:#57a6ff;background-image:linear-gradient(135deg,rgba(87,166,255,.15),rgba(142,108,255,.06))}
+.gallery-four .museum-grid .exhibit-card:nth-child(2){--card-glow:#8e6cff;background-image:linear-gradient(135deg,rgba(142,108,255,.15),rgba(87,166,255,.05))}
+.gallery-four .museum-grid .exhibit-card:nth-child(3){--card-glow:#ffd166;background-image:linear-gradient(135deg,rgba(255,209,102,.13),rgba(142,108,255,.05))}
+.gallery-four .museum-grid .exhibit-card:nth-child(4){--card-glow:#ff7f6a;background-image:linear-gradient(135deg,rgba(255,127,106,.13),rgba(87,166,255,.05))}
+.gallery-four .museum-grid .exhibit-card:nth-child(5){--card-glow:#74f0c3;background-image:linear-gradient(135deg,rgba(116,240,195,.12),rgba(142,108,255,.06))}
+.gallery-four .exhibit-card .number{background:linear-gradient(135deg,#b8dbff,#d3c7ff,#ffe69b,#ffc1b5);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:860px){.four-feature{grid-template-columns:1fr}.four-feature figure{min-height:320px}.four-feature-copy{padding:30px}.huge-four{font-size:11rem}}
