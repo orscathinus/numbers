@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
+<title id="t">The Monument of One</title><desc id="d">A radiant number one at the center of a colorful geometric museum hall.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#08051d"/><stop offset=".45" stop-color="#190b3e"/><stop offset="1" stop-color="#031c33"/></linearGradient>
+<radialGradient id="halo"><stop stop-color="#fff3a0" stop-opacity=".95"/><stop offset=".22" stop-color="#ffbb3c" stop-opacity=".7"/><stop offset=".5" stop-color="#ff3aa8" stop-opacity=".34"/><stop offset="1" stop-color="#6be7ff" stop-opacity="0"/></radialGradient>
+<linearGradient id="one" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffbd1"/><stop offset=".28" stop-color="#ffe267"/><stop offset=".58" stop-color="#ff9c42"/><stop offset="1" stop-color="#ff58ad"/></linearGradient>
+<linearGradient id="line" x2="1"><stop stop-color="#ff58ad"/><stop offset=".5" stop-color="#ffe267"/><stop offset="1" stop-color="#6be7ff"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="soft"><feGaussianBlur stdDeviation="40"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<ellipse cx="800" cy="430" rx="560" ry="390" fill="url(#halo)" opacity=".48"/>
+<circle cx="800" cy="430" r="315" fill="none" stroke="#ff58ad" stroke-opacity=".28" stroke-width="2"/>
+<circle cx="800" cy="430" r="255" fill="none" stroke="#6be7ff" stroke-opacity=".4" stroke-width="3" stroke-dasharray="12 18"/>
+<circle cx="800" cy="430" r="195" fill="none" stroke="#ffe267" stroke-opacity=".42"/>
+<path d="M110 465 C350 250 540 705 790 430S1210 195 1490 430" fill="none" stroke="url(#line)" stroke-width="3" opacity=".5"/>
+<path d="M120 620 C400 430 520 800 810 505S1240 350 1480 590" fill="none" stroke="url(#line)" stroke-width="2" opacity=".32"/>
+<g fill="none" stroke="#fff" stroke-opacity=".22">
+<path d="M170 210h250v250H170z"/><path d="M170 210l250 250M420 210L170 460"/>
+<path d="M1180 220h210v210h-210z"/><circle cx="1285" cy="325" r="82"/><circle cx="1285" cy="325" r="36"/>
+</g>
+<g stroke="#ffe267" stroke-opacity=".7" fill="#ffe267" filter="url(#glow)">
+<circle cx="800" cy="118" r="7"/><circle cx="1045" cy="238" r="5"/><circle cx="555" cy="238" r="5"/><circle cx="800" cy="742" r="6"/><circle cx="1230" cy="630" r="4"/><circle cx="370" cy="635" r="4"/>
+</g>
+<text x="800" y="665" text-anchor="middle" font-family="Georgia,serif" font-size="610" font-weight="700" fill="url(#one)" stroke="#fff5b0" stroke-opacity=".35" stroke-width="4" filter="url(#glow)">1</text>
+<g font-family="Inter,Arial,sans-serif" fill="#fff" opacity=".8" letter-spacing="6" font-size="18"><text x="150" y="730">UNITY</text><text x="1295" y="730">IDENTITY</text><text x="150" y="765">BEGINNING</text><text x="1250" y="765">REFERENCE</text></g>
+<path d="M180 805H1420" stroke="url(#line)" stroke-width="4" opacity=".75"/>
+<circle cx="800" cy="805" r="14" fill="#fff7bf" filter="url(#glow)"/>
+<g fill="#fff"><circle cx="250" cy="125" r="2"/><circle cx="1340" cy="110" r="2"/><circle cx="1120" cy="90" r="1.5"/><circle cx="480" cy="105" r="1.5"/><circle cx="1450" cy="530" r="2"/><circle cx="90" cy="520" r="2"/></g>
+</svg>
