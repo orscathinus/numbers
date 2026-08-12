@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Numbers is an interactive museum of numbers. The first exhibition is devoted entirely to the number 1.">
-  <title>Numbers — Museum of 1</title>
+  <meta name="description" content="Numbers is an interactive museum of numbers. Exhibitions 1 and 2 are now open.">
+  <title>Numbers — Museum of 1 and 2</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="vivid.css">
+  <link rel="stylesheet" href="number2-home.css">
 </head>
 <body data-page="home">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -15,22 +16,24 @@
   <nav class="nav" aria-label="Main navigation">
     <a href="index.html" data-page="home">Atlas</a>
     <a href="one.html" data-page="one">Exhibit 1</a>
-    <a href="mathematics.html" data-page="mathematics">Mathematics</a>
-    <a href="history.html" data-page="history">History</a>
-    <a href="significance.html" data-page="significance">Significance</a>
-    <a href="lab.html" data-page="lab">Laboratory</a>
+    <a href="two.html" data-page="two">Exhibit 2</a>
+    <a href="mathematics.html" data-page="mathematics">Mathematics of 1</a>
+    <a href="history.html" data-page="history">History of 1</a>
+    <a href="lab.html" data-page="lab">Lab 1</a>
   </nav>
 </header>
 <main id="main">
   <div class="shell hero">
     <section>
-      <div class="eyebrow">Museum opening · Gallery 001</div>
+      <div class="eyebrow">Museum release 002 · Two galleries illuminated</div>
       <h1>Every number deserves a <em>museum.</em></h1>
-      <p class="lede">Numbers is an expanding atlas of mathematical objects, their stories, their behavior, and the ideas humans built around them. For now, every gallery door is dark except one.</p>
+      <p class="lede">Numbers is an expanding atlas of mathematical objects, their stories, their behavior, and the ideas humans built around them. The doors for 1 and 2 are now open; the rest of the continuum is waiting.</p>
       <div class="actions">
-        <a class="button primary" href="one.html">Enter the exhibition: 1 →</a>
+        <a class="button primary" href="one.html">Enter exhibition 1 →</a>
+        <a class="button primary" href="two.html">Enter exhibition 2 →</a>
         <a class="button" href="#atlas">Explore the number atlas</a>
       </div>
+      <div class="exhibit-count"><b>2</b> open number museums · infinitely many future rooms</div>
     </section>
     <div class="one-orbit" aria-label="Animated sculptural representation of the number one">
       <div class="hero-one">1</div>
@@ -53,7 +56,7 @@
     <div class="shell">
       <div class="section-head">
         <div><div class="eyebrow">The Atlas</div><h2>A chart with no edge</h2></div>
-        <p class="section-intro">The real number line cannot be exhaustively listed: between any two distinct real numbers lie infinitely many more. This instrument represents the continuum algorithmically. Zoom, pan, and inspect. Number 1 is the only exhibit currently open.</p>
+        <p class="section-intro">The real number line cannot be exhaustively listed: between any two distinct real numbers lie infinitely many more. This instrument represents the continuum algorithmically. Zoom, pan, and inspect. Numbers 1 and 2 now have open exhibits.</p>
       </div>
       <div class="atlas-wrap reveal">
         <div class="atlas-toolbar">
@@ -62,11 +65,12 @@
             <button class="button" id="zoomIn" type="button" aria-label="Zoom in">＋</button>
             <button class="button" id="zoomOut" type="button" aria-label="Zoom out">−</button>
             <button class="button" id="findOne" type="button">Find 1</button>
+            <button class="button" id="findTwo" type="button">Find 2</button>
             <button class="button" id="resetAtlas" type="button">Reset</button>
           </div>
         </div>
-        <canvas id="numberCanvas" aria-label="Interactive real number line. Drag to pan, scroll to zoom, and double-click near 1 to open its exhibit."></canvas>
-        <div class="atlas-legend"><span><i class="legend-dot"></i>Open museum exhibit</span><span><i class="legend-line"></i>Real-number continuum</span><span>Double-click 1 to enter</span></div>
+        <canvas id="numberCanvas" aria-label="Interactive real number line. Drag to pan, scroll to zoom, and double-click near 1 or 2 to open its exhibit."></canvas>
+        <div class="atlas-legend"><span><i class="legend-dot"></i>Open museum exhibit</span><span><i class="legend-line"></i>Real-number continuum</span><span>Double-click 1 or 2 to enter</span></div>
       </div>
     </div>
   </section>
@@ -83,8 +87,25 @@
       </div>
     </div>
   </section>
+
+  <section class="section gallery-two">
+    <div class="shell">
+      <div class="section-head"><div><div class="eyebrow">Gallery 002 · Newly opened</div><h2>Two, where the museum splits in two.</h2></div><p class="section-intro">Pairing, parity, primality, binary growth, symmetry, and √2 give the second gallery a completely different architecture from the first.</p></div>
+      <div class="two-feature reveal">
+        <figure><img src="assets/two-monument.svg" alt="A monumental number two between mirrored cyan and orange chambers"></figure>
+        <div class="two-feature-copy"><div class="huge-two">2</div><div class="card-kicker">Object 002 · Two</div><h3 style="font-size:2rem;margin:12px 0">The only even prime.</h3><p class="section-intro">Two is the first number that makes a pair, the divisor that defines evenness, the base of binary notation, and the integer beneath one of the most famous irrational numbers: √2.</p><div class="actions"><a class="button primary" href="two.html">Enter Gallery 002 →</a><a class="button" href="two-lab.html">Go straight to the lab</a></div></div>
+      </div>
+      <div class="museum-grid">
+        <a class="exhibit-card wide tall reveal" href="two.html"><div class="card-kicker">Curator's overview</div><div class="number">2</div><h3>Pair, prime, parity</h3><p>Meet the smallest prime and the only prime divisible by 2—the exception that defines the even/odd divide.</p></a>
+        <a class="exhibit-card tall reveal" href="two-mathematics.html"><div class="card-kicker">Even Prime Reactor</div><h3>The smallest prime breaks the prime pattern</h3><p>Explore modular parity, 2-adic valuation, arithmetic functions, powers of two, C₂, and a rigorous proof that √2 is irrational.</p></a>
+        <a class="exhibit-card reveal" href="two-history.html"><div class="card-kicker">History wing</div><h3>Two before “2”</h3><p>Repeated marks, Brahmi traditions, Arabic transmission, European adoption, and the carefully separated history of incommensurability.</p></a>
+        <a class="exhibit-card reveal" href="two-significance.html"><div class="card-kicker">Binary Cathedral</div><h3>Two choices become a universe</h3><p>Bits, symmetry, two-dimensional geometry, the octave's 2:1 ratio, helium, two-body mechanics, and grammatical duals.</p></a>
+        <a class="exhibit-card reveal" href="two-lab.html"><div class="card-kicker">Hands-on lab</div><h3>Split. Pair. Double.</h3><p>Group objects into pairs, test parity, grow 2ⁿ, translate decimal to binary, and watch Newton's method converge on √2.</p></a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="footer"><div class="shell footer-inner"><span>NUMBERS · Museum release 001</span><a href="sources.html">Sources & fact-checking</a></div></footer>
+<footer class="footer"><div class="shell footer-inner"><span>NUMBERS · Museum release 002</span><a href="sources.html">Sources & fact-checking</a></div></footer>
 <script src="app.js"></script>
 </body>
 </html>
