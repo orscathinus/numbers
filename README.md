@@ -4,10 +4,21 @@ A static, interactive museum about numbers. **Gallery 001 (1)**, **Gallery 002 (
 
 The homepage contains an algorithmic, zoomable number atlas that represents the real-number line and dynamically labels visible values. Numbers 1, 2, and 3 are interactive open exhibits; future numbers can be added without pretending that the real continuum can be exhaustively listed.
 
+## Discovery system
+
+The museum now has three connected ways to find material:
+
+- **Global search** — the Search control in the header searches every registered museum page. `Ctrl+K` / `Cmd+K` opens it from anywhere.
+- **Exhibit search** — every numbered exhibit page gets a dedicated search field that searches only the rooms belonging to that number.
+- **All Pages directory** — `directory.html` is a living museum floor plan linking every substantive page, grouped by exhibit, with its own filter field.
+
+All three are powered by the single `PAGES` registry at the top of `app.js`. When a future number is added, register its pages there once and search + exhibit search + the directory update together.
+
 ## Pages
 
 ### Museum shell
 - `index.html` — Museum entrance + interactive number atlas
+- `directory.html` — All Pages / complete museum directory
 - `sources.html` — References and fact-checking notes for all open exhibits
 
 ### Gallery 001 — Number 1
@@ -59,4 +70,4 @@ There cannot be a literal finite list of “all real numbers”: the real number
 
 ## Expansion rule
 
-Add new number exhibits without deleting or collapsing existing galleries. Each number can receive multiple museum rooms, its own interactive laboratory, its own locally stored artwork, and a distinct visual identity; the atlas exposes each exhibit as it opens. Wording that reports the number of currently open galleries should be updated as the museum expands, but earlier exhibit content should remain intact.
+Add new number exhibits without deleting or collapsing existing galleries. Each number can receive multiple museum rooms, its own interactive laboratory, its own locally stored artwork, and a distinct visual identity; the atlas exposes each exhibit as it opens. Wording that reports the number of currently open galleries should be updated as the museum expands, but earlier exhibit content should remain intact. Register every new substantive page in the shared `PAGES` registry so it becomes searchable and appears in the directory automatically.
