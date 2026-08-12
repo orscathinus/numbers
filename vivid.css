@@ -1,0 +1,71 @@
+/* Visual expansion layer: intentionally separate from the core layout. */
+:root{--electric:#6be7ff;--magenta:#ff58ad;--violet:#9668ff;--acid:#bdff6b;--sun:#ffe267;}
+body{background-color:#070810;background-image:radial-gradient(circle at 10% 18%,rgba(150,104,255,.16),transparent 30rem),radial-gradient(circle at 92% 42%,rgba(255,88,173,.12),transparent 26rem),radial-gradient(circle at 40% 95%,rgba(107,231,255,.10),transparent 28rem);background-attachment:fixed}
+.site-header{box-shadow:0 12px 50px rgba(0,0,0,.25)}
+.brand-mark{background:conic-gradient(from 210deg,rgba(107,231,255,.2),rgba(255,88,173,.18),rgba(255,226,103,.18),rgba(107,231,255,.2));box-shadow:0 0 28px rgba(255,226,103,.16)}
+.eyebrow{color:var(--sun);text-shadow:0 0 20px rgba(255,226,103,.22)}
+
+/* Entrance installation */
+body[data-page="home"] .hero{position:relative;isolation:isolate}
+body[data-page="home"] .hero:before{content:"";position:absolute;z-index:-2;right:-7%;top:7%;width:min(610px,52vw);aspect-ratio:4/3;background:url('assets/unity-cosmos.svg') center/cover no-repeat;border-radius:46% 54% 55% 45%/45% 42% 58% 55%;filter:saturate(1.2);box-shadow:0 0 120px rgba(126,86,255,.25);opacity:.88}
+body[data-page="home"] .hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#090a0d 0%,rgba(9,10,13,.92) 38%,rgba(9,10,13,.22) 68%,rgba(9,10,13,0) 100%);pointer-events:none}
+body[data-page="home"] .one-orbit{mix-blend-mode:screen;filter:drop-shadow(0 0 50px rgba(255,93,174,.18))}
+body[data-page="home"] .hero-one{-webkit-text-stroke:2px rgba(255,244,187,.92);text-shadow:0 0 35px rgba(255,89,173,.35),0 0 95px rgba(107,231,255,.2)}
+
+/* Every wing gets its own light and image installation. */
+.page-hero{position:relative;isolation:isolate;min-height:520px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.1)}
+.page-hero:before{content:"";position:absolute;z-index:-2;inset:0;background-position:right center;background-size:min(720px,62vw) auto;background-repeat:no-repeat;opacity:.7;filter:saturate(1.15)}
+.page-hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#080910 0%,rgba(8,9,16,.95) 35%,rgba(8,9,16,.52) 64%,rgba(8,9,16,.12) 100%)}
+body[data-page="one"] .page-hero:before{background-image:url('assets/unity-cosmos.svg')}
+body[data-page="mathematics"] .page-hero:before{background-image:url('assets/identity-prism.svg')}
+body[data-page="history"] .page-hero:before{background-image:url('assets/glyph-mosaic.svg')}
+body[data-page="significance"] .page-hero:before{background-image:url('assets/binary-bloom.svg')}
+body[data-page="lab"] .page-hero:before{background-image:url('assets/unity-cosmos.svg');filter:hue-rotate(38deg) saturate(1.45)}
+body[data-page="sources"] .page-hero:before{background-image:url('assets/identity-prism.svg');opacity:.34;filter:saturate(.55)}
+.page-hero h1{text-shadow:0 14px 50px rgba(0,0,0,.6)}
+
+/* Vivid room palettes */
+body[data-page="mathematics"]{--gold:#6be7ff;--gold-soft:#27778d;--blue:#a18aff}
+body[data-page="history"]{--gold:#ff9ac8;--gold-soft:#8f365e;--blue:#ffe267}
+body[data-page="significance"]{--gold:#bdff6b;--gold-soft:#57852d;--blue:#6be7ff}
+body[data-page="lab"]{--gold:#ffe267;--gold-soft:#8d7531;--blue:#ff58ad}
+
+/* Gallery cards become poster-like installations. */
+.exhibit-card{background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.018));box-shadow:inset 0 1px rgba(255,255,255,.07),0 20px 55px rgba(0,0,0,.18)}
+.exhibit-card:before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-70px;bottom:-80px;background:radial-gradient(circle,var(--card-glow,var(--violet)),transparent 68%);opacity:.32;filter:blur(6px);transition:transform .35s ease,opacity .35s ease}
+.exhibit-card:hover:before{transform:scale(1.35);opacity:.52}
+.exhibit-card:nth-child(1){--card-glow:#ffe267;background-image:linear-gradient(135deg,rgba(255,226,103,.1),rgba(150,104,255,.08))}
+.exhibit-card:nth-child(2){--card-glow:#6be7ff;background-image:linear-gradient(135deg,rgba(107,231,255,.09),rgba(13,31,55,.1))}
+.exhibit-card:nth-child(3){--card-glow:#ff58ad;background-image:linear-gradient(135deg,rgba(255,88,173,.11),rgba(100,22,69,.06))}
+.exhibit-card:nth-child(4){--card-glow:#bdff6b;background-image:linear-gradient(135deg,rgba(189,255,107,.09),rgba(41,74,26,.07))}
+.exhibit-card:nth-child(5){--card-glow:#9668ff;background-image:linear-gradient(135deg,rgba(150,104,255,.12),rgba(60,27,92,.07))}
+
+.property{position:relative;overflow:hidden;transition:transform .2s ease,border-color .2s ease;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018))}
+.property:after{content:"";position:absolute;inset:auto -35px -55px auto;width:125px;height:125px;border-radius:50%;background:radial-gradient(circle,var(--gold),transparent 68%);opacity:.11}
+.property:hover{transform:translateY(-4px) rotate(.25deg);border-color:color-mix(in srgb,var(--gold) 55%,transparent)}
+.property .symbol{text-shadow:0 0 32px color-mix(in srgb,var(--gold) 36%,transparent)}
+
+/* Atlas becomes a luminous instrument. */
+.atlas-wrap{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(20,18,45,.85),rgba(6,11,20,.96));border-color:rgba(107,231,255,.2);box-shadow:0 30px 100px rgba(52,39,130,.22),inset 0 1px rgba(255,255,255,.08)}
+.atlas-wrap:before{content:"";position:absolute;inset:-60% -10% auto;height:350px;background:conic-gradient(from 90deg,rgba(107,231,255,.08),rgba(255,88,173,.11),rgba(255,226,103,.1),rgba(107,231,255,.08));filter:blur(60px);pointer-events:none}
+#numberCanvas{box-shadow:inset 0 0 70px rgba(107,231,255,.04)}
+
+/* Interactive rooms feel like science exhibits. */
+.lab-panel{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.018));box-shadow:0 24px 70px rgba(0,0,0,.18)}
+.lab-panel:before{content:"";position:absolute;inset:-80px -80px auto auto;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,var(--gold),transparent 70%);opacity:.12;pointer-events:none}
+.lab-panel:nth-child(2n){--gold:#ff58ad}.lab-panel:nth-child(3n){--gold:#6be7ff}
+.lab-result{border:1px solid color-mix(in srgb,var(--gold) 24%,transparent);box-shadow:inset 0 0 36px color-mix(in srgb,var(--gold) 7%,transparent)}
+.unit-square{box-shadow:0 0 50px color-mix(in srgb,var(--gold) 20%,transparent);background:conic-gradient(from 45deg,rgba(255,226,103,.18),rgba(107,231,255,.13),rgba(255,88,173,.13),rgba(255,226,103,.18))}
+
+/* History cabinet */
+.glyph{position:relative;overflow:hidden;transition:transform .22s ease;background:linear-gradient(160deg,rgba(255,255,255,.065),rgba(255,255,255,.015))}
+.glyph:nth-child(3n+1){border-color:rgba(255,226,103,.25)}.glyph:nth-child(3n+2){border-color:rgba(255,88,173,.28)}.glyph:nth-child(3n){border-color:rgba(107,231,255,.26)}
+.glyph:hover{transform:translateY(-7px) scale(1.03)}
+.glyph b{text-shadow:0 0 28px color-mix(in srgb,var(--gold) 30%,transparent)}
+.timeline-item:before{box-shadow:0 0 0 5px color-mix(in srgb,var(--gold) 10%,transparent),0 0 30px color-mix(in srgb,var(--gold) 35%,transparent)}
+
+.callout{position:relative;overflow:hidden;background:linear-gradient(135deg,color-mix(in srgb,var(--gold) 10%,transparent),rgba(150,104,255,.05));box-shadow:0 30px 80px rgba(0,0,0,.18)}
+.callout:after{content:"1";position:absolute;right:-.02em;bottom:-.36em;font:700 20rem/1 Georgia,serif;color:var(--gold);opacity:.035;pointer-events:none}
+
+@media(max-width:780px){body[data-page="home"] .hero:before{right:-34%;top:18%;width:95vw;opacity:.42}body[data-page="home"] .hero:after{background:linear-gradient(180deg,rgba(9,10,13,.92),rgba(9,10,13,.7))}.page-hero{min-height:470px}.page-hero:before{background-size:auto 72%;background-position:115% center;opacity:.48}.page-hero:after{background:linear-gradient(90deg,rgba(8,9,16,.98),rgba(8,9,16,.68))}}
+@media(prefers-reduced-motion:reduce){.property,.glyph,.exhibit-card{transition:none}}
