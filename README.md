@@ -1,25 +1,27 @@
-# Numbers — Museum of 1, 2, 3, and 4
+# Numbers — Museum of 1, 2, 3, 4, and π
 
-A static, interactive museum about numbers. **Gallery 001 (1)**, **Gallery 002 (2)**, **Gallery 003 (3)**, and **Gallery 004 (4)** are now open.
+A static, interactive museum about numbers. **Gallery 001 (1)**, **Gallery 002 (2)**, **Gallery 003 (3)**, **Gallery 004 (4)**, and **Special Exhibit 001 (π)** are now open.
 
-The homepage contains an algorithmic, zoomable number atlas that represents the real-number line and dynamically labels visible values. Numbers 1, 2, 3, and 4 are interactive open exhibits; future numbers can be added without pretending that the real continuum can be exhaustively listed.
+The project uses a repeating museum cadence: after every four regular natural-number exhibits, a **special exhibit** can open for a number outside that regular natural-number sequence. π is the first special exhibit.
+
+The homepage contains an algorithmic, zoomable number atlas for the regular natural-number exhibits and separate theatrical portals for special exhibits. This avoids pretending that the real continuum can be exhaustively listed while still allowing irrational, transcendental, complex, infinite, or otherwise unusual mathematical objects to receive full museum wings.
 
 ## Discovery system
 
 The museum has three connected ways to find material:
 
-- **Global search** — the Search control in the header searches every registered museum page. `Ctrl+K` / `Cmd+K` opens it from anywhere.
-- **Exhibit search** — every numbered exhibit page gets a dedicated search field that searches only the rooms belonging to that number.
-- **All Pages directory** — `directory.html` is a living museum floor plan linking every substantive page, grouped by exhibit, with its own filter field.
+- **Global search** — the Search control in the header searches registered museum pages. `Ctrl+K` / `Cmd+K` opens it.
+- **Exhibit search** — each numbered exhibit has a room-level search field. The π wing gets its own dedicated Special Exhibit search.
+- **All Pages directory** — `directory.html` is the living museum floor plan, grouping regular galleries and special exhibits separately.
 
-All three are powered by the single `PAGES` registry at the top of `app.js`. When a future number is added, register its pages there once and search + exhibit search + the directory update together.
+Regular galleries are registered in `app.js`. Special Exhibit π extends that registry through `pi-extension.js`, which also appends π to the directory and powers its interactive laboratory.
 
 ## Pages
 
 ### Museum shell
-- `index.html` — Museum entrance + interactive number atlas
+- `index.html` — Museum entrance + interactive number atlas + special-exhibit portal
 - `directory.html` — All Pages / complete museum directory
-- `sources.html` — References and fact-checking notes for all open exhibits
+- `sources.html` — Shared references and fact-checking notes for Galleries 001–004
 
 ### Gallery 001 — Number 1
 - `one.html` — Curator's overview of 1
@@ -49,6 +51,14 @@ All three are powered by the single `PAGES` registry at the top of `app.js`. Whe
 - `four-significance.html` — DNA's four bases, tetrahedral and tesseract geometry, quaternions, map coloring, beryllium, quaternary information, and cultural conventions
 - `four-lab.html` — Interactive divisibility-by-4, base-4 translation, roots of unity, four-square search, hypercube dimensions, powers of four, and map coloring
 
+### Special Exhibit 001 — π
+- `pi.html` — Curator's overview: circle ratio, radians, irrationality, transcendence, and the exhibit's conceptual map
+- `pi-mathematics.html` — Archimedean bounds, radians, integrals, series, products, Euler's identity, zeta values, irrationality, transcendence, and normality caveats
+- `pi-history.html` — Ancient approximations through Archimedes, Liu Hui, Zu Chongzhi, al-Kāshī, William Jones, Euler, Lambert, Lindemann, and electronic computation
+- `pi-significance.html` — Probability, Gaussian statistics, Fourier analysis, waves, rotations, physics, higher-dimensional spheres, and Pi Day as cultural convention
+- `pi-lab.html` — Circle console, polygon squeeze, Monte Carlo rain, Leibniz series, Buffon's needle, and searchable digit vault
+- `pi-sources.html` — Dedicated sources and fact-checking notes for the special exhibit
+
 ## Visual system
 
 The museum uses locally stored SVG artwork rather than fragile hotlinks. Each number has a deliberately distinct exhibition identity:
@@ -57,10 +67,11 @@ The museum uses locally stored SVG artwork rather than fragile hotlinks. Each nu
 - **2** — mirrored cyan/orange lighting, binary branching, paired geometry, an Even Prime Reactor, and a √2 chamber.
 - **3** — ultraviolet, acid-lime, coral, triangular architecture, a Triangle Reactor, Ternary Cathedral, Triplet Universe, glyph atlas, and Three-Body Chamber.
 - **4** — electric blue, violet, gold, and coral; nested squares, a Square Reactor, Quaternary Vault, Four Color installation, DNA Quartet, glyph atlas, and Tesseract Chamber.
+- **π** — hot magenta, cyan, violet, and gold; circles, spiral fields, polygonal convergence, orbiting digits, a Pi Universe, History Orbit, Geometry Reactor, and Infinity Laboratory.
 
-## Interactive atlas
+## Interactive atlas and special portals
 
-The atlas is not a finite list. The real numbers are uncountable, so the interface behaves like a mathematical instrument: it renders the visible interval, generates suitable ticks dynamically, and highlights only numbers whose museum galleries are currently open. Double-clicking 1, 2, 3, or 4 enters that number's exhibit.
+The atlas is not a finite list. The real numbers are uncountable, so the interface behaves like a mathematical instrument: it renders the visible interval and highlights regular open exhibits. Double-clicking 1, 2, 3, or 4 enters those galleries. Special exhibits such as π use separate portals on the entrance page so they are visually and conceptually distinct from the regular four-number cadence.
 
 ## Run locally
 
@@ -72,10 +83,6 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000`.
 
-## Design principle
-
-There cannot be a literal finite list of “all real numbers”: the real numbers are uncountable. The atlas therefore behaves like a mathematical instrument rather than a database dump. It renders whatever portion of the number line you inspect and generates suitable tick marks as you zoom.
-
 ## Expansion rule
 
-Add new number exhibits without deleting or collapsing existing galleries. Each number can receive multiple museum rooms, its own interactive laboratory, its own locally stored artwork, and a distinct visual identity; the atlas exposes each exhibit as it opens. Wording that reports the number of currently open galleries should be updated as the museum expands, but earlier exhibit content should remain intact. Register every new substantive page in the shared `PAGES` registry so it becomes searchable and appears in the directory automatically.
+Do not delete or collapse earlier galleries when adding new numbers. Add four regular natural-number exhibits, then a special exhibit, repeating the cadence. Each exhibit can receive multiple museum rooms, locally stored artwork, an interactive laboratory, and its own visual identity. Update museum-wide counts and discovery metadata as the museum expands while preserving earlier exhibit content.
