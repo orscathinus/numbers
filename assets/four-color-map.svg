@@ -1,1 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675"><defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#050814"/><stop offset="1" stop-color="#16102a"/></linearGradient><filter id="gl"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="1200" height="675" fill="url(#bg)"/><g transform="translate(125 100)" stroke="#07101a" stroke-width="10"><path d="M0 0H245L315 120L210 240L0 205Z" fill="#57a6ff"/><path d="M245 0H505L550 160L315 120Z" fill="#8e6cff"/><path d="M505 0H810L855 125L690 265L550 160Z" fill="#ffd166"/><path d="M0 205L210 240L270 450H0Z" fill="#ff7f6a"/><path d="M210 240L315 120L550 160L510 345L270 450Z" fill="#ffd166"/><path d="M550 160L690 265L625 450L510 345Z" fill="#57a6ff"/><path d="M690 265L855 125L950 220V450H625Z" fill="#8e6cff"/></g><g filter="url(#gl)"><text x="1030" y="185" text-anchor="middle" font-family="Georgia,serif" font-size="190" font-weight="700" fill="#fff">4</text></g><g font-family="system-ui,sans-serif" fill="#dce7ff"><text x="890" y="292" font-size="20">PLANAR MAPS</text><text x="890" y="326" font-size="20">FOUR COLORS SUFFICE</text><text x="890" y="360" font-size="16" fill="#aebbd4">adjacent regions differ</text><text x="75" y="630" font-size="18">FOUR COLOR THEOREM · COMPUTER-ASSISTED PROOF, 1976</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
+<title id="t">Four Color Stained-Glass Chamber</title><desc id="d">A luminous museum chamber where a planar map appears as stained glass, surrounded by graph connections, theorem labels, and the history of the four-color problem.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#030713"/><stop offset=".48" stop-color="#10102d"/><stop offset="1" stop-color="#27121f"/></linearGradient>
+<radialGradient id="halo"><stop stop-color="#fff" stop-opacity=".17"/><stop offset=".5" stop-color="#8e6cff" stop-opacity=".09"/><stop offset="1" stop-color="#050814" stop-opacity="0"/></radialGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<style>.pulse{animation:p 5s ease-in-out infinite alternate}.dash{stroke-dasharray:12 18;animation:d 18s linear infinite}@keyframes p{to{opacity:.65}}@keyframes d{to{stroke-dashoffset:-300}}@media(prefers-reduced-motion:reduce){.pulse,.dash{animation:none}}</style>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/><ellipse cx="760" cy="390" rx="700" ry="420" fill="url(#halo)"/>
+<!-- gallery architecture -->
+<g fill="none" stroke="#fff" stroke-opacity=".075"><path d="M65 115L800 55L1535 115L1395 760L205 760Z"/><path d="M185 175L800 105L1415 175L1290 705L310 705Z"/><path d="M65 115L310 705M1535 115L1290 705"/></g>
+<g stroke="#9ecfff" stroke-opacity=".1"><path d="M0 900L520 660M1600 900L1000 660M230 900L610 660M1370 900L930 660M470 900L690 660M1130 900L850 660"/><path d="M160 835H1440M310 785H1290M455 740H1145M590 700H1010"/></g>
+<!-- stained glass map -->
+<g transform="translate(195 150)" stroke="#06101d" stroke-width="13" stroke-linejoin="round" filter="url(#glow)">
+<path d="M35 42H245L315 130L265 245L62 225L0 125Z" fill="#57a6ff"/>
+<path d="M245 42H488L558 112L500 238L315 130Z" fill="#8e6cff"/>
+<path d="M488 42H733L790 152L646 275L500 238L558 112Z" fill="#ffd166"/>
+<path d="M733 42H930L1010 128L962 255L790 152Z" fill="#ff7f6a"/>
+<path d="M62 225L265 245L330 440L130 510L18 388Z" fill="#ff7f6a"/>
+<path d="M265 245L315 130L500 238L484 404L330 440Z" fill="#ffd166"/>
+<path d="M500 238L646 275L626 455L484 404Z" fill="#57a6ff"/>
+<path d="M646 275L790 152L962 255L956 442L794 502L626 455Z" fill="#8e6cff"/>
+<path d="M130 510L330 440L484 404L450 595H185Z" fill="#57a6ff"/>
+<path d="M484 404L626 455L794 502L720 595H450Z" fill="#ff7f6a"/>
+<path d="M794 502L956 442L1012 535L900 595H720Z" fill="#ffd166"/>
+</g>
+<!-- glass highlights -->
+<g opacity=".24" fill="#fff" class="pulse"><path d="M240 205L420 180L388 234L254 250Z"/><path d="M760 202L900 180L860 235L725 252Z"/><path d="M1030 455L1140 420L1110 470L1010 500Z"/></g>
+<!-- graph overlay -->
+<g transform="translate(1180 180)"><rect width="300" height="380" rx="26" fill="#080e20" stroke="#fff" stroke-opacity=".1"/><text x="28" y="50" fill="#fff" font-family="system-ui,sans-serif" font-size="15" letter-spacing="4">ADJACENCY GRAPH</text><g fill="none" stroke="#a8b7d2" stroke-opacity=".42" stroke-width="3"><path d="M80 120L210 105L250 205L168 300L62 262L80 120M80 120L168 300M210 105L62 262M250 205L80 120"/></g><g filter="url(#glow)"><circle cx="80" cy="120" r="18" fill="#57a6ff"/><circle cx="210" cy="105" r="18" fill="#8e6cff"/><circle cx="250" cy="205" r="18" fill="#ffd166"/><circle cx="168" cy="300" r="18" fill="#ff7f6a"/><circle cx="62" cy="262" r="18" fill="#57a6ff"/></g><text x="28" y="350" fill="#9eabc1" font-family="ui-monospace,monospace" font-size="14">shared edge = connection</text></g>
+<!-- theorem rail -->
+<path d="M140 700H1460" stroke="#fff" stroke-opacity=".12" stroke-width="2"/><path d="M220 700H1380" stroke="#ffd166" stroke-opacity=".45" stroke-width="5" class="dash"/>
+<g font-family="system-ui,sans-serif"><text x="170" y="748" fill="#9bcfff" font-size="14" letter-spacing="3">1852 · GUTHRIE'S QUESTION</text><text x="610" y="748" fill="#d2c2ff" font-size="14" letter-spacing="3">A CENTURY OF ATTEMPTS</text><text x="1135" y="748" fill="#ffe39a" font-size="14" letter-spacing="3">1976 · APPEL + HAKEN</text></g>
+<g font-family="system-ui,sans-serif" text-anchor="middle"><text x="800" y="820" fill="#fff" font-size="29" letter-spacing="5">FOUR COLORS SUFFICE FOR EVERY PLANAR MAP</text><text x="800" y="855" fill="#a5b0c4" font-size="13" letter-spacing="3">COMPUTER-ASSISTED PROOF · THEOREM, NOT A COLORING ALGORITHM FOR THIS ONE PICTURE</text></g>
+</svg>
